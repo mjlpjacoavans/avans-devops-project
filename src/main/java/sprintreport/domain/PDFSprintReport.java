@@ -15,8 +15,9 @@ public class PDFSprintReport implements ISprintReport {
         this.reportName = reportName;
         this.reportFileName = reportFileName;
 
-//        String[] extensions = Stream.of(ReportFormat.values()).map(Enum::name).toArray(String[]::new);
-//        if()
+        // TODO: Check for file extensions or something
+        //        String[] extensions = Stream.of(ReportFormat.values()).map(Enum::name).toArray(String[]::new);
+        //        if()
     }
 
     public PDFSprintReport(Header header, Content content, Footer footer,
