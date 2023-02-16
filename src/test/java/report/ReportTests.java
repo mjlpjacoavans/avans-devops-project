@@ -16,10 +16,6 @@ import java.util.List;
 public class ReportTests {
 
 
-    ReportFormat format;
-    String reportName;
-    String reportFileName;
-
 
     @Test
     public void REPORT_TEST_1_pdf_report_is_generated_successfully(){
