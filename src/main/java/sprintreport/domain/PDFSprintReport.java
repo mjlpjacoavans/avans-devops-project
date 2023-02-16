@@ -14,9 +14,6 @@ public class PDFSprintReport implements ISprintReport {
     public PDFSprintReport(String reportName, String reportFileName) {
         this.reportName = reportName;
         this.reportFileName = reportFileName;
-
-//        String[] extensions = Stream.of(ReportFormat.values()).map(Enum::name).toArray(String[]::new);
-//        if()
     }
 
     public PDFSprintReport(Header header, Content content, Footer footer,
@@ -70,7 +67,7 @@ public class PDFSprintReport implements ISprintReport {
 
     @Override
     public String toString() {
-        String msg = "\nTitle: " + reportName +
+        String msg = "Title: " + reportName +
                 "\n" + this.getHeader() +
                 "\n" + this.getContent() +
                 "\n" + this.getFooter();

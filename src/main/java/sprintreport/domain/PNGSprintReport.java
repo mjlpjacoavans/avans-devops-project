@@ -59,7 +59,7 @@ public class PNGSprintReport implements ISprintReport {
 
     @Override
     public String toString() {
-        String msg = "\nTitle: " + reportName +
+        String msg = "Title: " + reportName +
                 "\n" + this.getHeader() +
                 "\n" + this.getContent() +
                 "\n" + this.getFooter();

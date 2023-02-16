@@ -8,13 +8,15 @@ import java.util.List;
 
 public class SprintReportBuilder implements ISprintReportBuilder {
 
-    ISprintReport sprintReport;
+    private ISprintReport sprintReport;
+    private ReportFormat format;
     public SprintReportBuilder(ReportFormat format,
                                String reportName, String reportFileName) {
-        if(format == ReportFormat.PDF){
+        this.format = format;
+        if(this.format == ReportFormat.PDF){
             this.sprintReport = new PDFSprintReport(reportName, reportFileName);
         }
-        else if (format == ReportFormat.PNG) {
+        else if (this.format == ReportFormat.PNG) {
             this.sprintReport = new PNGSprintReport(reportName, reportFileName);
         }
         else{
@@ -44,8 +46,10 @@ public class SprintReportBuilder implements ISprintReportBuilder {
     }
 
     public void saveReport(){
-        String msg = "Saving report: " + sprintReport.getReportName()
-                        + "\n$ cat " + sprintReport.getReportFileName()
+        String msg = "Saving report: " + sprintReport.getReportName() + " as " + sprintReport.getReportFileName() + "." + this.format.name()
+                        + "\n$ cat " + sprintReport.getReportFileName() + "." + this.format.name()
+                        + "\n$ type " + sprintReport.getReportFileName() + "." + this.format.name()
+                        + "\nContent type: " + (this.format == ReportFormat.PDF ? "application/" : "image") + this.format.name()
                         + "\n" + sprintReport;
         System.out.println(msg);
     }
