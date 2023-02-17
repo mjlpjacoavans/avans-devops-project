@@ -10,6 +10,8 @@ import main.java.user.LeadDeveloperUser;
 import main.java.user.ScrumMasterUser;
 import main.java.user.TesterUser;
 
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 
 public class Sprint {
@@ -25,6 +27,9 @@ public class Sprint {
     TesterUser[] testers;
     LeadDeveloperUser leadDeveloper;
     ScrumMasterUser scrumMaster;
+
+    LocalDate currentDate;
+    LocalDate yesterdayDate;
 
     //states
     SprintState state;
@@ -51,7 +56,17 @@ public class Sprint {
         this.sprintFinalState = new SprintFinalState(this);
 
         this.state = sprintInitialisedState;
+        currentDate = LocalDate.now();
+        yesterdayDate = LocalDate.now().minusDays(1);
+
+
+        //TODO: fix het wanneer een sprint wordt aangemaakt met een enddate in verleden
+//        if(currentDate.isAfter(this.endDate)){
+//
+//        }
     }
+
+
 
     public String setState(SprintState state){
         this.state = state;
