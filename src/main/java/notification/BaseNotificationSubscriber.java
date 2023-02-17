@@ -1,15 +1,13 @@
 package main.java.notification;
 
-import main.java.notification.behaviours.EmailNotificaionBehaviour;
 import main.java.notification.behaviours.INotificationBehaviour;
-import main.java.notification.behaviours.NotificationBehaviourTypes;
 import main.java.notification.observer.ISubscriber;
 
-public class AbstractNotificationSubscriber implements ISubscriber {
+public class BaseNotificationSubscriber implements ISubscriber {
 
     private INotificationBehaviour notificationBehaviour;
 
-    public AbstractNotificationSubscriber(INotificationBehaviour notificationBehaviour) {
+    public BaseNotificationSubscriber(INotificationBehaviour notificationBehaviour) {
         this.notificationBehaviour = notificationBehaviour;
     }
 
