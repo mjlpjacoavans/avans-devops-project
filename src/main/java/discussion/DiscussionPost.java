@@ -3,6 +3,7 @@ package main.java.discussion;
 // This is the leaf
 public class DiscussionPost implements DiscussionComponent {
     private String text;
+    private Integer depth;
 
     public DiscussionPost(String text) {
         this.text = text;
@@ -10,7 +11,7 @@ public class DiscussionPost implements DiscussionComponent {
 
     @Override
     public void display() {
-        System.out.println(" - " + text);
+        System.out.println(" ".repeat(this.getDepth()) + " - " + text);
     }
 
     @Override
@@ -21,4 +22,13 @@ public class DiscussionPost implements DiscussionComponent {
         return this;
     }
 
+    @Override
+    public Integer getDepth() {
+        return depth;
+    }
+
+    @Override
+    public void setDepth(Integer depth) {
+        this.depth = depth;
+    }
 }
