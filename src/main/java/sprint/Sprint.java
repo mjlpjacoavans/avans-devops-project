@@ -40,7 +40,6 @@ public class Sprint {
 
     public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers, LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster){
         this.goal = goal;
-        //this.state = SprintInitializedState;
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;

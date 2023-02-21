@@ -10,6 +10,9 @@ public class Project {
     public Project(String name, ProductOwnerUser productOwner){
         this.projectName = name;
         this.productOwner = productOwner;
+        this.productBacklog = null;
+
+        productOwner.addProjectToProductOwner(this);
     }
 
     public ProductBacklog getProductBacklog(){
@@ -37,5 +40,15 @@ public class Project {
     public String setProjectName(String name){
         this.projectName = name;
         return "Project name set to: " + this.projectName;
+    }
+
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Project{");
+        sb.append("productOwner=").append(productOwner);
+        sb.append(", projectName='").append(projectName).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

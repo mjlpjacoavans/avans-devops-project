@@ -1,14 +1,17 @@
 package main.java.project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductBacklog {
     List<BacklogItem> backlogItems;
     Project project;
 
-    public ProductBacklog(Project project, List<BacklogItem> backlogItems){
+    public ProductBacklog(Project project){
         this.project = project;
-        this.backlogItems = backlogItems;
+        this.backlogItems = new ArrayList<>();
+
+        project.addProductBacklog(this);
     }
 
     public List<BacklogItem> getBacklogItems(){
@@ -31,8 +34,22 @@ public class ProductBacklog {
         return this.backlogItems;
     }
 
+    public List<BacklogItem> addBacklogItem(BacklogItem backlogItem){
+        this.backlogItems.add(backlogItem);
+
+        return this.backlogItems;
+    }
+
     public Project getProject(){
         return this.project;
     }
 
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("ProductBacklog{");
+        sb.append("backlogItems=").append(backlogItems);
+        sb.append('}');
+        return sb.toString();
+    }
 }

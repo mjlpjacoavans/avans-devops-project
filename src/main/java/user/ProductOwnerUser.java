@@ -2,6 +2,7 @@ package main.java.user;
 
 import main.java.project.Project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductOwnerUser {
@@ -12,6 +13,7 @@ public class ProductOwnerUser {
     public ProductOwnerUser(String name, String email){
         this.name = name;
         this.email = email;
+        this.projects = new ArrayList<Project>();
     }
 
     public List<Project> getProjects(){
@@ -44,5 +46,15 @@ public class ProductOwnerUser {
     public String setEmail(String email){
         this.email = email;
         return "Email set to: " + this.email;
+    }
+
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("ProductOwnerUser{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
