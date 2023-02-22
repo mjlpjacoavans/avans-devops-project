@@ -64,20 +64,33 @@ public class BacklogItem {
         this.definitionOfDone = definitionOfDone;
     }
 
+    //TODO: check if developer already is assigned
     public String addDeveloper(DeveloperUser developer){
-        if(this.activities != null){
-            return "Cannot add a developer to a backlog item with activities. Please add the developer to the activity itself";
+        if(this.activities.size() == 1){
+            this.activities.get(0).addDeveloper(developer);
+            return "Developer added to activity of this backlog item!";
         }
-        this.developer = developer;
-        return "Developer added!";
+        else if(this.activities.size() > 1){
+            return "Developer not added. backlog item contains more than 1 activity";
+        }
+        else {
+            this.developer = developer;
+            return "Developer added!";
+        }
     }
 
     public String addTester(TesterUser tester){
-        if(this.activities != null){
-            return "Cannot add a tester to a backlog item with activities. Please add the tester to the activity itself";
+        if(this.activities.size() == 1){
+            this.activities.get(0).addTester(tester);
+            return "Tester added to activity of this backlog item!";
         }
-        this.tester = tester;
-        return "tester added!";
+        else if(this.activities.size() > 1){
+            return "Developer not added. backlog item contains more than 1 activity";
+        }
+        else {
+            this.tester = tester;
+            return "tester added!";
+        }
     }
 
 

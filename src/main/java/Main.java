@@ -1,9 +1,13 @@
 package main.java;
 
 import main.java.project.*;
+import main.java.sprint.SprintBacklog;
+import main.java.user.DeveloperUser;
 import main.java.user.ProductOwnerUser;
+import main.java.user.TesterUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,6 +37,43 @@ public class Main {
         Activity activity2 = new Activity(backlogItem1, "maak register");
         Activity activity3 = new Activity(backlogItem2, "removing items from list");
 
+        //Create 5 developers
+        DeveloperUser developer1 = new DeveloperUser("Mike", "Mike@email.com", "0612345678");
+        DeveloperUser developer2 = new DeveloperUser("Michel", "Michel@email.com", "0623456789");
+        DeveloperUser developer3 = new DeveloperUser("Kees", "Kees@email.com", "0634567890");
+        DeveloperUser developer4 = new DeveloperUser("Klaas", "Klaas@email.com", "0645678901");
+        DeveloperUser developer5 = new DeveloperUser("Alex", "Alex@email.com", "0656789012");
+
+        //Add developers to backlog item
+        activity1.addDeveloper(developer1);
+        activity2.addDeveloper(developer2);
+        activity3.addDeveloper(developer3);
+        backlogItem3.addDeveloper(developer4);
+        backlogItem4.addDeveloper(developer5);
+
+        //Create 5 testers
+        TesterUser tester1 = new TesterUser("Youri", "Youri@email.com", "0667890123");
+        TesterUser tester2 = new TesterUser("Mark", "Mark@email.com", "0678901234");
+        TesterUser tester3 = new TesterUser("Ann", "Ann@email.com", "0689012345");
+        TesterUser tester4 = new TesterUser("Jason", "Jason@email.com", "0690123456");
+        TesterUser tester5 = new TesterUser("Bart", "Bart@email.com", "0601234567");
+
+        //Add testers to backlog item
+        activity1.addTester(tester1);
+        activity2.addTester(tester2);
+        backlogItem2.addTester(tester3);
+        backlogItem3.addTester(tester4);
+        backlogItem4.addTester(tester5);
+
+        //Create a list of backlog items for new sprint and add the backlog items 1 2 and 3 to it
+        List<BacklogItem> backlogItemsForNewSprint = new ArrayList<>();
+
+        backlogItemsForNewSprint.add(backlogItem1);
+        backlogItemsForNewSprint.add(backlogItem2);
+        backlogItemsForNewSprint.add(backlogItem3);
+
+        //Add sprint backlog
+        SprintBacklog sprintBacklog1 = new SprintBacklog(backlogItemsForNewSprint);
 
         //Printing tests
         System.out.println(productOwner1);
@@ -52,5 +93,21 @@ public class Main {
         System.out.println(activity1);
         System.out.println(activity2);
         System.out.println(activity3);
+
+        System.out.println(developer1);
+        System.out.println(developer2);
+        System.out.println(developer3);
+        System.out.println(developer4);
+        System.out.println(developer5);
+
+        System.out.println(tester1);
+        System.out.println(tester2);
+        System.out.println(tester3);
+        System.out.println(tester4);
+        System.out.println(tester5);
+
+        System.out.println(sprintBacklog1);
+
+
     }
 }
