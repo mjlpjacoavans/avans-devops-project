@@ -153,4 +153,13 @@ public abstract class BasePipeline implements IPipeline{
     public void setSuccess(Boolean success) {
         this.success = success;
     }
+
+
+
+    // TODO: Read this better and also keep this logic into account or somehting idk
+    // Een deployment sprint is gekoppeld aan een development pipeline die eindigt met deployment.
+    //Andere sprints kunnen ook worden gekoppeld aan een development pipeline die
+    //automatisch/handmatig wordt uitgevoerd. Daarvan kan het einde ook deployment zijn (naar bv een
+    //testomgeving), maar het kan ook eindigen na het uitvoeren van de tests en publicatie van
+    //testresultaten.
 }

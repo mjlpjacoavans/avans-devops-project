@@ -5,6 +5,7 @@ import main.java.pipeline.DevelopmentPipeline;
 import main.java.pipeline.IPipeline;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
 import java.lang.reflect.Method;
 
 public class PipelineTests {
@@ -22,6 +23,40 @@ public class PipelineTests {
             return false;
         }
 
+    }
+
+    // Imagine this to be a PAAS platform like heroku or something
+    private class FakeDeploymentClient{
+
+        private String zipPath;
+        private String apiKey;
+
+        public FakeDeploymentClient(String apiKey) {
+            this.apiKey = apiKey;
+        }
+
+        public String zipCode(String codePath) throws FileNotFoundException {
+            System.out.println("Running zip command on destination: " + codePath);
+            String zipPath = "./deployment.zip";
+            this.zipPath = zipPath;
+            return zipPath;
+        }
+
+        public void deploy(){
+            System.out.println("Running deployment command. Deploying "
+                    + this.zipPath + " with api key " + this.apiKey.replaceAll("[^,-]", "*"));
+        }
+    }
+
+    private class FakeDeploymentClientFailing extends FakeDeploymentClient{
+
+        public FakeDeploymentClientFailing(String apiKey) {
+            super(apiKey);
+        }
+
+        public String zipCode(String codePath) throws FileNotFoundException {
+            throw new FileNotFoundException();
+        }
     }
 
     @Test
@@ -50,6 +85,7 @@ public class PipelineTests {
     }
 
 
+
     // APPRENTLY LAMBDAS CAN NOT HAVE A RETURN VALUE IN JAVA.
     // THAT'S JUST REDICULOUS, WHAT EVEN IS THIS LMAOOO
     //    @Test
@@ -62,4 +98,51 @@ public class PipelineTests {
     //        pipeline.startPipeline();
     //        System.out.println(pipeline.getSuccess());
     //    }
+
+
+    @Test // Imagine this to be a devops platform http controller or something
+    public void PIPLEINE_TEST_4_run_client_dev_pipeline_successfully() {
+
+        String paasApiToken = "aaaaaaaaaaa-bbbbbbbbbbb-cccccccccc";
+        FakeDeploymentClient client = new FakeDeploymentClient(paasApiToken);
+        IPipeline pipeline = new DevelopmentPipeline(){
+            public Boolean runBuild(){
+                try {
+                    client.zipCode("./");
+                    return true;
+
+                } catch (FileNotFoundException e) {
+                    System.out.println("Exception occurred while building: " + e.toString());
+                    return false;
+                }
+            }
+            public Boolean runDeploy(){
+                client.deploy();
+                return true;
+            }
+        };
+        pipeline.startPipeline();
+        System.out.println(pipeline.getSuccess());
+    }
+
+    @Test
+    public void PIPLEINE_TEST_5_run_client_dev_pipeline_unsuccessfully() {
+
+        String paasApiToken = "aaaaaaaaaaa-bbbbbbbbbbb-cccccccccc";
+        FakeDeploymentClient client = new FakeDeploymentClientFailing(paasApiToken);
+        IPipeline pipeline = new DevelopmentPipeline(){
+            public Boolean runBuild(){
+                try {
+                    client.zipCode("./");
+                    return true;
+
+                } catch (FileNotFoundException e) {
+                    System.out.println("Exception occurred while building: " + e.toString());
+                    return false;
+                }
+            }
+        };
+        pipeline.startPipeline();
+        System.out.println(pipeline.getSuccess());
+    }
 }
