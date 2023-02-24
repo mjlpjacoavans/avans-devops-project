@@ -11,15 +11,18 @@ public interface IPipeline {
 
     public void startPipeline();
     public void onPipelineStarts();
-    public int runSources();
-    public int runPackage();
-    public int runBuild();
-    public int runTest();
-    public int runAnalysis();
-    public int runDeploy();
-    public int runUtility();
+    public Boolean runSources();
+    public Boolean runPackage();
+    public Boolean runBuild();
+    public Boolean runTest();
+    public Boolean runAnalysis();
+    public Boolean runDeploy();
+    public Boolean runUtility();
 
     public void endPipeline();
+
+    // TODO: Perhapse add a paramter to it to indicate if it crashed or was done by a user
+
     public void onPipelineEnds();
 
 
