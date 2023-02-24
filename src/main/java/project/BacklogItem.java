@@ -16,6 +16,7 @@ public class BacklogItem {
     TesterUser tester;
     DefinitionOfDone definitionOfDone;
     String text;
+    boolean defitionMet;
 
     BacklogItemState state;
     BacklogItemState backlogItemToDoState;
@@ -25,13 +26,15 @@ public class BacklogItem {
     BacklogItemState backlogItemTestedState;
     BacklogItemState backlogItemDoneState;
 
-
+    boolean developed;
+    boolean tested;
 
     public BacklogItem(ProductBacklog productBacklog, String text){
         this.activities = new ArrayList<Activity>();
         this.productBacklog = productBacklog;
         this.definitionOfDone = null;
         this.text = text;
+        this.defitionMet = false;
 
         this.productBacklog.addBacklogItem(this);
 
@@ -43,21 +46,107 @@ public class BacklogItem {
         this.backlogItemDoneState = new BacklogItemDoneState(this);
 
         this.state = backlogItemToDoState;
+
+        this.developed = false;
+        this.tested = false;
+    }
+
+    public BacklogItemState getBacklogItemToDoState() {
+        return backlogItemToDoState;
+    }
+
+    public BacklogItemState getBacklogItemDoingState() {
+        return backlogItemDoingState;
+    }
+
+    public BacklogItemState getBacklogItemReadyForTestingState() {
+        return backlogItemReadyForTestingState;
+    }
+
+    public BacklogItemState getBacklogItemTestingState() {
+        return backlogItemTestingState;
+    }
+
+    public BacklogItemState getBacklogItemTestedState() {
+        return backlogItemTestedState;
+    }
+
+    public BacklogItemState getBacklogItemDoneState() {
+        return backlogItemDoneState;
+    }
+
+    public List<Activity> getActivities(){
+        return this.activities;
+    }
+
+    public void setState(BacklogItemState state){
+        this.state = state;
+    }
+
+    public void setStateToTODO(){
+        this.state.setStateToTODO();
+    }
+
+    void setStateToDOING(){
+        this.state.setStateToDOING();
+    }
+
+    void setStateToREADYFORTESTING(){
+        this.state.setStateToREADYFORTESTING();
+    }
+
+    void setStateToTESTING(){
+        this.state.setStateToTESTING();
+    }
+
+    void setStateTOTESTED(){
+        this.state.setStateTOTESTED();
+    }
+
+    void setStateToDONE(){
+        this.state.setStateToDONE();
     }
 
     public List<Activity> SplitInActivities(List<Activity> activities){
-        this.activities = activities;
-        this.developer = null;
-        this.tester = null;
-
+        this.state.splitInActivities(activities);
         return this.activities;
     }
 
     public List<Activity> addActivity(Activity activity){
-        this.activities.add(activity);
-        this.developer = null;
-        this.tester = null;
-        return activities;
+        this.state.addActiviy(activity);
+        return this.activities;
+    }
+
+    public void setActivities(List<Activity> activities){
+        this.activities = activities;
+    }
+
+    public void setDeveloper(DeveloperUser developer){
+        this.developer = developer;
+    }
+
+    public void setTester(TesterUser tester){
+        this.tester = tester;
+    }
+
+    public void notifyScrumMaster(String message){
+        this.state.notifyScrumMaster(message);
+    }
+
+    public void notifyTesters(String message){
+        this.state.notifyTesters(message);
+    }
+
+    public void setDeveloped(){
+        this.state.setDeveloped();
+    }
+
+    public void setTested(){
+        this.state.setTested();
+    }
+
+    public void setDefinitionMet(){
+        this.state.setDefinitionMet();
     }
 
     public void addDefinitionOfDone(DefinitionOfDone definitionOfDone){
