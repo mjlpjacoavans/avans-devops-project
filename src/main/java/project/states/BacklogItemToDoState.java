@@ -62,7 +62,8 @@ public class BacklogItemToDoState implements BacklogItemState{
 
     @Override
     public void setStateToDOING() {
-        this.backlogItem.setState(this.backlogItem.getBacklogItemToDoState());
+        //TODO: Kan alleen wanneer er een dev aan is toegewezen.
+        this.backlogItem.setState(this.backlogItem.getBacklogItemDoingState());
     }
 
     @Override

@@ -149,6 +149,18 @@ public class BacklogItem {
         this.state.setDefinitionMet();
     }
 
+    public void setDevelopedStateOverride(){
+        this.developed = true;
+    }
+
+    public void setTestedStateOverride(){
+        this.tested = true;
+    }
+
+    public void setDefinitionMetStateOverride(){
+        this.defitionMet = true;
+    }
+
     public void addDefinitionOfDone(DefinitionOfDone definitionOfDone){
         this.definitionOfDone = definitionOfDone;
     }
