@@ -21,7 +21,7 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void notifyScrumMaster(String message) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
@@ -31,7 +31,7 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void addActiviy(Activity activity) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
@@ -42,17 +42,17 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void notifyTesters(String message) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setTested() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setDefinitionMet() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
@@ -87,17 +87,17 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void addTester(TesterUser tester) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setStateToTODO() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setStateToDOING() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
@@ -107,16 +107,16 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void setStateToTESTING() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setStateTOTESTED() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setStateToDONE() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 }

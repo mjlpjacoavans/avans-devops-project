@@ -17,32 +17,32 @@ public class BacklogItemTestedState implements BacklogItemState{
 
     @Override
     public void notifyScrumMaster(String message) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void splitInActivities(List<Activity> activities) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void addActiviy(Activity activity) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setDeveloped() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void notifyTesters(String message) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setTested() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
@@ -54,27 +54,27 @@ public class BacklogItemTestedState implements BacklogItemState{
 
     @Override
     public void addDeveloper(DeveloperUser developer) throws Exception {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void addTester(TesterUser tester) {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setStateToTODO() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setStateToDOING() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
@@ -84,12 +84,12 @@ public class BacklogItemTestedState implements BacklogItemState{
 
     @Override
     public void setStateToTESTING() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
     public void setStateTOTESTED() {
-        System.out.println("Cannont perform this action in this state");
+        throw new IllegalStateException("Can not perform this action in this state");
     }
 
     @Override
