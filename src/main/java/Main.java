@@ -39,7 +39,7 @@ public class Main {
 //
 //        //Create 5 developers
 //        DeveloperUser developer1 = new DeveloperUser("Mike", "Mike@email.com", "0612345678");
-//        DeveloperUser developer2 = new DeveloperUser("Michel", "Michel@email.com", "0623456789");
+//        DeveloperUser developer2 = new DeveloperUser("_", "_@email.com", "0623456789");
 //        DeveloperUser developer3 = new DeveloperUser("Kees", "Kees@email.com", "0634567890");
 //        DeveloperUser developer4 = new DeveloperUser("Klaas", "Klaas@email.com", "0645678901");
 //        DeveloperUser developer5 = new DeveloperUser("Alex", "Alex@email.com", "0656789012");

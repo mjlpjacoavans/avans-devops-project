@@ -1,5 +1,8 @@
 package main.java.project.states;
 
+import main.java.notification.BaseNotificationSubscriber;
+import main.java.notification.behaviours.INotificationBehaviour;
+import main.java.notification.behaviours.StdOutNotificationBehaviour;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
 import main.java.user.DeveloperUser;
@@ -7,7 +10,7 @@ import main.java.user.TesterUser;
 
 import java.util.List;
 
-public class BacklogItemDoingState implements BacklogItemState{
+public class BacklogItemDoingState extends BaseNotificationSubscriber implements BacklogItemState{
 
     BacklogItem backlogItem;
 
@@ -22,7 +25,7 @@ public class BacklogItemDoingState implements BacklogItemState{
 
     @Override
     public void splitInActivities(List<Activity> activities) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println("Cannot perform this action in this state");
     }
 
     @Override
@@ -54,7 +57,10 @@ public class BacklogItemDoingState implements BacklogItemState{
     @Override
     public void addDeveloper(DeveloperUser developer) throws Exception {
         if(this.backlogItem.getDeveloper() != null){
-            //TODO: observer pattern voor michel
+            //DONE?: observer pattern voor michel
+            String message = "Developer for backlogitem has been changed from "
+                                + this.backlogItem.getDeveloper() + " to " + developer;
+            this.update(message);
         }
         this.backlogItem.addDeveloper(developer);
         this.setStateToDOING();
@@ -65,7 +71,11 @@ public class BacklogItemDoingState implements BacklogItemState{
 
         for(int i = 0; i< this.backlogItem.getActivities().size()-1; i++){
             if(this.backlogItem.getActivities().get(i) == activity && this.backlogItem.getActivities().get(i).getDeveloper() != null){
-                //TODO: observer pattern voor michel
+                //DONE?: observer pattern voor michel
+                String message = "Developer for activity " + activity +
+                                    "  has been changed from " + this.backlogItem.getDeveloper() +
+                                    " to " + developer;
+                this.update(message);
             }
         }
 

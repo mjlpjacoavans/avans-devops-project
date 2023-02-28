@@ -1,5 +1,6 @@
 package main.java.project.states;
 
+import main.java.notification.BaseNotificationSubscriber;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
 import main.java.user.DeveloperUser;
@@ -7,7 +8,7 @@ import main.java.user.TesterUser;
 
 import java.util.List;
 
-public class BacklogItemReadyForTestingState implements BacklogItemState{
+public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber implements BacklogItemState{
     BacklogItem backlogItem;
 
     public BacklogItemReadyForTestingState(BacklogItem backlogItem){
@@ -36,7 +37,8 @@ public class BacklogItemReadyForTestingState implements BacklogItemState{
 
     @Override
     public void notifyTesters(String message) {
-        //TODO: michel observer pattern
+        //DONE?: michel observer pattern
+        this.update(message);
     }
 
     @Override

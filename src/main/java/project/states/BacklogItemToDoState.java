@@ -1,5 +1,8 @@
 package main.java.project.states;
 
+import main.java.notification.BaseNotificationSubscriber;
+import main.java.notification.behaviours.INotificationBehaviour;
+import main.java.notification.behaviours.StdOutNotificationBehaviour;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
 import main.java.user.DeveloperUser;
@@ -7,7 +10,7 @@ import main.java.user.TesterUser;
 
 import java.util.List;
 
-public class BacklogItemToDoState implements BacklogItemState{
+public class BacklogItemToDoState extends BaseNotificationSubscriber implements BacklogItemState {
 
     BacklogItem backlogItem;
 
@@ -17,7 +20,8 @@ public class BacklogItemToDoState implements BacklogItemState{
 
     @Override
     public void notifyScrumMaster(String message) {
-        //TODO: michel observer pattern
+        //DONE?: michel observer pattern
+        this.update(message);
     }
 
     @Override
@@ -60,7 +64,9 @@ public class BacklogItemToDoState implements BacklogItemState{
     @Override
     public void addDeveloper(DeveloperUser developer) throws Exception {
         if(this.backlogItem.getDeveloper() != null){
-            //TODO: observer pattern voor michel
+            //DONE?: observer pattern voor michel
+            String message = "New developer has been added to backlog: "+ developer;
+            this.update(message);
         }
         this.backlogItem.addDeveloper(developer);
         this.setStateToDOING();
@@ -71,7 +77,10 @@ public class BacklogItemToDoState implements BacklogItemState{
 
         for(int i = 0; i< this.backlogItem.getActivities().size()-1; i++){
             if(this.backlogItem.getActivities().get(i) == activity && this.backlogItem.getActivities().get(i).getDeveloper() != null){
-                //TODO: observer pattern voor michel
+                //DONE?: observer pattern voor michel
+                String message = "Developer for activity " + activity +
+                        "  has been added " + developer;
+                this.update(message);
             }
         }
 
