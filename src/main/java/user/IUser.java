@@ -10,4 +10,16 @@ public abstract class IUser {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 }

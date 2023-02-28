@@ -21,4 +21,8 @@ public class SprintBacklog {
         sb.append('}');
         return sb.toString();
     }
+
+    public Sprint getSprint() {
+        return sprint;
+    }
 }

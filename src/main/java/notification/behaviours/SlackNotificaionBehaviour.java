@@ -5,6 +5,14 @@ public class SlackNotificaionBehaviour implements INotificationBehaviour {
     private String slackEndpoint = "https://slack.tld/<ENDPOINT>/";
     private Object slackClient;
 
+    public String getSlackId() {
+        return slackId;
+    }
+
+    public void setSlackId(String slackId) {
+        this.slackId = slackId;
+    }
+
     public SlackNotificaionBehaviour(String slackId) {
         this.slackId = slackId;
     }
@@ -20,8 +28,21 @@ public class SlackNotificaionBehaviour implements INotificationBehaviour {
         this.slackClient = slackClient;
     }
 
+    public SlackNotificaionBehaviour() {
+    }
+
     @Override
     public void sendNotification(String text) {
         System.out.println("Sending Slack Message with client " + this.slackClient + " to endpoint " + this.slackEndpoint + this.slackId);
+    }
+
+    @Override
+    public void setIdentifier(String text) {
+        this.setSlackId(text);
+    }
+
+    @Override
+    public String getIdentifier() {
+        return this.getSlackId();
     }
 }

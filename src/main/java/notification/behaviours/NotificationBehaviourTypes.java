@@ -1,5 +1,5 @@
 package main.java.notification.behaviours;
 
 public enum NotificationBehaviourTypes {
-    SLACK, EMAIL
+    SLACK, EMAIL,STDOUT
 }

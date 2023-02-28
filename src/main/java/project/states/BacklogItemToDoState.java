@@ -16,11 +16,20 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     public BacklogItemToDoState(BacklogItem backlogItem){
         this.backlogItem = backlogItem;
+        this.setNotificationBehaviour(this.backlogItem.getNotificationBehaviour());
     }
 
     @Override
     public void notifyScrumMaster(String message) {
         //DONE?: michel observer pattern
+
+        this.getNotificationBehaviour()
+                .setIdentifier(this.backlogItem
+                        .getSprintBacklog()
+                        .getSprint()
+                        .getScrumMaster()
+                        .getEmail());
+
         this.update(message);
     }
 
@@ -66,7 +75,7 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
         if(this.backlogItem.getDeveloper() != null){
             //DONE?: observer pattern voor michel
             String message = "New developer has been added to backlog: "+ developer;
-            this.update(message);
+            this.notifyScrumMaster(message);
         }
         this.backlogItem.addDeveloper(developer);
         this.setStateToDOING();
@@ -80,7 +89,7 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
                 //DONE?: observer pattern voor michel
                 String message = "Developer for activity " + activity +
                         "  has been added " + developer;
-                this.update(message);
+                this.notifyScrumMaster(message);
             }
         }
 

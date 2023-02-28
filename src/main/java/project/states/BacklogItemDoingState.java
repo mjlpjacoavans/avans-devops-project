@@ -16,6 +16,7 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     public BacklogItemDoingState(BacklogItem backlogItem) {
         this.backlogItem = backlogItem;
+        this.setNotificationBehaviour(this.backlogItem.getNotificationBehaviour());
     }
 
     @Override
@@ -60,7 +61,8 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
             //DONE?: observer pattern voor michel
             String message = "Developer for backlogitem has been changed from "
                                 + this.backlogItem.getDeveloper() + " to " + developer;
-            this.update(message);
+
+           this.notifyScrumMaster(message);
         }
         this.backlogItem.addDeveloper(developer);
         this.setStateToDOING();
@@ -75,7 +77,7 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
                 String message = "Developer for activity " + activity +
                                     "  has been changed from " + this.backlogItem.getDeveloper() +
                                     " to " + developer;
-                this.update(message);
+                this.notifyScrumMaster(message);
             }
         }
 

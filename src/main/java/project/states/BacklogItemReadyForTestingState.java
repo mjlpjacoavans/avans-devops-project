@@ -13,6 +13,7 @@ public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber 
 
     public BacklogItemReadyForTestingState(BacklogItem backlogItem){
         this.backlogItem = backlogItem;
+        this.setNotificationBehaviour(this.backlogItem.getNotificationBehaviour());
     }
 
     @Override
@@ -38,7 +39,21 @@ public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber 
     @Override
     public void notifyTesters(String message) {
         //DONE?: michel observer pattern
-        this.update(message);
+
+
+        // Get all tester emails
+        TesterUser[] testers =  this.backlogItem
+                        .getSprintBacklog()
+                        .getSprint()
+                        .getTesters();
+
+        for (TesterUser testerUser : testers) {
+            this.getNotificationBehaviour()
+                    .setIdentifier(testerUser.getEmail());
+            this.update(message);
+        }
+
+
     }
 
     @Override

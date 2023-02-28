@@ -1,4 +1,7 @@
 package main.java.user;
 
-public class LeadDeveloperUser {
+public class LeadDeveloperUser  extends IUser{
+    public LeadDeveloperUser(String name, String email, String phoneNumber) {
+        super(name, email, phoneNumber);
+    }
 }

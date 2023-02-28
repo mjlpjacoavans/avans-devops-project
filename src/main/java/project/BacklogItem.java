@@ -1,9 +1,11 @@
 package main.java.project;
 
+import main.java.notification.behaviours.*;
 import main.java.project.states.*;
 import main.java.sprint.SprintBacklog;
 import main.java.user.DeveloperUser;
 import main.java.user.TesterUser;
+import org.junit.jupiter.params.aggregator.ArgumentAccessException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ public class BacklogItem implements Comparable{
     BacklogItemState backlogItemTestingState;
     BacklogItemState backlogItemTestedState;
     BacklogItemState backlogItemDoneState;
+    INotificationBehaviour notificationBehaviour;
 
     boolean developed;
     boolean tested;
@@ -54,6 +57,62 @@ public class BacklogItem implements Comparable{
         this.developed = false;
         this.tested = false;
     }
+
+    public BacklogItem(ProductBacklog productBacklog, String text, NotificationBehaviourTypes notificationBehaviourType){
+        // Appparently this does not work. really anoying this(productBacklog, text);
+        this.activities = new ArrayList<Activity>();
+        this.productBacklog = productBacklog;
+        this.definitionOfDone = null;
+        this.text = text;
+        this.defitionMet = false;
+
+        this.productBacklog.addBacklogItem(this);
+
+        this.backlogItemToDoState = new BacklogItemToDoState(this);
+        this.backlogItemDoingState = new BacklogItemDoingState(this);
+        this.backlogItemReadyForTestingState = new BacklogItemReadyForTestingState(this);
+        this.backlogItemTestingState = new BacklogItemTestingState(this);
+        this.backlogItemTestedState = new BacklogItemTestedState(this);
+        this.backlogItemDoneState = new BacklogItemDoneState(this);
+
+        this.state = backlogItemToDoState;
+
+        this.developed = false;
+        this.tested = false;
+
+
+        INotificationBehaviour notificationBehaviour;
+
+        if(notificationBehaviourType == NotificationBehaviourTypes.EMAIL){
+            notificationBehaviour = new EmailNotificaionBehaviour();
+        }
+        else if(notificationBehaviourType == NotificationBehaviourTypes.SLACK){
+            notificationBehaviour = new SlackNotificaionBehaviour();
+        } else if (notificationBehaviourType == NotificationBehaviourTypes.STDOUT) {
+            notificationBehaviour = new StdOutNotificationBehaviour();
+        }
+        else{
+            throw new IllegalArgumentException("Notification behaviour type not supported");
+        }
+        this.setNotificationBehaviour(notificationBehaviour);
+    }
+
+    public SprintBacklog getSprintBacklog() {
+        return sprintBacklog;
+    }
+
+    public TesterUser getTester() {
+        return tester;
+    }
+
+    public INotificationBehaviour getNotificationBehaviour() {
+        return notificationBehaviour;
+    }
+
+    public void setNotificationBehaviour(INotificationBehaviour notificationBehaviour) {
+        this.notificationBehaviour = notificationBehaviour;
+    }
+
 
     public BacklogItemState getBacklogItemToDoState() {
         return backlogItemToDoState;

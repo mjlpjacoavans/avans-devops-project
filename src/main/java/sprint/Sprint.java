@@ -109,4 +109,20 @@ public class Sprint {
         this.sprintBacklog =sprintBacklog;
 
     }
+
+    public ScrumMasterUser getScrumMaster() {
+        return scrumMaster;
+    }
+
+    public LeadDeveloperUser getLeadDeveloper() {
+        return leadDeveloper;
+    }
+
+    public TesterUser[] getTesters() {
+        return testers;
+    }
+
+    public Sprint(DeveloperUser[] developers) {
+        this.developers = developers;
+    }
 }
