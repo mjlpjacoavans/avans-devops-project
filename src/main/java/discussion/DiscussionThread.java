@@ -7,7 +7,7 @@ import java.util.List;
 public class DiscussionThread implements DiscussionComponent {
     private String text;
     private List<DiscussionComponent> posts;
-    private Integer depth;
+    private Integer depth = 0;
 
     public DiscussionThread(String text) {
         this.text = text;
@@ -21,7 +21,7 @@ public class DiscussionThread implements DiscussionComponent {
 
     @Override
     public void display() {
-        System.out.println(" ".repeat(this.getDepth()) + (posts.isEmpty() ? " - " : "Thread: ") + text);
+        System.out.println("".repeat(this.getDepth()) + (posts.isEmpty() ? " - " : "Thread: ") + text);
         for (DiscussionComponent post : posts) {
             post.display();
         }

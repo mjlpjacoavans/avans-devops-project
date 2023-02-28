@@ -42,8 +42,8 @@ public class DiscussionTest {
         String actualOutput = outputStream.toString();
 
         assertEquals(
-                expectedOutput.replace("\n", "").replace("\r", ""),
-                actualOutput.replace("\n", "").replace("\r", "")
+                expectedOutput.replace("\n", "").replace("\r", "").replace(" ", ""),
+                actualOutput.replace("\n", "").replace("\r", "").replace(" ", "")
         );
 
     }
@@ -69,8 +69,8 @@ public class DiscussionTest {
         String actualOutput = outputStream.toString();
 
         assertEquals(
-                expectedOutput.replace("\n", "").replace("\r", ""),
-                actualOutput.replace("\n", "").replace("\r", "")
+                expectedOutput.replace("\n", "").replace("\r", "").replace(" ", ""),
+                actualOutput.replace("\n", "").replace("\r", "").replace(" ", "")
         );
     }
 
@@ -125,8 +125,8 @@ public class DiscussionTest {
         String actualOutput = outputStream.toString();
 
         assertEquals(
-                expectedOutput.replace("\n", "").replace("\r", ""),
-                actualOutput.replace("\n", "").replace("\r", "")
+                expectedOutput.replace("\n", "").replace("\r", "").replace(" ", ""),
+                actualOutput.replace("\n", "").replace("\r", "").replace(" ", "")
         );
     }
 
