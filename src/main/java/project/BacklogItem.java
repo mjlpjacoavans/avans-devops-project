@@ -8,7 +8,7 @@ import main.java.user.TesterUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BacklogItem {
+public class BacklogItem implements Comparable{
     List<Activity> activities;
     ProductBacklog productBacklog;
     SprintBacklog sprintBacklog;
@@ -193,6 +193,13 @@ public class BacklogItem {
         sb.append(", text='").append(text).append('\'');
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        // TODO: This could be used to implement the requirement of:
+        //  "De requirements voor elk project worden bijgehouden in de vorm van een product backlog en dat is zoals je weet een geordende lijst van product backlog items."
+        return 0;
     }
 }
 
