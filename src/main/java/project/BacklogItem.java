@@ -29,6 +29,10 @@ public class BacklogItem {
     boolean developed;
     boolean tested;
 
+    public DeveloperUser getDeveloper() {
+        return developer;
+    }
+
     public BacklogItem(ProductBacklog productBacklog, String text){
         this.activities = new ArrayList<Activity>();
         this.productBacklog = productBacklog;
@@ -107,12 +111,12 @@ public class BacklogItem {
         this.state.setStateToDONE();
     }
 
-    public List<Activity> SplitInActivities(List<Activity> activities){
+    public List<Activity> SplitInActivities(List<Activity> activities) throws Exception {
         this.state.splitInActivities(activities);
         return this.activities;
     }
 
-    public List<Activity> addActivity(Activity activity){
+    public List<Activity> addActivity(Activity activity) throws Exception {
         this.state.addActiviy(activity);
         return this.activities;
     }
@@ -121,11 +125,39 @@ public class BacklogItem {
         this.activities = activities;
     }
 
-    public void setDeveloper(DeveloperUser developer){
-        this.developer = developer;
+    public void setDeveloper(DeveloperUser developer) throws Exception {
+        this.state.addDeveloper(developer);
+    }
+
+    public void addDeveloper(DeveloperUser developer) throws Exception {
+        if(this.activities == null) {
+            this.developer = developer;
+        }else{
+            throw new Exception("this item has activities. please add to activity");
+        }
+    }
+
+    public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
+        if(this.activities == null){
+            //TODO: throw specific execption
+            throw new Exception("No activities in backlogitem");
+        }else{
+            for (int i = 0; i<this.activities.size()-1; i++){
+                Activity thisActivity = this.activities.get(i);
+                if(thisActivity == activity){
+                    thisActivity.addDeveloper(developer);
+                    return;
+                }
+            }
+            throw new Exception("Activity not present in backlogitem");
+        }
     }
 
     public void setTester(TesterUser tester){
+        this.state.addTester(tester);
+    }
+
+    public void addTester(TesterUser tester){
         this.tester = tester;
     }
 
@@ -137,7 +169,7 @@ public class BacklogItem {
         this.state.notifyTesters(message);
     }
 
-    public void setDeveloped(){
+    public void setDeveloped() throws Exception {
         this.state.setDeveloped();
     }
 
@@ -149,7 +181,12 @@ public class BacklogItem {
         this.state.setDefinitionMet();
     }
 
-    public void setDevelopedStateOverride(){
+    public void setDevelopedStateHelper() throws Exception {
+        for(int i = 0; i<this.activities.size()-1; i++){
+            if(this.activities.get(i).getDeveloper() == null){
+                throw new Exception("Cant set to developed. not every activity is assigned a developer");
+            }
+        }
         this.developed = true;
     }
 
@@ -165,34 +202,34 @@ public class BacklogItem {
         this.definitionOfDone = definitionOfDone;
     }
 
-    //TODO: check if developer already is assigned
-    public String addDeveloper(DeveloperUser developer){
-        if(this.activities.size() == 1){
-            this.activities.get(0).addDeveloper(developer);
-            return "Developer added to activity of this backlog item!";
-        }
-        else if(this.activities.size() > 1){
-            return "Developer not added. backlog item contains more than 1 activity";
-        }
-        else {
-            this.developer = developer;
-            return "Developer added!";
-        }
-    }
-
-    public String addTester(TesterUser tester){
-        if(this.activities.size() == 1){
-            this.activities.get(0).addTester(tester);
-            return "Tester added to activity of this backlog item!";
-        }
-        else if(this.activities.size() > 1){
-            return "Developer not added. backlog item contains more than 1 activity";
-        }
-        else {
-            this.tester = tester;
-            return "tester added!";
-        }
-    }
+//    //TODO: check if developer already is assigned
+//    public String addDeveloper(DeveloperUser developer){
+//        if(this.activities.size() == 1){
+//            this.activities.get(0).addDeveloper(developer);
+//            return "Developer added to activity of this backlog item!";
+//        }
+//        else if(this.activities.size() > 1){
+//            return "Developer not added. backlog item contains more than 1 activity";
+//        }
+//        else {
+//            this.developer = developer;
+//            return "Developer added!";
+//        }
+//    }
+//
+//    public String addTester(TesterUser tester){
+//        if(this.activities.size() == 1){
+//            this.activities.get(0).addTester(tester);
+//            return "Tester added to activity of this backlog item!";
+//        }
+//        else if(this.activities.size() > 1){
+//            return "Developer not added. backlog item contains more than 1 activity";
+//        }
+//        else {
+//            this.tester = tester;
+//            return "tester added!";
+//        }
+//    }
 
 
     @Override

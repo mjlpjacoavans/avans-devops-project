@@ -2,6 +2,8 @@ package main.java.project.states;
 
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
+import main.java.user.DeveloperUser;
+import main.java.user.TesterUser;
 
 import java.util.List;
 
@@ -45,6 +47,21 @@ public class BacklogItemDoneState implements BacklogItemState{
 
     @Override
     public void setDefinitionMet() {
+        System.out.println("Cannont perform this action in this state");
+    }
+
+    @Override
+    public void addDeveloper(DeveloperUser developer) throws Exception {
+        System.out.println("Cannont perform this action in this state");
+    }
+
+    @Override
+    public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
+        System.out.println("Cannont perform this action in this state");
+    }
+
+    @Override
+    public void addTester(TesterUser tester) {
         System.out.println("Cannont perform this action in this state");
     }
 

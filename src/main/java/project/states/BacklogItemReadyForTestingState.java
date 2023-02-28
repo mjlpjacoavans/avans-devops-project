@@ -2,6 +2,8 @@ package main.java.project.states;
 
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
+import main.java.user.DeveloperUser;
+import main.java.user.TesterUser;
 
 import java.util.List;
 
@@ -48,8 +50,24 @@ public class BacklogItemReadyForTestingState implements BacklogItemState{
     }
 
     @Override
-    public void setStateToTODO() {
+    public void addDeveloper(DeveloperUser developer) throws Exception {
         System.out.println("Cannont perform this action in this state");
+    }
+
+    @Override
+    public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
+        System.out.println("Cannont perform this action in this state");
+    }
+
+    @Override
+    public void addTester(TesterUser tester) {
+        this.backlogItem.addTester(tester);
+        this.setStateToTESTING();
+    }
+
+    @Override
+    public void setStateToTODO() {
+        this.backlogItem.setState(this.backlogItem.getBacklogItemToDoState());
     }
 
     @Override

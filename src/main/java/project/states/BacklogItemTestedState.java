@@ -2,6 +2,8 @@ package main.java.project.states;
 
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
+import main.java.user.DeveloperUser;
+import main.java.user.TesterUser;
 
 import java.util.List;
 
@@ -47,6 +49,22 @@ public class BacklogItemTestedState implements BacklogItemState{
     public void setDefinitionMet() {
         //TODO: kijk of alleen lead dev dit kan
         this.backlogItem.setDefinitionMetStateOverride();
+        this.setStateToDONE();
+    }
+
+    @Override
+    public void addDeveloper(DeveloperUser developer) throws Exception {
+        System.out.println("Cannont perform this action in this state");
+    }
+
+    @Override
+    public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
+        System.out.println("Cannont perform this action in this state");
+    }
+
+    @Override
+    public void addTester(TesterUser tester) {
+        System.out.println("Cannont perform this action in this state");
     }
 
     @Override
@@ -61,7 +79,7 @@ public class BacklogItemTestedState implements BacklogItemState{
 
     @Override
     public void setStateToREADYFORTESTING() {
-        System.out.println("Cannont perform this action in this state");
+        this.backlogItem.setState(this.backlogItem.getBacklogItemReadyForTestingState());
     }
 
     @Override
