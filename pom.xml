@@ -3,4 +3,10 @@
     <groupId>tld.avans.devops</groupId>
     <artifactId>avans-deveops-project</artifactId>
     <version>1</version>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>5.8.1</version>
+    </dependency>
+
 </project>
