@@ -5,6 +5,14 @@ public abstract class BasePipeline implements IPipeline{
     private Boolean running = false;
     private Boolean success = false;
 
+    public BasePipeline(boolean autostart) {
+        if(autostart){
+            this.startPipeline();
+        }
+    }
+
+    public BasePipeline() {
+    }
 
     @Override
     public void startPipeline(){
