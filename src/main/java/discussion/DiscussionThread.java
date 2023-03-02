@@ -7,7 +7,7 @@ import java.util.List;
 public class DiscussionThread implements DiscussionComponent {
     private String text;
     private List<DiscussionComponent> posts;
-    private Integer depth = 0;
+    private Integer DEPTH = 0;
 
     public DiscussionThread(String text) {
         this.text = text;
@@ -34,12 +34,12 @@ public class DiscussionThread implements DiscussionComponent {
 
     @Override
     public Integer getDepth() {
-        return depth;
+        return this.DEPTH;
     }
 
     @Override
     public void setDepth(Integer depth) {
-        this.depth = depth;
+        this.DEPTH = depth;
     }
 }
 

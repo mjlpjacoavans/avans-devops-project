@@ -5,7 +5,7 @@ package main.java.discussion;
 //  "super-type" (because a root should not be added to a sub-item)
 public class DiscussionThreadRoot extends DiscussionThread{
     private String subject;
-    private Integer depth = 0;
+    private Integer DEPTH = 0;
 
     public DiscussionThreadRoot(String text) {
         super("New forum thread started: " + text);
