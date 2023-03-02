@@ -5,13 +5,13 @@ public abstract class BasePipeline implements IPipeline{
     private Boolean running = false;
     private Boolean success = false;
 
-    public BasePipeline(boolean autostart) {
+    protected BasePipeline(boolean autostart) {
         if(autostart){
             this.startPipeline();
         }
     }
 
-    public BasePipeline() {
+    protected BasePipeline() {
     }
 
     @Override
@@ -27,7 +27,7 @@ public abstract class BasePipeline implements IPipeline{
         }catch(Exception e){
             sourcesPhaseSuccess = false;
         }
-        if(!sourcesPhaseSuccess){
+        if(Boolean.FALSE.equals(sourcesPhaseSuccess)){
             this.running = false;
             this.success = false;
             this.onPipelineEnds();
@@ -40,7 +40,7 @@ public abstract class BasePipeline implements IPipeline{
         }catch(Exception e){
             packagePhaseSuccess = false;
         }
-        if(!packagePhaseSuccess){
+        if(Boolean.FALSE.equals(packagePhaseSuccess)){
             this.running = false;
             this.success = false;
             this.onPipelineEnds();
@@ -53,7 +53,7 @@ public abstract class BasePipeline implements IPipeline{
         }catch(Exception e){
             buildPhaseSuccess = false;
         }
-        if(!buildPhaseSuccess){
+        if(Boolean.FALSE.equals(buildPhaseSuccess)){
             this.running = false;
             this.success = false;
             this.onPipelineEnds();
@@ -66,7 +66,7 @@ public abstract class BasePipeline implements IPipeline{
         }catch(Exception e){
             testPhaseSuccess = false;
         }
-        if(!testPhaseSuccess){
+        if(Boolean.FALSE.equals(testPhaseSuccess)){
             this.running = false;
             this.success = false;
             this.onPipelineEnds();
@@ -79,7 +79,7 @@ public abstract class BasePipeline implements IPipeline{
         }catch(Exception e){
             analysisPhaseSuccess = false;
         }
-        if(!analysisPhaseSuccess){
+        if(Boolean.FALSE.equals(analysisPhaseSuccess)){
             this.running = false;
             this.success = false;
             this.onPipelineEnds();
@@ -92,7 +92,7 @@ public abstract class BasePipeline implements IPipeline{
         }catch(Exception e){
             deployPhaseSuccess = false;
         }
-        if(!deployPhaseSuccess){
+        if(Boolean.FALSE.equals(deployPhaseSuccess)){
             this.running = false;
             this.success = false;
             this.onPipelineEnds();
@@ -105,7 +105,7 @@ public abstract class BasePipeline implements IPipeline{
         }catch(Exception e){
             utilityPhaseSuccess = false;
         }
-        if(!utilityPhaseSuccess){
+        if(Boolean.FALSE.equals(utilityPhaseSuccess)){
             this.running = false;
             this.success = false;
             this.onPipelineEnds();
@@ -125,43 +125,43 @@ public abstract class BasePipeline implements IPipeline{
 
     @Override
     public Boolean runSources() {
-        System.out.println("Pipeline phase not implemented. Skipping.");
+        System.out.println("1. Pipeline phase not implemented. Skipping.");
         return true;
     }
 
     @Override
     public Boolean runPackage() {
-        System.out.println("Pipeline phase not implemented. Skipping.");
+        System.out.println("2. Pipeline phase not implemented. Skipping.");
         return true;
     }
 
     @Override
     public Boolean runBuild() {
-        System.out.println("Pipeline phase not implemented. Skipping.");
+        System.out.println("3. Pipeline phase not implemented. Skipping.");
         return true;
     }
 
     @Override
     public Boolean runTest() {
-        System.out.println("Pipeline phase not implemented. Skipping.");
+        System.out.println("4. Pipeline phase not implemented. Skipping.");
         return true;
     }
 
     @Override
     public Boolean runAnalysis() {
-        System.out.println("Pipeline phase not implemented. Skipping.");
+        System.out.println("5. Pipeline phase not implemented. Skipping.");
         return true;
     }
 
     @Override
     public Boolean runDeploy() {
-        System.out.println("Pipeline phase not implemented. Skipping.");
+        System.out.println("6. Pipeline phase not implemented. Skipping.");
         return true;
     }
 
     @Override
     public Boolean runUtility() {
-        System.out.println("Pipeline phase not implemented. Skipping.");
+        System.out.println("7. Pipeline phase not implemented. Skipping.");
         return true;
     }
 

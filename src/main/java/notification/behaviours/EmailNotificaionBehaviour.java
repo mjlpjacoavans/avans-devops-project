@@ -3,7 +3,7 @@ package main.java.notification.behaviours;
 public class EmailNotificaionBehaviour implements INotificationBehaviour{
     private String email;
 
-    private Object SMTPLib;
+    private Object SMTPLib; // NOSONAR
 
 
 
@@ -19,11 +19,11 @@ public class EmailNotificaionBehaviour implements INotificationBehaviour{
         return SMTPLib;
     }
 
-    public void setSMTPLib(Object SMTPLib) {
+    public void setSMTPLib(Object SMTPLib) { // NOSONAR
         this.SMTPLib = SMTPLib;
     }
 
-    public EmailNotificaionBehaviour(String email, Object SMTPLib) {
+    public EmailNotificaionBehaviour(String email, Object SMTPLib) { // NOSONAR
         this.email = email;
         this.SMTPLib = SMTPLib;
     }

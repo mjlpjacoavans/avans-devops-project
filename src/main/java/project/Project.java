@@ -45,7 +45,7 @@ public class Project {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Project{");
+        final StringBuilder sb = new StringBuilder("Project{");
         sb.append("productOwner=").append(productOwner);
         sb.append(", projectName='").append(projectName).append('\'');
         sb.append('}');

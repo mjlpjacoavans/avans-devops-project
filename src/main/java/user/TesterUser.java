@@ -7,7 +7,7 @@ public class TesterUser extends IUser{
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("TesterUser{");
+        final StringBuilder sb = new StringBuilder("TesterUser{");
         sb.append("name='").append(name).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", phoneNumber='").append(phoneNumber).append('\'');

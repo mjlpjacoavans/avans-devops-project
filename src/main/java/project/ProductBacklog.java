@@ -47,7 +47,7 @@ public class ProductBacklog {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("ProductBacklog{");
+        final StringBuilder sb = new StringBuilder("ProductBacklog{");
         sb.append("backlogItems=").append(backlogItems);
         sb.append('}');
         return sb.toString();

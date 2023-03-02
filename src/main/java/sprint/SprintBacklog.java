@@ -15,7 +15,7 @@ public class SprintBacklog {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("SprintBacklog{");
+        final StringBuilder sb = new StringBuilder("SprintBacklog{");
         sb.append("backlogItems=").append(backlogItems);
         sb.append(", sprint=").append(sprint);
         sb.append('}');

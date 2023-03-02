@@ -1,8 +1,6 @@
 package main.java.project.states;
 
 import main.java.notification.BaseNotificationSubscriber;
-import main.java.notification.behaviours.INotificationBehaviour;
-import main.java.notification.behaviours.StdOutNotificationBehaviour;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
 import main.java.user.DeveloperUser;
@@ -52,22 +50,22 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void setDeveloped() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void notifyTesters(String message) {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setTested() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setDefinitionMet() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
@@ -99,12 +97,12 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void addTester(TesterUser tester) {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setStateToTODO() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
@@ -115,21 +113,21 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void setStateToREADYFORTESTING() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setStateToTESTING() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setStateTOTESTED() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setStateToDONE() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 }

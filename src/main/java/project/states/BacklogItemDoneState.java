@@ -17,52 +17,52 @@ public class BacklogItemDoneState implements BacklogItemState{
 
     @Override
     public void notifyScrumMaster(String message) {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void splitInActivities(List<Activity> activities) {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void addActiviy(Activity activity) {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setDeveloped() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void notifyTesters(String message) {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setTested() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setDefinitionMet() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void addDeveloper(DeveloperUser developer) throws Exception {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void addTester(TesterUser tester) {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
@@ -72,26 +72,26 @@ public class BacklogItemDoneState implements BacklogItemState{
 
     @Override
     public void setStateToDOING() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setStateToREADYFORTESTING() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setStateToTESTING() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setStateTOTESTED() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 
     @Override
     public void setStateToDONE() {
-        throw new IllegalStateException(stateBaseMessage);
+        throw new IllegalStateException(STATE_BASE_MESSAGE);
     }
 }

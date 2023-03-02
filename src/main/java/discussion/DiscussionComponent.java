@@ -1,7 +1,7 @@
 package main.java.discussion;
 
 interface DiscussionComponent {
-    Integer depth = 0;
+    Integer DEPTH = 0;
     void display();
     DiscussionComponent getPost(int i);
 

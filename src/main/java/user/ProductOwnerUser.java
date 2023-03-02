@@ -13,7 +13,7 @@ public class ProductOwnerUser {
     public ProductOwnerUser(String name, String email){
         this.name = name;
         this.email = email;
-        this.projects = new ArrayList<Project>();
+        this.projects = new ArrayList<>();
     }
 
     public List<Project> getProjects(){
@@ -51,7 +51,7 @@ public class ProductOwnerUser {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("ProductOwnerUser{");
+        final StringBuilder sb = new StringBuilder("ProductOwnerUser{");
         sb.append("name='").append(name).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append('}');

@@ -1,7 +1,7 @@
 package main.java.notification.behaviours;
 
 public class StdOutNotificationBehaviour implements INotificationBehaviour{
-    private String path = "/dev/fd/1";
+    private String path = "/dev/fd/1"; // NOSONAR
     @Override
     public void sendNotification(String text) {
         // Stdout behaviour for testing purposes

@@ -36,7 +36,7 @@ public class BacklogItem implements Comparable{
     }
 
     public BacklogItem(ProductBacklog productBacklog, String text){
-        this.activities = new ArrayList<Activity>();
+        this.activities = new ArrayList<>();
         this.productBacklog = productBacklog;
         this.definitionOfDone = null;
         this.text = text;
@@ -59,7 +59,7 @@ public class BacklogItem implements Comparable{
 
     public BacklogItem(ProductBacklog productBacklog, String text, NotificationBehaviourTypes notificationBehaviourType){
         // Appparently this does not work. really anoying this(productBacklog, text);
-        this.activities = new ArrayList<Activity>();
+        this.activities = new ArrayList<>();
         this.productBacklog = productBacklog;
         this.definitionOfDone = null;
         this.text = text;
@@ -169,7 +169,7 @@ public class BacklogItem implements Comparable{
         this.state.setStateToDONE();
     }
 
-    public List<Activity> SplitInActivities(List<Activity> activities) throws Exception {
+    public List<Activity> splitInActivities(List<Activity> activities) throws Exception {
         this.state.splitInActivities(activities);
         return this.activities;
     }
@@ -292,7 +292,7 @@ public class BacklogItem implements Comparable{
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("BacklogItem{");
+        final StringBuilder sb = new StringBuilder("BacklogItem{");
         sb.append("activities=").append(activities);
         sb.append(", developer=").append(developer);
         sb.append(", tester=").append(tester);

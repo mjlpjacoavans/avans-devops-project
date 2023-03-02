@@ -7,7 +7,7 @@ import main.java.user.TesterUser;
 import java.util.List;
 
 public interface BacklogItemState {
-    String stateBaseMessage = "Can't perform this action in this state.";
+    String STATE_BASE_MESSAGE = "Can't perform this action in this state.";
 
     void notifyScrumMaster(String message);
 
