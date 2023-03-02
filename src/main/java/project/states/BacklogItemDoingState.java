@@ -19,7 +19,7 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void notifyScrumMaster(String message) {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
@@ -29,7 +29,7 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void addActiviy(Activity activity) {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
@@ -40,17 +40,17 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void notifyTesters(String message) {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setTested() {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setDefinitionMet() {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
@@ -85,17 +85,17 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void addTester(TesterUser tester) {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateToTODO() {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateToDOING() {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
@@ -105,16 +105,16 @@ public class BacklogItemDoingState extends BaseNotificationSubscriber implements
 
     @Override
     public void setStateToTESTING() {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateTOTESTED() {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateToDONE() {
-        throw new IllegalStateException(STATE_BASE_MESSAGE);
+        throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 }
