@@ -31,11 +31,13 @@ public class BacklogItem implements Comparable{
     boolean developed;
     boolean tested;
 
+    Integer priority;
+
     public DeveloperUser getDeveloper() {
         return developer;
     }
 
-    public BacklogItem(ProductBacklog productBacklog, String text){
+    public BacklogItem(ProductBacklog productBacklog, String text, Integer priority){
         this.activities = new ArrayList<>();
         this.productBacklog = productBacklog;
         this.definitionOfDone = null;
@@ -55,30 +57,13 @@ public class BacklogItem implements Comparable{
 
         this.developed = false;
         this.tested = false;
+
+        this.priority = priority;
     }
 
-    public BacklogItem(ProductBacklog productBacklog, String text, NotificationBehaviourTypes notificationBehaviourType){
-        // Appparently this does not work. really anoying this(productBacklog, text);
-        this.activities = new ArrayList<>();
-        this.productBacklog = productBacklog;
-        this.definitionOfDone = null;
-        this.text = text;
-        this.defitionMet = false;
-
-        this.productBacklog.addBacklogItem(this);
-
-        this.backlogItemToDoState = new BacklogItemToDoState(this);
-        this.backlogItemDoingState = new BacklogItemDoingState(this);
-        this.backlogItemReadyForTestingState = new BacklogItemReadyForTestingState(this);
-        this.backlogItemTestingState = new BacklogItemTestingState(this);
-        this.backlogItemTestedState = new BacklogItemTestedState(this);
-        this.backlogItemDoneState = new BacklogItemDoneState(this);
-
-        this.state = backlogItemToDoState;
-
-        this.developed = false;
-        this.tested = false;
-
+    public BacklogItem(ProductBacklog productBacklog, String text, Integer priority, NotificationBehaviourTypes notificationBehaviourType){
+        // TODO: TEST IF THIS ACTUALLY WORKS SINCE IT REALLY USED TO NAG ABOUT THIS
+        this(productBacklog, text, priority);
 
         INotificationBehaviour notificationBehaviour;
 
@@ -304,8 +289,8 @@ public class BacklogItem implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        // TODO: This should be sorted on priority
-        return 0;
+        // TODO: Test if this is the correct order and should not be swapped
+        return Integer.compare(this.priority, (Integer)o);
     }
 }
 
