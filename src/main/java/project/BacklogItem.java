@@ -32,6 +32,8 @@ public class BacklogItem implements Comparable{
     boolean developed;
     boolean tested;
 
+    //TODO: thread shit
+
     public DeveloperUser getDeveloper() {
         return developer;
     }

@@ -59,7 +59,7 @@ public class Sprint {
         yesterdayDate = LocalDate.now().minusDays(1);
 
 
-        //TODO: fix het wanneer een sprint wordt aangemaakt met een enddate in verleden
+        //TODO: fix het wanneer een sprint wordt aangemaakt met een enddate of begindate in verleden og toekomst
 //        if(currentDate.isAfter(this.endDate)){
 //
 //        }
