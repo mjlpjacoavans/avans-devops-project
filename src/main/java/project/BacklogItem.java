@@ -304,8 +304,7 @@ public class BacklogItem implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        // TODO: This could be used to implement the requirement of:
-        //  "De requirements voor elk project worden bijgehouden in de vorm van een product backlog en dat is zoals je weet een geordende lijst van product backlog items."
+        // TODO: This should be sorted on priority
         return 0;
     }
 }

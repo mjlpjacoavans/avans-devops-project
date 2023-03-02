@@ -1,6 +1,5 @@
 package main.java.sprintreport.domain;
 
-import main.java.user.DeveloperUser;
 import main.java.user.IUser;
 
 import java.util.List;

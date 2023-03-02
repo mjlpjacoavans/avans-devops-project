@@ -105,7 +105,7 @@ public class PipelineTests {
 
         String paasApiToken = "aaaaaaaaaaa-bbbbbbbbbbb-cccccccccc";
         FakeDeploymentClient client = new FakeDeploymentClient(paasApiToken);
-        IPipeline pipeline = new DevelopmentPipeline(){
+        IPipeline pipeline = new DeploymentPipeline(){
             public Boolean runBuild(){
                 try {
                     client.zipCode("./");

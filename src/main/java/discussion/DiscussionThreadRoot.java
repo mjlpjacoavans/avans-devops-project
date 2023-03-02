@@ -1,8 +1,5 @@
 package main.java.discussion;
 
-import main.java.discussion.DiscussionThread;
-
-
 // TODO: There should be a fix that makes it so that this
 //  type IS a DiscussionThread but does not have that
 //  "super-type" (because a root should not be added to a sub-item)
