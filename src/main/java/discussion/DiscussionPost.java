@@ -3,7 +3,6 @@ package main.java.discussion;
 // This is the leaf
 public class DiscussionPost implements DiscussionComponent {
     private String text;
-    private Integer depth;
 
     public DiscussionPost(String text) {
         this.text = text;

@@ -153,8 +153,8 @@ public class BacklogItem implements Comparable{
     }
 
     void setStateToDONE(){
-        SprintState state  = this.getSprintBacklog().getSprint().getState();
-        if(state instanceof SprintInProgressState){
+        SprintState sprintBacklogSprintState  = this.getSprintBacklog().getSprint().getState();
+        if(sprintBacklogSprintState instanceof SprintInProgressState){
             this.state.setStateToDONE();
         }
     }
