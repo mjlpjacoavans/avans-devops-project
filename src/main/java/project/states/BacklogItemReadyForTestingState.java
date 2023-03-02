@@ -18,22 +18,22 @@ public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber 
 
     @Override
     public void notifyScrumMaster(String message) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void splitInActivities(List<Activity> activities) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void addActiviy(Activity activity) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setDeveloped() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
@@ -58,22 +58,22 @@ public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber 
 
     @Override
     public void setTested() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setDefinitionMet() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void addDeveloper(DeveloperUser developer) throws Exception {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
@@ -89,12 +89,12 @@ public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber 
 
     @Override
     public void setStateToDOING() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToREADYFORTESTING() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
@@ -104,11 +104,11 @@ public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber 
 
     @Override
     public void setStateTOTESTED() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToDONE() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 }

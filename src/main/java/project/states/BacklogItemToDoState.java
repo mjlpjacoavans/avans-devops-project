@@ -50,22 +50,22 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void setDeveloped() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println();
     }
 
     @Override
     public void notifyTesters(String message) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setTested() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setDefinitionMet() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
@@ -97,12 +97,12 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void addTester(TesterUser tester) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToTODO() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
@@ -113,21 +113,21 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void setStateToREADYFORTESTING() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToTESTING() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateTOTESTED() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToDONE() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 }

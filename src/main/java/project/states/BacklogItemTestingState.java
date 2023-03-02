@@ -17,27 +17,27 @@ public class BacklogItemTestingState implements BacklogItemState{
 
     @Override
     public void notifyScrumMaster(String message) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void splitInActivities(List<Activity> activities) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void addActiviy(Activity activity) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setDeveloped() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void notifyTesters(String message) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
@@ -48,42 +48,42 @@ public class BacklogItemTestingState implements BacklogItemState{
 
     @Override
     public void setDefinitionMet() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void addDeveloper(DeveloperUser developer) throws Exception {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void addTester(TesterUser tester) {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToTODO() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToDOING() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToREADYFORTESTING() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
     public void setStateToTESTING() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 
     @Override
@@ -93,6 +93,6 @@ public class BacklogItemTestingState implements BacklogItemState{
 
     @Override
     public void setStateToDONE() {
-        System.out.println("Cannont perform this action in this state");
+        System.out.println(stateBaseMessage);
     }
 }
