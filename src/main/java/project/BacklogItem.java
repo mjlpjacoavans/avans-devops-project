@@ -3,6 +3,8 @@ package main.java.project;
 import main.java.notification.behaviours.*;
 import main.java.project.states.*;
 import main.java.sprint.SprintBacklog;
+import main.java.sprint.states.SprintInProgressState;
+import main.java.sprint.states.SprintState;
 import main.java.user.DeveloperUser;
 import main.java.user.TesterUser;
 
@@ -151,7 +153,10 @@ public class BacklogItem implements Comparable{
     }
 
     void setStateToDONE(){
-        this.state.setStateToDONE();
+        SprintState state  = this.getSprintBacklog().getSprint().getState();
+        if(state instanceof SprintInProgressState){
+            this.state.setStateToDONE();
+        }
     }
 
     public List<Activity> splitInActivities(List<Activity> activities) throws Exception {

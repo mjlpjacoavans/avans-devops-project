@@ -75,6 +75,11 @@ public class Sprint {
         return "Sprint state set to: " + this.state;
     }
 
+
+    public SprintState getState() {
+        return state;
+    }
+
     public void setName(String name){
         state.changeName(name);
     }
