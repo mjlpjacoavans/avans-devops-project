@@ -11,7 +11,7 @@ public class DiscussionPost implements DiscussionComponent {
 
     @Override
     public void display() {
-        System.out.println(" ".repeat(this.getDepth()) + " - " + text);
+        System.out.println("".repeat(this.getDepth()) + " - " + text);
     }
 
     @Override
