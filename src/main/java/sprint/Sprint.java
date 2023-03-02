@@ -3,7 +3,6 @@ package main.java.sprint;
 import main.java.enums.Goal;
 import main.java.sprint.states.*;
 import main.java.sprintreport.ISprintReportBuilder;
-import main.java.sprintreport.SprintReportBuilder;
 import main.java.sprintreport.domain.ISprintReport;
 import main.java.user.DeveloperUser;
 import main.java.user.LeadDeveloperUser;
@@ -11,7 +10,6 @@ import main.java.user.ScrumMasterUser;
 import main.java.user.TesterUser;
 
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 
 public class Sprint {

@@ -1,7 +1,6 @@
 package main.java.project;
 
 import main.java.user.DeveloperUser;
-import main.java.user.TesterUser;
 
 public class Activity {
     BacklogItem backlogItem;

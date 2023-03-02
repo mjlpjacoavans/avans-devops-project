@@ -5,7 +5,6 @@ import main.java.project.states.*;
 import main.java.sprint.SprintBacklog;
 import main.java.user.DeveloperUser;
 import main.java.user.TesterUser;
-import org.junit.jupiter.params.aggregator.ArgumentAccessException;
 
 import java.util.ArrayList;
 import java.util.List;

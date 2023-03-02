@@ -1,8 +1,6 @@
 package main.java.project.states;
 
 import main.java.notification.BaseNotificationSubscriber;
-import main.java.notification.behaviours.INotificationBehaviour;
-import main.java.notification.behaviours.StdOutNotificationBehaviour;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
 import main.java.user.DeveloperUser;

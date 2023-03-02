@@ -1,7 +1,5 @@
 package main.java.sprintreport.domain;
 
-import java.util.stream.Stream;
-
 public class PDFSprintReport implements ISprintReport {
 
     Header header;
