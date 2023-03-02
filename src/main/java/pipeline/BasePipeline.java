@@ -20,7 +20,13 @@ public abstract class BasePipeline implements IPipeline{
         this.running = true;
         this.onPipelineStarts();
 
-        Boolean sourcesPhaseSuccess = this.runSources();
+
+        Boolean sourcesPhaseSuccess;
+        try {
+             sourcesPhaseSuccess = this.runSources();
+        }catch(Exception e){
+            sourcesPhaseSuccess = false;
+        }
         if(!sourcesPhaseSuccess){
             this.running = false;
             this.success = false;
@@ -28,7 +34,12 @@ public abstract class BasePipeline implements IPipeline{
             return;
         }
 
-        Boolean packagePhaseSuccess = this.runPackage();
+        Boolean packagePhaseSuccess;
+        try {
+            packagePhaseSuccess = this.runPackage();
+        }catch(Exception e){
+            packagePhaseSuccess = false;
+        }
         if(!packagePhaseSuccess){
             this.running = false;
             this.success = false;
@@ -36,7 +47,12 @@ public abstract class BasePipeline implements IPipeline{
             return;
         }
 
-        Boolean buildPhaseSuccess = this.runBuild();
+        Boolean buildPhaseSuccess;
+        try {
+            buildPhaseSuccess = this.runBuild();
+        }catch(Exception e){
+            buildPhaseSuccess = false;
+        }
         if(!buildPhaseSuccess){
             this.running = false;
             this.success = false;
@@ -44,7 +60,12 @@ public abstract class BasePipeline implements IPipeline{
             return;
         }
 
-        Boolean testPhaseSuccess = this.runTest();
+        Boolean testPhaseSuccess;
+        try {
+            testPhaseSuccess = this.runTest();
+        }catch(Exception e){
+            testPhaseSuccess = false;
+        }
         if(!testPhaseSuccess){
             this.running = false;
             this.success = false;
@@ -52,7 +73,12 @@ public abstract class BasePipeline implements IPipeline{
             return;
         }
 
-        Boolean analysisPhaseSuccess = this.runAnalysis();
+        Boolean analysisPhaseSuccess;
+        try {
+            analysisPhaseSuccess = this.runAnalysis();
+        }catch(Exception e){
+            analysisPhaseSuccess = false;
+        }
         if(!analysisPhaseSuccess){
             this.running = false;
             this.success = false;
@@ -60,7 +86,12 @@ public abstract class BasePipeline implements IPipeline{
             return;
         }
 
-        Boolean deployPhaseSuccess = this.runDeploy();
+        Boolean deployPhaseSuccess;
+        try {
+            deployPhaseSuccess = this.runDeploy();
+        }catch(Exception e){
+            deployPhaseSuccess = false;
+        }
         if(!deployPhaseSuccess){
             this.running = false;
             this.success = false;
@@ -68,7 +99,12 @@ public abstract class BasePipeline implements IPipeline{
             return;
         }
 
-        Boolean utilityPhaseSuccess = this.runUtility();
+        Boolean utilityPhaseSuccess;
+        try {
+            utilityPhaseSuccess = this.runUtility();
+        }catch(Exception e){
+            utilityPhaseSuccess = false;
+        }
         if(!utilityPhaseSuccess){
             this.running = false;
             this.success = false;
