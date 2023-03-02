@@ -52,22 +52,22 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void setDeveloped() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void notifyTesters(String message) {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setTested() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setDefinitionMet() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
@@ -99,12 +99,12 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void addTester(TesterUser tester) {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setStateToTODO() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
@@ -115,21 +115,21 @@ public class BacklogItemToDoState extends BaseNotificationSubscriber implements 
 
     @Override
     public void setStateToREADYFORTESTING() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setStateToTESTING() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setStateTOTESTED() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setStateToDONE() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 }

@@ -17,52 +17,52 @@ public class BacklogItemDoneState implements BacklogItemState{
 
     @Override
     public void notifyScrumMaster(String message) {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void splitInActivities(List<Activity> activities) {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void addActiviy(Activity activity) {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setDeveloped() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void notifyTesters(String message) {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setTested() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setDefinitionMet() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void addDeveloper(DeveloperUser developer) throws Exception {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void addTester(TesterUser tester) {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
@@ -72,26 +72,26 @@ public class BacklogItemDoneState implements BacklogItemState{
 
     @Override
     public void setStateToDOING() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setStateToREADYFORTESTING() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setStateToTESTING() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setStateTOTESTED() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 
     @Override
     public void setStateToDONE() {
-        throw new IllegalStateException("Can not perform this action in this state");
+        throw new IllegalStateException(stateBaseMessage);
     }
 }
