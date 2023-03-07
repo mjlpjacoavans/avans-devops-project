@@ -1,9 +1,7 @@
 package main.java.project.states;
 
 import main.java.notification.behaviours.DynamicNotificationBehaviour;
-import main.java.notification.behaviours.EmailNotificaionBehaviour;
 import main.java.notification.behaviours.INotificationBehaviour;
-import main.java.notification.behaviours.NotificationBehaviourTypes;
 import main.java.notification.observer.ISubscriber;
 import main.java.notification.observer.NotificationSubscriber;
 import main.java.notification.observer.Publisher;

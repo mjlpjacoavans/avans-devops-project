@@ -6,7 +6,6 @@ import main.java.pipeline.IPipeline;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
-import java.lang.reflect.Method;
 
 public class PipelineTests {
 

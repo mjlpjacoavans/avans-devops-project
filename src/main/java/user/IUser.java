@@ -1,6 +1,5 @@
 package main.java.user;
 
-import main.java.notification.behaviours.INotificationBehaviour;
 import main.java.notification.behaviours.NotificationBehaviourTypes;
 
 public abstract class IUser {

@@ -1,6 +1,5 @@
 package main.java.project.states;
 
-import main.java.notification.observer.NotificationSubscriber;
 import main.java.notification.observer.Publisher;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;

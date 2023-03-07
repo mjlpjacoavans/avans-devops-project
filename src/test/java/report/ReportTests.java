@@ -36,9 +36,9 @@ public class ReportTests {
         Date date = today.getTime();;
 
         List<IUser> teamMebers = Arrays.asList(
-                new DeveloperUser("User 1", "user1@company.tld", "123456"),
-                new DeveloperUser("User 2", "user2@company.tld", "234567"),
-                new DeveloperUser("User 3", "user3@company.tld", "345678"));
+                new DeveloperUser("User 1", "user1@company.tld", "123456","01"),
+                new DeveloperUser("User 2", "user2@company.tld", "234567","02"),
+                new DeveloperUser("User 3", "user3@company.tld", "345678","03"));
 
         pdfSprintReportBuilder.buildHeader(companyName, b64Logo, projectName, version, date);
         pdfSprintReportBuilder.buildContent(teamMebers, Arrays.asList(1,2,3,4,5));

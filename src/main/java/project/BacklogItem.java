@@ -1,6 +1,6 @@
 package main.java.project;
 
-import main.java.notification.behaviours.*;
+import main.java.notification.behaviours.NotificationBehaviourTypes;
 import main.java.project.states.*;
 import main.java.sprint.SprintBacklog;
 import main.java.sprint.states.SprintInProgressState;
