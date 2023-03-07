@@ -9,10 +9,12 @@ public class ProductOwnerUser {
     List<Project> projects;
     String name;
     String email;
+    String slackId;
 
-    public ProductOwnerUser(String name, String email){
+    public ProductOwnerUser(String name, String email, String slackId){
         this.name = name;
         this.email = email;
+        this.slackId = slackId;
         this.projects = new ArrayList<>();
     }
 

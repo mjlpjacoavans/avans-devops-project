@@ -1,34 +1,52 @@
 package main.java.project.states;
 
-import main.java.notification.BaseNotificationSubscriber;
+import main.java.notification.behaviours.DynamicNotificationBehaviour;
+import main.java.notification.behaviours.INotificationBehaviour;
+import main.java.notification.observer.ISubscriber;
+import main.java.notification.observer.NotificationSubscriber;
+import main.java.notification.observer.Publisher;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
 import main.java.user.DeveloperUser;
 import main.java.user.TesterUser;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class BacklogItemToDoState extends BaseNotificationSubscriber implements BacklogItemState {
+public class BacklogItemToDoState extends Publisher implements BacklogItemState {
 
     BacklogItem backlogItem;
 
     public BacklogItemToDoState(BacklogItem backlogItem){
         this.backlogItem = backlogItem;
-        this.setNotificationBehaviour(this.backlogItem.getNotificationBehaviour());
+
+        // Automatically add a subscriber for the scrum master
+        String scrumMasterIdentifier = this.backlogItem
+                .getSprintBacklog()
+                .getSprint()
+                .getScrumMaster()
+                .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
+
+        INotificationBehaviour scrumMasterNotificationBehaviour = new DynamicNotificationBehaviour(
+                this.backlogItem.getNotificationBehaviourType(), scrumMasterIdentifier);
+
+        ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
+        this.subscribe(scrumMasterSubscriber);
+
     }
 
     @Override
     public void notifyScrumMaster(String message) {
         //DONE?: michel observer pattern
+        this.notifySubscribers(message);
 
-        this.getNotificationBehaviour()
-                .setIdentifier(this.backlogItem
+        String scrumMasterEmail = this.backlogItem
                         .getSprintBacklog()
                         .getSprint()
                         .getScrumMaster()
-                        .getEmail());
+                        .getEmail();
 
-        this.update(message);
+        this.notifySubscribers(message, Arrays.asList(scrumMasterEmail).toArray(new String[0]));
     }
 
     @Override

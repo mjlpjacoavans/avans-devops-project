@@ -1,6 +1,7 @@
 package main.java.project.states;
 
-import main.java.notification.BaseNotificationSubscriber;
+import main.java.notification.observer.NotificationSubscriber;
+import main.java.notification.observer.Publisher;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
 import main.java.user.DeveloperUser;
@@ -8,13 +9,13 @@ import main.java.user.TesterUser;
 
 import java.util.List;
 
-public class BacklogItemDoingState extends BaseNotificationSubscriber implements BacklogItemState{
+public class BacklogItemDoingState extends Publisher implements BacklogItemState{
 
     BacklogItem backlogItem;
 
     public BacklogItemDoingState(BacklogItem backlogItem) {
         this.backlogItem = backlogItem;
-        this.setNotificationBehaviour(this.backlogItem.getNotificationBehaviour());
+//        this.setNotificationBehaviour(this.backlogItem.getNotificationBehaviour());
     }
 
     @Override

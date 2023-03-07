@@ -1,19 +1,35 @@
 package main.java.project.states;
 
-import main.java.notification.BaseNotificationSubscriber;
+import main.java.notification.behaviours.DynamicNotificationBehaviour;
+import main.java.notification.behaviours.EmailNotificaionBehaviour;
+import main.java.notification.behaviours.INotificationBehaviour;
+import main.java.notification.behaviours.NotificationBehaviourTypes;
+import main.java.notification.observer.ISubscriber;
+import main.java.notification.observer.NotificationSubscriber;
+import main.java.notification.observer.Publisher;
 import main.java.project.Activity;
 import main.java.project.BacklogItem;
 import main.java.user.DeveloperUser;
 import main.java.user.TesterUser;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber implements BacklogItemState{
+public class BacklogItemReadyForTestingState extends Publisher implements BacklogItemState{
     BacklogItem backlogItem;
 
     public BacklogItemReadyForTestingState(BacklogItem backlogItem){
         this.backlogItem = backlogItem;
-        this.setNotificationBehaviour(this.backlogItem.getNotificationBehaviour());
+
+        // Automatically add a subscriber for the tester
+        String testerIdentifier = this.backlogItem.getTester()
+                        .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
+
+        INotificationBehaviour testerNotificationBehaviour = new DynamicNotificationBehaviour(
+                this.backlogItem.getNotificationBehaviourType(), testerIdentifier);
+
+        ISubscriber testerSubscriber = new NotificationSubscriber(testerNotificationBehaviour);
+        this.subscribe(testerSubscriber);
     }
 
     @Override
@@ -40,7 +56,6 @@ public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber 
     public void notifyTesters(String message) {
         //DONE?: michel observer pattern
 
-
         // Get all tester emails
         TesterUser[] testers =  this.backlogItem
                         .getSprintBacklog()
@@ -48,12 +63,9 @@ public class BacklogItemReadyForTestingState extends BaseNotificationSubscriber 
                         .getTesters();
 
         for (TesterUser testerUser : testers) {
-            this.getNotificationBehaviour()
-                    .setIdentifier(testerUser.getEmail());
-            this.update(message);
+            String testerUserIdentifier = testerUser.getEmail();
+            this.notifySubscribers(message, Arrays.asList(testerUserIdentifier).toArray(new String[0]));
         }
-
-
     }
 
     @Override

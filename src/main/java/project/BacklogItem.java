@@ -21,6 +21,7 @@ public class BacklogItem implements Comparable{
     String text;
     boolean defitionMet;
 
+    NotificationBehaviourTypes notificationBehaviourType;
     BacklogItemState state;
     BacklogItemState backlogItemToDoState;
     BacklogItemState backlogItemDoingState;
@@ -28,8 +29,6 @@ public class BacklogItem implements Comparable{
     BacklogItemState backlogItemTestingState;
     BacklogItemState backlogItemTestedState;
     BacklogItemState backlogItemDoneState;
-    INotificationBehaviour notificationBehaviour;
-
     boolean developed;
     boolean tested;
 
@@ -67,20 +66,9 @@ public class BacklogItem implements Comparable{
         // TODO: TEST IF THIS ACTUALLY WORKS SINCE IT REALLY USED TO NAG ABOUT THIS
         this(productBacklog, text, priority);
 
-        INotificationBehaviour notificationBehaviour;
+        this.notificationBehaviourType = notificationBehaviourType;
 
-        if(notificationBehaviourType == NotificationBehaviourTypes.EMAIL){
-            notificationBehaviour = new EmailNotificaionBehaviour();
-        }
-        else if(notificationBehaviourType == NotificationBehaviourTypes.SLACK){
-            notificationBehaviour = new SlackNotificaionBehaviour();
-        } else if (notificationBehaviourType == NotificationBehaviourTypes.STDOUT) {
-            notificationBehaviour = new StdOutNotificationBehaviour();
-        }
-        else{
-            throw new IllegalArgumentException("Notification behaviour type not supported");
-        }
-        this.setNotificationBehaviour(notificationBehaviour);
+//        this.setNotificationBehaviour(notificationBehaviour);
     }
 
     public SprintBacklog getSprintBacklog() {
@@ -91,14 +79,13 @@ public class BacklogItem implements Comparable{
         return tester;
     }
 
-    public INotificationBehaviour getNotificationBehaviour() {
-        return notificationBehaviour;
+    public NotificationBehaviourTypes getNotificationBehaviourType() {
+        return notificationBehaviourType;
     }
 
-    public void setNotificationBehaviour(INotificationBehaviour notificationBehaviour) {
-        this.notificationBehaviour = notificationBehaviour;
+    public void setNotificationBehaviourType(NotificationBehaviourTypes notificationBehaviourType) {
+        this.notificationBehaviourType = notificationBehaviourType;
     }
-
 
     public BacklogItemState getBacklogItemToDoState() {
         return backlogItemToDoState;
@@ -297,5 +284,7 @@ public class BacklogItem implements Comparable{
         // TODO: Test if this is the correct order and should not be swapped
         return Integer.compare(this.priority, (Integer)o);
     }
+
+
 }
 

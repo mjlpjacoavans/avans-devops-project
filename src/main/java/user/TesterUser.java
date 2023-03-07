@@ -1,8 +1,9 @@
 package main.java.user;
 
 public class TesterUser extends IUser{
-    public TesterUser(String name, String email, String phoneNumber) {
-        super(name, email, phoneNumber);
+
+    public TesterUser(String name, String email, String phoneNumber, String slackId) {
+        super(name, email, phoneNumber, slackId);
     }
 
     @Override
