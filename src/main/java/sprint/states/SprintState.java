@@ -10,4 +10,10 @@ public interface SprintState {
     String changeStartDate(Date date);
     String changeEndDate(Date date);
     String addSprintBacklog(SprintBacklog sprintBacklog);
+    String addReviewSummary(String summary);
+    String executeRelease();
+    String notifyScrummaster(String message);
+    String notifyProductOwner(String message);
+    String executePipeline();
+    String cancelRelease();
 }

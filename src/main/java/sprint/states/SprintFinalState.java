@@ -16,21 +16,52 @@ public class SprintFinalState implements SprintState{
 
     @Override
     public String changeName(String name) {
-        return "Can not change name. This can only be changed in the initialised state!";
+        return "Cannot change perform this action in this state!";
     }
 
     @Override
     public String changeStartDate(Date date) {
-        return "Can not change start date. This can only be changed in the initialised state!";
+        return "Cannot change perform this action in this state!";
     }
 
     @Override
     public String changeEndDate(Date date) {
-        return "Can not change end date. This can only be changed in the initialised state!";
+        return "Cannot change perform this action in this state!";
     }
 
     @Override
     public String addSprintBacklog(SprintBacklog sprintBacklog) {
-        return "Can not change sprint backlog. This can only be changed in the initialised state!";
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String addReviewSummary(String summary) {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String executeRelease() {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String notifyScrummaster(String message) {
+        //TODO: Michel observer pattern
+        return null;
+    }
+
+    @Override
+    public String notifyProductOwner(String message) {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String executePipeline() {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String cancelRelease() {
+        return "Cannot change perform this action in this state!";
     }
 }

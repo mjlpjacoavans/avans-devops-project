@@ -5,14 +5,12 @@ import main.java.sprint.SprintBacklog;
 
 import java.util.Date;
 
-public class SprintFinishedState implements SprintState{
-
+public class SprintReleaseFinishedState implements SprintState{
     Sprint sprint;
 
-    public SprintFinishedState(Sprint sprint){
+    public SprintReleaseFinishedState(Sprint sprint){
         this.sprint = sprint;
     }
-
 
     @Override
     public String changeName(String name) {
@@ -36,24 +34,24 @@ public class SprintFinishedState implements SprintState{
 
     @Override
     public String addReviewSummary(String summary) {
-        sprint.addReviewSummaryStateOverride(summary);
-        return "added!";
+        return "Cannot change perform this action in this state!";
     }
 
     @Override
     public String executeRelease() {
-        //TODO: execute
-        return null;
+        return "Cannot change perform this action in this state!";
     }
 
     @Override
     public String notifyScrummaster(String message) {
-        return "Cannot change perform this action in this state!";
+        //TODO: Michel observer pattern
+        return null;
     }
 
     @Override
     public String notifyProductOwner(String message) {
-        return "Cannot change perform this action in this state!";
+        //TODO: Michel oberserver pattern
+        return null;
     }
 
     @Override

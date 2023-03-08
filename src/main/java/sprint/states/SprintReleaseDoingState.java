@@ -5,14 +5,12 @@ import main.java.sprint.SprintBacklog;
 
 import java.util.Date;
 
-public class SprintFinishedState implements SprintState{
-
+public class SprintReleaseDoingState implements SprintState{
     Sprint sprint;
 
-    public SprintFinishedState(Sprint sprint){
+    public SprintReleaseDoingState(Sprint sprint){
         this.sprint = sprint;
     }
-
 
     @Override
     public String changeName(String name) {
@@ -36,14 +34,12 @@ public class SprintFinishedState implements SprintState{
 
     @Override
     public String addReviewSummary(String summary) {
-        sprint.addReviewSummaryStateOverride(summary);
-        return "added!";
+        return "Cannot change perform this action in this state!";
     }
 
     @Override
     public String executeRelease() {
-        //TODO: execute
-        return null;
+        return "Cannot change perform this action in this state!";
     }
 
     @Override
@@ -58,7 +54,8 @@ public class SprintFinishedState implements SprintState{
 
     @Override
     public String executePipeline() {
-        return "Cannot change perform this action in this state!";
+        //TODO: execute
+        return null;
     }
 
     @Override

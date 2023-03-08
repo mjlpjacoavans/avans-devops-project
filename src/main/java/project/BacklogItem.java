@@ -129,34 +129,50 @@ public class BacklogItem implements Comparable{
     }
 
     public void setState(BacklogItemState state){
-        this.state = state;
+        //Check if sprint state is doing. else you cant change state
+        if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()){
+            this.state = state;
+        }
     }
 
     public void setStateToTODO(){
-        this.state.setStateToTODO();
+        if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
+            this.state.setStateToTODO();
+        }
     }
 
     void setStateToDOING(){
-        this.state.setStateToDOING();
+        if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
+            this.state.setStateToDOING();
+        }
     }
 
     void setStateToREADYFORTESTING(){
-        this.state.setStateToREADYFORTESTING();
+        if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
+            this.state.setStateToREADYFORTESTING();
+        }
     }
 
     void setStateToTESTING(){
-        this.state.setStateToTESTING();
+        if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
+            this.state.setStateToTESTING();
+        }
     }
 
     void setStateTOTESTED(){
-        this.state.setStateTOTESTED();
+        if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
+            this.state.setStateTOTESTED();
+        }
     }
 
     void setStateToDONE(){
-        SprintState sprintBacklogSprintState  = this.getSprintBacklog().getSprint().getState();
-        if(sprintBacklogSprintState instanceof SprintInProgressState){
+//        SprintState sprintBacklogSprintState  = this.getSprintBacklog().getSprint().getState();
+//        if(sprintBacklogSprintState instanceof SprintInProgressState) {
+//        }
+        if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateToDONE();
         }
+
     }
 
     public List<Activity> splitInActivities(List<Activity> activities) throws Exception {

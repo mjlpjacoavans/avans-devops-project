@@ -12,6 +12,8 @@ import main.java.user.TesterUser;
 import java.time.LocalDate;
 import java.util.Date;
 
+//TODO: Auto state switch van ini naar inprogress en inprogress naar finished
+
 public class Sprint {
     SprintBacklog sprintBacklog;
     Goal goal;
@@ -25,6 +27,7 @@ public class Sprint {
     TesterUser[] testers;
     LeadDeveloperUser leadDeveloper;
     ScrumMasterUser scrumMaster;
+    String reviewSummary;
 
     LocalDate currentDate;
     LocalDate yesterdayDate;
@@ -35,6 +38,10 @@ public class Sprint {
     SprintState sprintInProgressState;
     SprintState sprintFinishedState;
     SprintState sprintFinalState;
+    SprintState sprintReleaseDoingState;
+    SprintState sprintReleaseFinishedState;
+    SprintState sprintReleaseCancelledState;
+    SprintState sprintReleaseErrorState;
 
     public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers, LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster){
         this.goal = goal;
@@ -51,10 +58,16 @@ public class Sprint {
         this.sprintInProgressState = new SprintInProgressState(this);
         this.sprintFinishedState = new SprintFinishedState(this);
         this.sprintFinalState = new SprintFinalState(this);
+        this.sprintReleaseDoingState = new SprintReleaseDoingState(this);
+        this.sprintReleaseFinishedState = new SprintReleaseFinishedState(this);
+        this.sprintReleaseCancelledState = new SprintReleaseCancelledState(this);
+        this.sprintReleaseErrorState = new SprintReleaseErrorState(this);
 
         this.state = sprintInitialisedState;
         currentDate = LocalDate.now();
         yesterdayDate = LocalDate.now().minusDays(1);
+
+        this.reviewSummary = null;
 
 
         //TODO: fix het wanneer een sprint wordt aangemaakt met een enddate in verleden
@@ -78,6 +91,10 @@ public class Sprint {
 
     public SprintState getState() {
         return state;
+    }
+
+    public SprintState getStateInProgress(){
+        return this.sprintInProgressState;
     }
 
     public void setName(String name){
@@ -125,7 +142,46 @@ public class Sprint {
         return testers;
     }
 
-    public Sprint(DeveloperUser[] developers) {
-        this.developers = developers;
+    public void addReviewSummary(String summary){
+        this.state.addReviewSummary(summary);
     }
+
+    public String addReviewSummaryStateOverride(String summary){
+        this.reviewSummary = summary;
+        return summary;
+    }
+
+//    public Sprint(DeveloperUser[] developers) {
+//        this.developers = developers;
+//    }
+
+    public void setStateToSprintInProgress(){
+
+    }
+
+    public void setStateToSprintFinished(){
+
+    }
+
+    public void setStateToSprintFinal(){
+
+    }
+
+    public void setStateToSprintReleaseDoing(){
+
+    }
+
+    public void setStateToSprintReleaseFinished(){
+
+    }
+
+    public void setStateToSprintReleaseCancelled(){
+
+    }
+
+    public void setStateToSprintReleaseError(){
+
+    }
+
+
 }

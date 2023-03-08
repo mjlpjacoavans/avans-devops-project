@@ -41,4 +41,34 @@ public class SprintInitializedState implements SprintState{
 
         return "Sprint backlog changed to: " + sprintBacklog;
     }
+
+    @Override
+    public String addReviewSummary(String summary) {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String executeRelease() {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String notifyScrummaster(String message) {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String notifyProductOwner(String message) {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String executePipeline() {
+        return "Cannot change perform this action in this state!";
+    }
+
+    @Override
+    public String cancelRelease() {
+        return "Cannot change perform this action in this state!";
+    }
 }
