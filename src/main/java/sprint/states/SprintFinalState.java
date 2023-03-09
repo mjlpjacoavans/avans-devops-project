@@ -1,16 +1,32 @@
 package main.java.sprint.states;
 
+import main.java.notification.behaviours.DynamicNotificationBehaviour;
+import main.java.notification.behaviours.INotificationBehaviour;
+import main.java.notification.observer.ISubscriber;
+import main.java.notification.observer.NotificationSubscriber;
+import main.java.notification.observer.Publisher;
 import main.java.sprint.Sprint;
 import main.java.sprint.SprintBacklog;
 
+import java.util.Collections;
 import java.util.Date;
 
-public class SprintFinalState implements SprintState{
+public class SprintFinalState extends Publisher implements SprintState{
 
     Sprint sprint;
 
     public SprintFinalState(Sprint sprint){
         this.sprint = sprint;
+
+        String scrumMasterIdentifier = this.sprint
+                .getScrumMaster()
+                .getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
+
+        INotificationBehaviour scrumMasterNotificationBehaviour = new DynamicNotificationBehaviour(
+                this.sprint.getNotificationBehaviourType(), scrumMasterIdentifier);
+
+        ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
+        this.subscribe(scrumMasterSubscriber);
     }
 
 
@@ -44,9 +60,17 @@ public class SprintFinalState implements SprintState{
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
-    @Override
+    @Override // TODO: Maybe fix return type
     public String notifyScrummaster(String message) {
-        //TODO: Michel observer pattern
+        //DONE?: Michel observer pattern
+
+        this.notifySubscribers(message);
+
+        String scrumMasterEmail = this.sprint
+                .getScrumMaster()
+                .getEmail();
+
+        this.notifySubscribers(message, Collections.singletonList(scrumMasterEmail).toArray(new String[0]));
         return null;
     }
 

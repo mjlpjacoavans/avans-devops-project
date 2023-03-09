@@ -1,5 +1,6 @@
 package main.java.user;
 
+import main.java.notification.behaviours.NotificationBehaviourTypes;
 import main.java.project.Project;
 
 import java.util.ArrayList;
@@ -57,5 +58,17 @@ public class ProductOwnerUser {
                 ", email='" + email + '\'' +
                 '}';
         return sb;
+    }
+
+
+    public String getIdentifierForNotificationBehaviourType(NotificationBehaviourTypes notificationBehaviourType){
+        if( notificationBehaviourType == NotificationBehaviourTypes.EMAIL){
+            return this.getEmail();
+        } else if (notificationBehaviourType == NotificationBehaviourTypes.STDOUT) {
+            return "/dev/fd/1";
+        } else if (notificationBehaviourType == NotificationBehaviourTypes.SLACK) {
+            throw new IllegalArgumentException("Product owner does not have a slack identifier because he/she is outside the organization.");
+        }
+        return null;
     }
 }

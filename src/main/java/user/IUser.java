@@ -33,6 +33,6 @@ public abstract class IUser {
         return ( notificationBehaviourType == NotificationBehaviourTypes.EMAIL)  ?  this.getEmail()
              : ( notificationBehaviourType == NotificationBehaviourTypes.SLACK)  ?  this.getSlackId()
              : ( notificationBehaviourType == NotificationBehaviourTypes.STDOUT) ?  "/dev/fd/1"
-             : "";
+             : null;
     }
 }

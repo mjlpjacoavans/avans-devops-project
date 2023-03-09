@@ -1,6 +1,7 @@
 package main.java.sprint;
 
 import main.java.enums.Goal;
+import main.java.notification.behaviours.NotificationBehaviourTypes;
 import main.java.sprint.states.*;
 import main.java.sprintreport.ISprintReportBuilder;
 import main.java.sprintreport.domain.ISprintReport;
@@ -43,6 +44,8 @@ public class Sprint {
     SprintState sprintReleaseCancelledState;
     SprintState sprintReleaseErrorState;
 
+    NotificationBehaviourTypes notificationBehaviourType;
+
     public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers, LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster){
         this.goal = goal;
         this.name = name;
@@ -77,8 +80,18 @@ public class Sprint {
     }
 
 
+    public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers,
+                  LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster, NotificationBehaviourTypes notificationBehaviourType){
+        this(goal, name, startDate, endDate, developers, testers, leadDeveloper, scrumMaster);
+        this.notificationBehaviourType = notificationBehaviourType;
+    }
 
-    public String setState(SprintState state){
+
+
+
+
+
+        public String setState(SprintState state){
         this.state = state;
 
         if(this.state != state){
@@ -86,6 +99,14 @@ public class Sprint {
         }
 
         return "Sprint state set to: " + this.state;
+    }
+
+    public NotificationBehaviourTypes getNotificationBehaviourType() {
+        return notificationBehaviourType;
+    }
+
+    public void setNotificationBehaviourType(NotificationBehaviourTypes notificationBehaviourType) {
+        this.notificationBehaviourType = notificationBehaviourType;
     }
 
 
@@ -128,6 +149,10 @@ public class Sprint {
     public void addSprintBacklogOverrideState(SprintBacklog sprintBacklog){
         this.sprintBacklog =sprintBacklog;
 
+    }
+
+    public SprintBacklog getSprintBacklog() {
+        return sprintBacklog;
     }
 
     public ScrumMasterUser getScrumMaster() {

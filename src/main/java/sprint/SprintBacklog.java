@@ -25,4 +25,8 @@ public class SprintBacklog {
     public Sprint getSprint() {
         return sprint;
     }
+
+    public List<BacklogItem> getBacklogItems() {
+        return backlogItems;
+    }
 }

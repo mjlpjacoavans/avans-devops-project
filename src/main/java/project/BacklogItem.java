@@ -63,7 +63,6 @@ public class BacklogItem implements Comparable{
     }
 
     public BacklogItem(ProductBacklog productBacklog, String text, Integer priority, NotificationBehaviourTypes notificationBehaviourType){
-        // TODO: TEST IF THIS ACTUALLY WORKS SINCE IT REALLY USED TO NAG ABOUT THIS
         this(productBacklog, text, priority);
 
         this.notificationBehaviourType = notificationBehaviourType;
@@ -301,6 +300,8 @@ public class BacklogItem implements Comparable{
         return Integer.compare(this.priority, (Integer)o);
     }
 
-
+    public ProductBacklog getProductBacklog() {
+        return productBacklog;
+    }
 }
 

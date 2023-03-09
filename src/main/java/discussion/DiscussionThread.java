@@ -15,6 +15,7 @@ public class DiscussionThread implements DiscussionComponent {
     }
 
     public void addPost(DiscussionComponent post) {
+        // TODO: Michel Send a notification here
         post.setDepth(this.getDepth()+1);
         posts.add(post);
     }

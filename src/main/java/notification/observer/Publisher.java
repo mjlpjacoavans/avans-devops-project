@@ -36,4 +36,6 @@ public class Publisher implements IPublisher{
             }
         }
     }
+
+    // TODO: Add an overload that takes a single string as an identifier
 }
