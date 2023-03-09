@@ -175,6 +175,23 @@ public abstract class BasePipeline implements IPipeline{
     public void onPipelineEnds() {
         // this.running = false;
         System.out.println("Callback not overriden");
+
+        if(this.getSuccess()){
+            this.onPipelineSuccess();
+        }
+        else{
+            this.onPipelineFail();
+        }
+    }
+
+    @Override
+    public void onPipelineSuccess(){
+        System.out.println("Pipepeline succeeded");
+    }
+
+    @Override
+    public void onPipelineFail(){
+        System.out.println("Pipeline failed");
     }
 
     @Override

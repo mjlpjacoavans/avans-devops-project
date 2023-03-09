@@ -25,6 +25,10 @@ public interface IPipeline {
 
     void onPipelineEnds();
 
+    void onPipelineSuccess();
+    void onPipelineFail();
+
+
     Boolean getRunning();
 
     void setRunning(Boolean running);

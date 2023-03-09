@@ -149,13 +149,12 @@ public class PipelineTests {
     public void PIPLEINE_TEST_6_run_client_dev_pipeline_on_success() {
 
         IPipeline pipeline = new DevelopmentPipeline(){
-            public void onPipelineEnds(){
-                if(this.getSuccess()){
-                    System.out.println("Pipeline succeeded");
-                }
-                else{
-                    System.out.println("Pipeline failed");
-                }
+            public void onPipelineSuccess(){
+                System.out.println("Success hook overriden");
+            }
+
+            public void onPipelineFail(){
+                System.out.println("Failure hook overriden");
             }
         };
         pipeline.startPipeline();
