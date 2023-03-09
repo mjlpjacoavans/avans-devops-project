@@ -14,42 +14,42 @@ public class SprintReleaseDoingState implements SprintState{
 
     @Override
     public String changeName(String name) {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
     @Override
     public String changeStartDate(Date date) {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
     @Override
     public String changeEndDate(Date date) {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
     @Override
     public String addSprintBacklog(SprintBacklog sprintBacklog) {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
     @Override
     public String addReviewSummary(String summary) {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
     @Override
     public String executeRelease() {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
     @Override
     public String notifyScrummaster(String message) {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
     @Override
     public String notifyProductOwner(String message) {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
     @Override
@@ -60,6 +60,6 @@ public class SprintReleaseDoingState implements SprintState{
 
     @Override
     public String cancelRelease() {
-        return "Cannot change perform this action in this state!";
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 }
