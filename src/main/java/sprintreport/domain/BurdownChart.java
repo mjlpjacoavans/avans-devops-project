@@ -3,7 +3,7 @@ package main.java.sprintreport.domain;
 import java.util.List;
 
 public class BurdownChart {
-    private List<Integer> burnDownChartNumbers;
+    private final List<Integer> burnDownChartNumbers;
 
     public BurdownChart(List<Integer> burnDownChartNumbers) {
         // Imagine doing some real calculating and plotting right here

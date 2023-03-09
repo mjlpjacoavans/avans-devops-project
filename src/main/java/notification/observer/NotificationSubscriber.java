@@ -1,19 +1,18 @@
-package main.java.notification;
+package main.java.notification.observer;
 
 import main.java.notification.behaviours.INotificationBehaviour;
 import main.java.notification.behaviours.StdOutNotificationBehaviour;
-import main.java.notification.observer.ISubscriber;
 
-public class BaseNotificationSubscriber implements ISubscriber {
+public class NotificationSubscriber implements ISubscriber {
 
     private INotificationBehaviour notificationBehaviour;
 
-    public BaseNotificationSubscriber(INotificationBehaviour notificationBehaviour) {
+    public NotificationSubscriber(INotificationBehaviour notificationBehaviour) {
         this.notificationBehaviour = notificationBehaviour;
     }
 
     // This constructor has to be added because otherwise child classes are going to nag on super()
-    public BaseNotificationSubscriber() {
+    public NotificationSubscriber() {
         this.notificationBehaviour = new StdOutNotificationBehaviour();
     }
 
@@ -29,4 +28,5 @@ public class BaseNotificationSubscriber implements ISubscriber {
     public void update(String message) {
         this.notificationBehaviour.sendNotification(message);
     }
+
 }

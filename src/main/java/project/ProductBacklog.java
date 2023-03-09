@@ -47,9 +47,8 @@ public class ProductBacklog {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ProductBacklog{");
-        sb.append("backlogItems=").append(backlogItems);
-        sb.append('}');
-        return sb.toString();
+        String sb = "ProductBacklog{" + "backlogItems=" + backlogItems +
+                '}';
+        return sb;
     }
 }

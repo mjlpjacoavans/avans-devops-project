@@ -9,10 +9,12 @@ public class ProductOwnerUser {
     List<Project> projects;
     String name;
     String email;
+    String slackId;
 
-    public ProductOwnerUser(String name, String email){
+    public ProductOwnerUser(String name, String email, String slackId){
         this.name = name;
         this.email = email;
+        this.slackId = slackId;
         this.projects = new ArrayList<>();
     }
 
@@ -51,10 +53,9 @@ public class ProductOwnerUser {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ProductOwnerUser{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append('}');
-        return sb.toString();
+        String sb = "ProductOwnerUser{" + "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+        return sb;
     }
 }

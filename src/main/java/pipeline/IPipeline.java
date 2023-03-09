@@ -9,28 +9,28 @@ public interface IPipeline {
 //    public Boolean success = false;
 
 
-    public void startPipeline();
-    public void onPipelineStarts();
-    public Boolean runSources();
-    public Boolean runPackage();
-    public Boolean runBuild();
-    public Boolean runTest();
-    public Boolean runAnalysis();
-    public Boolean runDeploy();
-    public Boolean runUtility();
+    void startPipeline();
+    void onPipelineStarts();
+    Boolean runSources();
+    Boolean runPackage();
+    Boolean runBuild();
+    Boolean runTest();
+    Boolean runAnalysis();
+    Boolean runDeploy();
+    Boolean runUtility();
 
-    public void endPipeline();
+    void endPipeline();
 
     // TODO: Perhapse add a paramter to it to indicate if it crashed or was done by a user
 
-    public void onPipelineEnds();
+    void onPipelineEnds();
 
-    public Boolean getRunning();
+    Boolean getRunning();
 
-    public void setRunning(Boolean running);
+    void setRunning(Boolean running);
 
-    public Boolean getSuccess();
+    Boolean getSuccess();
 
-    public void setSuccess(Boolean success);
+    void setSuccess(Boolean success);
 
 }

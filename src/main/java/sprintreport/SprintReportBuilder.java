@@ -8,8 +8,8 @@ import java.util.List;
 
 public class SprintReportBuilder implements ISprintReportBuilder {
 
-    private ISprintReport sprintReport;
-    private ReportFormat format;
+    private final ISprintReport sprintReport;
+    private final ReportFormat format;
     public SprintReportBuilder(ReportFormat format,
                                String reportName, String reportFileName) {
         this.format = format;
