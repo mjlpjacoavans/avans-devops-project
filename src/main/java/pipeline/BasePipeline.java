@@ -197,6 +197,9 @@ public abstract class BasePipeline implements IPipeline{
         this.success = success;
     }
 
+    // TODO: Maybe add a callback for on success and on failure,
+    //  but for now just use this.success in onPipelineEnds
+
 
 
     // TODO: Read this better and also keep this logic into account or somehting idk

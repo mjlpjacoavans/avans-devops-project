@@ -144,4 +144,21 @@ public class PipelineTests {
         pipeline.startPipeline();
         System.out.println(pipeline.getSuccess());
     }
+
+    @Test
+    public void PIPLEINE_TEST_6_run_client_dev_pipeline_on_success() {
+
+        IPipeline pipeline = new DevelopmentPipeline(){
+            public void onPipelineEnds(){
+                if(this.getSuccess()){
+                    System.out.println("Pipeline succeeded");
+                }
+                else{
+                    System.out.println("Pipeline failed");
+                }
+            }
+        };
+        pipeline.startPipeline();
+        System.out.println(pipeline.getSuccess());
+    }
 }
