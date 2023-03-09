@@ -28,7 +28,7 @@ public class PipelineTests {
     private class FakeDeploymentClient{
 
         private String zipPath;
-        private String apiKey;
+        private final String apiKey;
 
         public FakeDeploymentClient(String apiKey) {
             this.apiKey = apiKey;
@@ -111,7 +111,7 @@ public class PipelineTests {
                     return true;
 
                 } catch (FileNotFoundException e) {
-                    System.out.println("Exception occurred while building: " + e.toString());
+                    System.out.println("Exception occurred while building: " + e);
                     return false;
                 }
             }
@@ -136,7 +136,7 @@ public class PipelineTests {
                     return true;
 
                 } catch (FileNotFoundException e) {
-                    System.out.println("Exception occurred while building: " + e.toString());
+                    System.out.println("Exception occurred while building: " + e);
                     return false;
                 }
             }

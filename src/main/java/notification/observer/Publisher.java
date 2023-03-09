@@ -8,7 +8,7 @@ import java.util.List;
 //  but perhaps composition would be a better choice.
 //  go look into that.
 public class Publisher implements IPublisher{
-   private List<ISubscriber> subscribers = new ArrayList<>();
+   private final List<ISubscriber> subscribers = new ArrayList<>();
     @Override
     public void subscribe(ISubscriber subscriber) {
         this.subscribers.add(subscriber);

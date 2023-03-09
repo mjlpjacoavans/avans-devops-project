@@ -33,7 +33,7 @@ public class ReportTests {
         String b64Logo  = "b64://<IMAGE>;";
         String projectName  = "Company Name 1 Project 1";
         String version  = "0.0.1";
-        Date date = today.getTime();;
+        Date date = today.getTime();
 
         List<IUser> teamMebers = Arrays.asList(
                 new DeveloperUser("User 1", "user1@company.tld", "123456","01"),

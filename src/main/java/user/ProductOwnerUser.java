@@ -53,10 +53,9 @@ public class ProductOwnerUser {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ProductOwnerUser{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append('}');
-        return sb.toString();
+        String sb = "ProductOwnerUser{" + "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+        return sb;
     }
 }

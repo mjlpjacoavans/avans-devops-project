@@ -115,7 +115,6 @@ public abstract class BasePipeline implements IPipeline{
         this.running = false;
         this.success = true;
         this.onPipelineEnds();
-        return;
     }
 
     @Override

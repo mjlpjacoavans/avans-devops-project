@@ -11,6 +11,7 @@ import main.java.user.DeveloperUser;
 import main.java.user.TesterUser;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class BacklogItemToDoState extends Publisher implements BacklogItemState {
@@ -46,7 +47,7 @@ public class BacklogItemToDoState extends Publisher implements BacklogItemState 
                         .getScrumMaster()
                         .getEmail();
 
-        this.notifySubscribers(message, Arrays.asList(scrumMasterEmail).toArray(new String[0]));
+        this.notifySubscribers(message, Collections.singletonList(scrumMasterEmail).toArray(new String[0]));
     }
 
     @Override

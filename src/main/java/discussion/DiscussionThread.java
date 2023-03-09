@@ -5,8 +5,8 @@ import java.util.List;
 
 // This is the composite
 public class DiscussionThread implements DiscussionComponent {
-    private String text;
-    private List<DiscussionComponent> posts;
+    private final String text;
+    private final List<DiscussionComponent> posts;
     private Integer DEPTH = 0;
 
     public DiscussionThread(String text) {
