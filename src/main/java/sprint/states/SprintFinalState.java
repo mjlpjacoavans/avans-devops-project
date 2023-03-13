@@ -1,4 +1,4 @@
-package main.java.sprint.states;
+package main.java.sprint.rystates;
 
 import main.java.notification.behaviours.DynamicNotificationBehaviour;
 import main.java.notification.behaviours.INotificationBehaviour;
