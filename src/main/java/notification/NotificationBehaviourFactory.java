@@ -15,7 +15,7 @@ public class NotificationBehaviourFactory {
                 : ( notificationBehaviourType == NotificationBehaviourTypes.SLACK)  ?  new SlackNotificaionBehaviour()
                 : ( notificationBehaviourType == NotificationBehaviourTypes.STDOUT) ?  new StdOutNotificationBehaviour()
                 : null;
-        if(retNotificationBehaviourType == null) throw new IllegalArgumentException("Notification behaviour type not supported")
+        if(retNotificationBehaviourType == null) throw new IllegalArgumentException("Notification behaviour type not supported");
         return retNotificationBehaviourType;
     }
 }
