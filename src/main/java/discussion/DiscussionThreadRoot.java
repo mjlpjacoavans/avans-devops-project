@@ -1,4 +1,4 @@
-package main.java.discussion;
+package discussion;
 
 public class DiscussionThreadRoot extends DiscussionThread{
     private String subject;

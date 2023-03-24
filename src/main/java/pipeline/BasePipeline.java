@@ -1,4 +1,4 @@
-package main.java.pipeline;
+package pipeline;
 
 public abstract class BasePipeline implements IPipeline{
     private Boolean running = false;

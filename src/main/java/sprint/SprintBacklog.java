@@ -1,6 +1,6 @@
-package main.java.sprint;
+package sprint;
 
-import main.java.project.BacklogItem;
+import project.BacklogItem;
 
 import java.util.List;
 

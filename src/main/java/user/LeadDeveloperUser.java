@@ -1,4 +1,4 @@
-package main.java.user;
+package user;
 
 public class LeadDeveloperUser  extends IUser{
     public LeadDeveloperUser(String name, String email, String phoneNumber, String slackId) {

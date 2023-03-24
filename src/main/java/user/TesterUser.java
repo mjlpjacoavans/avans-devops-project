@@ -1,4 +1,4 @@
-package main.java.user;
+package user;
 
 public class TesterUser extends IUser{
 

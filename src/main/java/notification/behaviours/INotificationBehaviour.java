@@ -1,4 +1,4 @@
-package main.java.notification.behaviours;
+package notification.behaviours;
 
 public interface INotificationBehaviour {
     void sendNotification(String text);

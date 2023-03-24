@@ -1,11 +1,11 @@
 package report;
 
 
-import main.java.sprintreport.ISprintReportBuilder;
-import main.java.sprintreport.SprintReportBuilder;
-import main.java.sprintreport.domain.ReportFormat;
-import main.java.user.DeveloperUser;
-import main.java.user.IUser;
+import sprintreport.ISprintReportBuilder;
+import sprintreport.SprintReportBuilder;
+import sprintreport.domain.ReportFormat;
+import user.DeveloperUser;
+import user.IUser;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

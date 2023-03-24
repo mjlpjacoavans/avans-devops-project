@@ -1,4 +1,4 @@
-package main.java.notification.observer;
+package notification.observer;
 
 public interface IPublisher {
     void subscribe(ISubscriber subscriber);

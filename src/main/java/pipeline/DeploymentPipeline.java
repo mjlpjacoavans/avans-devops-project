@@ -1,4 +1,4 @@
-package main.java.pipeline;
+package pipeline;
 
 public class DeploymentPipeline extends BasePipeline {
     public DeploymentPipeline(boolean autostart) {

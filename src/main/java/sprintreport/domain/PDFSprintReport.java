@@ -1,4 +1,4 @@
-package main.java.sprintreport.domain;
+package sprintreport.domain;
 
 public class PDFSprintReport implements ISprintReport {
 

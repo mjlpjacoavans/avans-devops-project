@@ -1,7 +1,7 @@
 package discussion;
 
-import main.java.discussion.DiscussionPost;
-import main.java.discussion.DiscussionThread;
+import discussion.DiscussionPost;
+import discussion.DiscussionThread;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;

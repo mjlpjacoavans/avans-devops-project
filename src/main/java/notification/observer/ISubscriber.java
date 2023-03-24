@@ -1,6 +1,6 @@
-package main.java.notification.observer;
+package notification.observer;
 
-import main.java.notification.behaviours.INotificationBehaviour;
+import notification.behaviours.INotificationBehaviour;
 
 public interface ISubscriber {
     void update(String message);

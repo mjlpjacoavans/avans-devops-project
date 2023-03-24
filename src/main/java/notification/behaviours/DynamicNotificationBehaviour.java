@@ -1,4 +1,4 @@
-package main.java.notification.behaviours;
+package notification.behaviours;
 
 
 // Behaviour pattern inside of behaviour pattern.

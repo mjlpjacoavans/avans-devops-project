@@ -1,10 +1,10 @@
-package main.java.project.states;
+package project.states;
 
-import main.java.notification.observer.Publisher;
-import main.java.project.Activity;
-import main.java.project.BacklogItem;
-import main.java.user.DeveloperUser;
-import main.java.user.TesterUser;
+import notification.observer.Publisher;
+import project.Activity;
+import project.BacklogItem;
+import user.DeveloperUser;
+import user.TesterUser;
 
 import java.util.List;
 

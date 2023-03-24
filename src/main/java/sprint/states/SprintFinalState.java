@@ -1,14 +1,14 @@
-package main.java.sprint.rystates;
+package sprint.rystates;
 
-import main.java.notification.NotificationBehaviourFactory;
-import main.java.notification.behaviours.DynamicNotificationBehaviour;
-import main.java.notification.behaviours.INotificationBehaviour;
-import main.java.notification.observer.ISubscriber;
-import main.java.notification.observer.NotificationSubscriber;
-import main.java.notification.observer.Publisher;
-import main.java.sprint.Sprint;
-import main.java.sprint.SprintBacklog;
-import main.java.sprint.states.SprintState;
+import notification.NotificationBehaviourFactory;
+import notification.behaviours.DynamicNotificationBehaviour;
+import notification.behaviours.INotificationBehaviour;
+import notification.observer.ISubscriber;
+import notification.observer.NotificationSubscriber;
+import notification.observer.Publisher;
+import sprint.Sprint;
+import sprint.SprintBacklog;
+import sprint.states.SprintState;
 
 import java.util.Collections;
 import java.util.Date;

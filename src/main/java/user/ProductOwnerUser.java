@@ -1,7 +1,7 @@
-package main.java.user;
+package user;
 
-import main.java.notification.behaviours.NotificationBehaviourTypes;
-import main.java.project.Project;
+import notification.behaviours.NotificationBehaviourTypes;
+import project.Project;
 
 import java.util.ArrayList;
 import java.util.List;

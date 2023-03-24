@@ -1,6 +1,6 @@
-package main.java.project;
+package project;
 
-import main.java.user.ProductOwnerUser;
+import user.ProductOwnerUser;
 
 public class Project {
     ProductBacklog productBacklog;

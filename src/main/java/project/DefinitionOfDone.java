@@ -1,4 +1,4 @@
-package main.java.project;
+package project;
 
 public class DefinitionOfDone {
     BacklogItem backlogItem;

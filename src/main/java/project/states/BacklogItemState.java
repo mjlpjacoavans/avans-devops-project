@@ -1,8 +1,8 @@
-package main.java.project.states;
+package project.states;
 
-import main.java.project.Activity;
-import main.java.user.DeveloperUser;
-import main.java.user.TesterUser;
+import project.Activity;
+import user.DeveloperUser;
+import user.TesterUser;
 
 import java.util.List;
 

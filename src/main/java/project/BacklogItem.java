@@ -1,12 +1,12 @@
-package main.java.project;
+package project;
 
-import main.java.notification.behaviours.NotificationBehaviourTypes;
-import main.java.project.states.*;
-import main.java.sprint.SprintBacklog;
-import main.java.sprint.states.SprintInProgressState;
-import main.java.sprint.states.SprintState;
-import main.java.user.DeveloperUser;
-import main.java.user.TesterUser;
+import notification.behaviours.NotificationBehaviourTypes;
+import project.states.*;
+import sprint.SprintBacklog;
+import sprint.states.SprintInProgressState;
+import sprint.states.SprintState;
+import user.DeveloperUser;
+import user.TesterUser;
 
 import java.util.ArrayList;
 import java.util.List;
