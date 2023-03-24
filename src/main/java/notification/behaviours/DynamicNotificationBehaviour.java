@@ -29,12 +29,12 @@ public class DynamicNotificationBehaviour implements INotificationBehaviour {
 
     @Override
     public void setIdentifier(String text) {
-        this.setIdentifier(text);
+        this.identifier = text;
     }
 
     @Override
     public String getIdentifier() {
-        return this.getIdentifier();
+        return this.identifier;
     }
 
     public NotificationBehaviourTypes getNotificationBehaviourType() {
