@@ -12,6 +12,7 @@ package main.java.notification.behaviours;
 public class DynamicNotificationBehaviour implements INotificationBehaviour {
 
     NotificationBehaviourTypes notificationBehaviourType = NotificationBehaviourTypes.EMAIL;
+    private String identifier;
     private INotificationBehaviour behaviour;
 
     public DynamicNotificationBehaviour(NotificationBehaviourTypes notificationBehaviourType) {
@@ -29,12 +30,12 @@ public class DynamicNotificationBehaviour implements INotificationBehaviour {
 
     @Override
     public void setIdentifier(String text) {
-        this.identifier = text;
+        this.behaviour.setIdentifier(text);
     }
 
     @Override
     public String getIdentifier() {
-        return this.identifier;
+        return this.behaviour.getIdentifier();
     }
 
     public NotificationBehaviourTypes getNotificationBehaviourType() {
