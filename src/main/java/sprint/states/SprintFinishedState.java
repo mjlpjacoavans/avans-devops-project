@@ -42,7 +42,8 @@ public class SprintFinishedState implements SprintState{
 
     @Override
     public String executeRelease() {
-        //TODO: execute
+        //TODO: Klopt dit?
+        this.sprint.setState(this.sprint.getSprintReleaseDoingState());
         return null;
     }
 

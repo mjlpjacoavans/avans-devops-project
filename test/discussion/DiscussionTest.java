@@ -1,3 +1,4 @@
+
 package discussion;
 
 import main.java.discussion.DiscussionPost;

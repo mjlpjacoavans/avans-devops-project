@@ -227,8 +227,8 @@ public class BacklogItem implements Comparable{
         this.state.setTested();
     }
 
-    public void setDefinitionMet(){
-        this.state.setDefinitionMet();
+    public void setDefinitionMet(String email){
+        this.state.setDefinitionMet(email);
     }
 
     public void setDevelopedStateHelper() throws Exception {

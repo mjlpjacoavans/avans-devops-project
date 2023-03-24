@@ -211,4 +211,35 @@ public class Sprint {
     }
 
 
+    public SprintState getSprintInitialisedState() {
+        return sprintInitialisedState;
+    }
+
+    public SprintState getSprintInProgressState() {
+        return sprintInProgressState;
+    }
+
+    public SprintState getSprintFinishedState() {
+        return sprintFinishedState;
+    }
+
+    public SprintState getSprintFinalState() {
+        return sprintFinalState;
+    }
+
+    public SprintState getSprintReleaseDoingState() {
+        return sprintReleaseDoingState;
+    }
+
+    public SprintState getSprintReleaseFinishedState() {
+        return sprintReleaseFinishedState;
+    }
+
+    public SprintState getSprintReleaseCancelledState() {
+        return sprintReleaseCancelledState;
+    }
+
+    public SprintState getSprintReleaseErrorState() {
+        return sprintReleaseErrorState;
+    }
 }

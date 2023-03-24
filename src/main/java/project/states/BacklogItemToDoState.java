@@ -83,7 +83,7 @@ public class BacklogItemToDoState extends Publisher implements BacklogItemState 
     }
 
     @Override
-    public void setDefinitionMet() {
+    public void setDefinitionMet(String email) {
         throw new IllegalStateException(STATE_BASE_MESSAGE); // NOSONAR
     }
 

@@ -46,10 +46,14 @@ public class BacklogItemTestedState implements BacklogItemState{
     }
 
     @Override
-    public void setDefinitionMet() {
+    public void setDefinitionMet(String email) {
         //TODO: kijk of alleen lead dev dit kan
-        this.backlogItem.setDefinitionMetStateOverride();
-        this.setStateToDONE();
+
+        //Check if email is lead dev
+        if(email == this.backlogItem.getSprintBacklog().getSprint().getLeadDeveloper().getEmail()){
+            this.backlogItem.setDefinitionMetStateOverride();
+            this.setStateToDONE();
+        }
     }
 
     @Override

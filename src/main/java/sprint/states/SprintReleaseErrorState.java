@@ -82,7 +82,8 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
 
     @Override
     public String executeRelease() {
-        //TODO: execute
+        //TODO: Klopt dit?
+        this.sprint.setState(this.sprint.getSprintReleaseDoingState());
         return null;
     }
 
@@ -109,7 +110,8 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
 
     @Override
     public String cancelRelease() {
-        //TODO: cancel
+        //TODO: Klopt dit?
+        this.sprint.setState(this.sprint.getSprintReleaseCancelledState());
         return null;
     }
 }
