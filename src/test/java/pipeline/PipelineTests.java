@@ -1,4 +1,4 @@
-package java.pipeline;
+package pipeline;
 
 import main.java.pipeline.DeploymentPipeline;
 import main.java.pipeline.DevelopmentPipeline;

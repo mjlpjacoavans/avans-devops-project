@@ -1,4 +1,4 @@
-package java.discussion;
+package discussion;
 
 import main.java.discussion.DiscussionPost;
 import main.java.discussion.DiscussionThread;

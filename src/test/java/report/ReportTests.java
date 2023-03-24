@@ -1,4 +1,4 @@
-package java.report;
+package report;
 
 
 import main.java.sprintreport.ISprintReportBuilder;
