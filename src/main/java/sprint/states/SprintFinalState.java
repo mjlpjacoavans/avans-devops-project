@@ -7,11 +7,12 @@ import main.java.notification.observer.NotificationSubscriber;
 import main.java.notification.observer.Publisher;
 import main.java.sprint.Sprint;
 import main.java.sprint.SprintBacklog;
+import main.java.sprint.states.SprintState;
 
 import java.util.Collections;
 import java.util.Date;
 
-public class SprintFinalState extends Publisher implements SprintState{
+public class SprintFinalState extends Publisher implements SprintState {
 
     Sprint sprint;
 

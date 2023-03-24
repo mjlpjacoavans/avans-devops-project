@@ -24,12 +24,13 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit-jupiter.version}</version>
-            <scope>test</scope>
+            <scope>test.java</scope>
         </dependency>
 
     </dependencies>
 
     <build>
+        <sourceDirectory>src</sourceDirectory>
         <plugins>
 
             <!-- Need at least 2.22.0 to support JUnit 5 -->

@@ -2,6 +2,8 @@ package main.java.sprint;
 
 import main.java.enums.Goal;
 import main.java.notification.behaviours.NotificationBehaviourTypes;
+import main.java.sprint.SprintBacklog;
+import main.java.sprint.rystates.SprintFinalState;
 import main.java.sprint.states.*;
 import main.java.sprintreport.ISprintReportBuilder;
 import main.java.sprintreport.domain.ISprintReport;
