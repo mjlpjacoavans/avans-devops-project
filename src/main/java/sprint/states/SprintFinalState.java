@@ -1,5 +1,6 @@
 package main.java.sprint.rystates;
 
+import main.java.notification.NotificationBehaviourFactory;
 import main.java.notification.behaviours.DynamicNotificationBehaviour;
 import main.java.notification.behaviours.INotificationBehaviour;
 import main.java.notification.observer.ISubscriber;
@@ -23,8 +24,8 @@ public class SprintFinalState extends Publisher implements SprintState {
                 .getScrumMaster()
                 .getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
 
-        INotificationBehaviour scrumMasterNotificationBehaviour = new DynamicNotificationBehaviour(
-                this.sprint.getNotificationBehaviourType(), scrumMasterIdentifier);
+        INotificationBehaviour scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
+        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
 
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);
@@ -61,7 +62,7 @@ public class SprintFinalState extends Publisher implements SprintState {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
-    @Override // TODO: Maybe fix return type
+    @Override // nTODO: Maybe fix return type
     public String notifyScrummaster(String message) {
         //DONE?: Michel observer pattern
 

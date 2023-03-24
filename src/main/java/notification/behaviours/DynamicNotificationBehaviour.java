@@ -8,6 +8,7 @@ package main.java.notification.behaviours;
 // in a central place instead of having it littered everywhere or having
 // it in a static util class or something.
 
+@Deprecated
 public class DynamicNotificationBehaviour implements INotificationBehaviour {
 
     NotificationBehaviourTypes notificationBehaviourType = NotificationBehaviourTypes.EMAIL;

@@ -1,5 +1,6 @@
 package main.java.project.states;
 
+import main.java.notification.NotificationBehaviourFactory;
 import main.java.notification.behaviours.DynamicNotificationBehaviour;
 import main.java.notification.behaviours.INotificationBehaviour;
 import main.java.notification.observer.ISubscriber;
@@ -28,8 +29,8 @@ public class BacklogItemToDoState extends Publisher implements BacklogItemState 
                 .getScrumMaster()
                 .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
 
-        INotificationBehaviour scrumMasterNotificationBehaviour = new DynamicNotificationBehaviour(
-                this.backlogItem.getNotificationBehaviourType(), scrumMasterIdentifier);
+        INotificationBehaviour scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.backlogItem.getNotificationBehaviourType());
+        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
 
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);

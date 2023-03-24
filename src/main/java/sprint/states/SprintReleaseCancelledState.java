@@ -1,5 +1,6 @@
 package main.java.sprint.states;
 
+import main.java.notification.NotificationBehaviourFactory;
 import main.java.notification.behaviours.DynamicNotificationBehaviour;
 import main.java.notification.behaviours.INotificationBehaviour;
 import main.java.notification.observer.ISubscriber;
@@ -22,12 +23,12 @@ public class SprintReleaseCancelledState extends Publisher implements SprintStat
     public SprintReleaseCancelledState(Sprint sprint){
         this.sprint = sprint;
 
-        // TODO: This is very duplicated, put this in an abstract class later or something
+        // nTODO: This is very duplicated, put this in an abstract class later or something
 
         this.productOwner = this.sprint
                 .getSprintBacklog()
                 .getBacklogItems()
-                .get(0) // TODO: This is a bit strange and hacky, should find a different way to reference
+                .get(0) // nTODO: This is a bit strange and hacky, should find a different way to reference
                 .getProductBacklog()
                 .getProject()
                 .getProductOwner();
@@ -39,8 +40,8 @@ public class SprintReleaseCancelledState extends Publisher implements SprintStat
         String scrumMasterIdentifier =
                 this.scrumMaster.getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
 
-        INotificationBehaviour scrumMasterNotificationBehaviour = new DynamicNotificationBehaviour(
-                this.sprint.getNotificationBehaviourType(), scrumMasterIdentifier);
+        INotificationBehaviour scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
+        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
 
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);
@@ -50,8 +51,8 @@ public class SprintReleaseCancelledState extends Publisher implements SprintStat
         String productOwnerIdentifier =
                 this.productOwner.getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
 
-        INotificationBehaviour productOwnerNotificationBehaviour = new DynamicNotificationBehaviour(
-                this.sprint.getNotificationBehaviourType(), productOwnerIdentifier);
+        INotificationBehaviour productOwnerNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
+        productOwnerNotificationBehaviour.setIdentifier(productOwnerIdentifier);
 
         ISubscriber productOwnerSubscriber = new NotificationSubscriber(productOwnerNotificationBehaviour);
         this.subscribe(productOwnerSubscriber);

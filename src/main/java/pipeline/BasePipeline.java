@@ -1,6 +1,5 @@
 package main.java.pipeline;
 
-// TODO: Check if this should not be an abstract class, check up the definition of that anyway
 public abstract class BasePipeline implements IPipeline{
     private Boolean running = false;
     private Boolean success = false;
@@ -213,10 +212,6 @@ public abstract class BasePipeline implements IPipeline{
     public void setSuccess(Boolean success) {
         this.success = success;
     }
-
-    // TODO: Maybe add a callback for on success and on failure,
-    //  but for now just use this.success in onPipelineEnds
-
 
 
     // TODO: Read this better and also keep this logic into account or somehting idk

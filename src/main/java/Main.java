@@ -2,7 +2,6 @@ package main.java;
 
 public class Main {
     public static void main(String[] args) {
-//        TODO: Add adapter pattern somewhere
 //        //Create a product owner
 //        ProductOwnerUser productOwner1 = new ProductOwnerUser("Gerard", "Gerard@email.com");
 //

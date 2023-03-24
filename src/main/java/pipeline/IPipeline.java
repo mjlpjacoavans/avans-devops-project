@@ -21,7 +21,7 @@ public interface IPipeline {
 
     void endPipeline();
 
-    // TODO: Perhapse add a paramter to it to indicate if it crashed or was done by a user
+    // nTODO: Perhapse add a paramter to it to indicate if it crashed or was done by a user
 
     void onPipelineEnds();
 

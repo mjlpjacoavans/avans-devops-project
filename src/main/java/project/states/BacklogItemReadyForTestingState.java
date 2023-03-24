@@ -1,5 +1,6 @@
 package main.java.project.states;
 
+import main.java.notification.NotificationBehaviourFactory;
 import main.java.notification.behaviours.DynamicNotificationBehaviour;
 import main.java.notification.behaviours.INotificationBehaviour;
 import main.java.notification.observer.ISubscriber;
@@ -24,8 +25,9 @@ public class BacklogItemReadyForTestingState extends Publisher implements Backlo
         String testerIdentifier = this.backlogItem.getTester()
                         .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
 
-        INotificationBehaviour testerNotificationBehaviour = new DynamicNotificationBehaviour(
-                this.backlogItem.getNotificationBehaviourType(), testerIdentifier);
+
+        INotificationBehaviour testerNotificationBehaviour =  NotificationBehaviourFactory.create(this.backlogItem.getNotificationBehaviourType());
+        testerNotificationBehaviour.setIdentifier(testerIdentifier);
 
         ISubscriber testerSubscriber = new NotificationSubscriber(testerNotificationBehaviour);
         this.subscribe(testerSubscriber);

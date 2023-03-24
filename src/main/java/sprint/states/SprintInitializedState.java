@@ -12,7 +12,7 @@ public class SprintInitializedState implements SprintState{
         this.sprint = sprint;
     }
 
-    //TODO: Is set name state override method niet beetje cheesy. setname roept state aan. als je setname is state doet roep je weer state aan dus infinite loop.
+    //nTODO: Is set name state override method niet beetje cheesy. setname roept state aan. als je setname is state doet roep je weer state aan dus infinite loop.
 
     @Override
     public String changeName(String name) {

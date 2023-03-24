@@ -2,6 +2,7 @@ package main.java.sprint;
 
 import main.java.enums.Goal;
 import main.java.notification.behaviours.NotificationBehaviourTypes;
+import main.java.pipeline.IPipeline;
 import main.java.sprint.SprintBacklog;
 import main.java.sprint.rystates.SprintFinalState;
 import main.java.sprint.states.*;
@@ -45,6 +46,8 @@ public class Sprint {
     SprintState sprintReleaseFinishedState;
     SprintState sprintReleaseCancelledState;
     SprintState sprintReleaseErrorState;
+
+    IPipeline pipeline; // TODO: Initialize this appropriately
 
     NotificationBehaviourTypes notificationBehaviourType;
 
@@ -168,6 +171,8 @@ public class Sprint {
     public TesterUser[] getTesters() {
         return testers;
     }
+
+    public IPipeline getPipeline() { return pipeline; }
 
     public void addReviewSummary(String summary){
         this.state.addReviewSummary(summary);

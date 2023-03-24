@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO: As of right now these are all being inherited,
+// nTODO: As of right now these are all being inherited,
 //  but perhaps composition would be a better choice.
 //  go look into that.
 public class Publisher implements IPublisher{
@@ -37,5 +37,5 @@ public class Publisher implements IPublisher{
         }
     }
 
-    // TODO: Add an overload that takes a single string as an identifier
+    // nTODO: Add an overload that takes a single string as an identifier
 }

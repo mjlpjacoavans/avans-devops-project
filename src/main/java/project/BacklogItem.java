@@ -189,7 +189,7 @@ public class BacklogItem implements Comparable{
 
     public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
         if(this.activities == null){
-            //TODO: throw specific execption
+            //nTODO: throw specific execption
             throw new Exception("No activities in backlogitem");
         }else{
             for (int i = 0; i<this.activities.size()-1; i++){
