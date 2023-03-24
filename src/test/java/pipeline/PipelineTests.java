@@ -1,9 +1,9 @@
-package pipeline;
+package test.java.pipeline;
 
 import main.java.pipeline.DeploymentPipeline;
 import main.java.pipeline.DevelopmentPipeline;
 import main.java.pipeline.IPipeline;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
 

@@ -2,12 +2,13 @@ package discussion;
 
 import main.java.discussion.DiscussionPost;
 import main.java.discussion.DiscussionThread;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 
 public class DiscussionTest {
     @Test
