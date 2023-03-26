@@ -99,6 +99,115 @@ public class NotificaionTests {
     }
 
 
+    @Test
+    public void NOTIFICATION_TEST_2_notification_not_sent_to_unsubscribed_emails() {
+        // Arrange
+        TestPublisher tp = new TestPublisher();
+        IUser dev = new DeveloperUser("User 1", "user1@company.tld", "123456", "01");
+        NotificationBehaviourTypes type = NotificationBehaviourTypes.EMAIL;
+        INotificationBehaviour behaviour = NotificationBehaviourFactory.create(type);
+        behaviour.setIdentifier(dev.getIdentifierForNotificationBehaviourType(type));
+        ISubscriber subscriber = new NotificationSubscriber(behaviour);
+        tp.subscribe(subscriber);
+
+        IUser leadDev = new LeadDeveloperUser("User 2", "user2@company.tld", "223456", "02");
+        IUser scrumMaster = new ScrumMasterUser("User 3", "user3@company.tld", "323456", "03");
+
+        // Act
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        tp.testNotify();
+
+        // Assert
+        Assertions.assertTrue(
+                outputStream.toString().contains("Sending email with") &&
+                        outputStream.toString().contains("to " + dev.getEmail()) &&
+                        !outputStream.toString().contains("to " + leadDev.getEmail()) &&
+                        !outputStream.toString().contains("to " + scrumMaster.getEmail())
+        );
+    }
+
+
+    @Test
+    public void NOTIFICATION_TEST_3_notification_not_sent_to_unsubscribed_user() {
+        // Arrange
+        TestPublisher tp = new TestPublisher();
+        IUser dev = new DeveloperUser("User 1", "user1@company.tld", "123456", "01");
+        NotificationBehaviourTypes type = NotificationBehaviourTypes.EMAIL;
+        INotificationBehaviour behaviour = NotificationBehaviourFactory.create(type);
+        behaviour.setIdentifier(dev.getIdentifierForNotificationBehaviourType(type));
+        ISubscriber subscriber = new NotificationSubscriber(behaviour);
+        tp.subscribe(subscriber);
+
+        IUser leadDev = new LeadDeveloperUser("User 2", "user2@company.tld", "223456", "02");
+        IUser scrumMaster = new ScrumMasterUser("User 3", "user3@company.tld", "323456", "03");
+        IUser tester = new TesterUser("User 4", "user4@company.tld", "423456", "04");
+        ProductOwnerUser productOwner = new ProductOwnerUser("User 5", "user5@company.tld", "523456");
+
+        INotificationBehaviour behaviour2 = NotificationBehaviourFactory.create(type);
+        behaviour2.setIdentifier(leadDev.getIdentifierForNotificationBehaviourType(type));
+        ISubscriber subscriber2 = new NotificationSubscriber(behaviour2);
+
+        tp.subscribe(subscriber2);
+        tp.unsubscribe(subscriber);
+
+        // Act
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        tp.testNotify();
+
+        // Assert
+        Assertions.assertTrue(
+                outputStream.toString().contains("Sending email with") &&
+                        outputStream.toString().contains("to " + leadDev.getEmail()) &&
+                        !outputStream.toString().contains("to " + dev.getEmail())
+        );
+    }
+
+
+    @Test
+    public void NOTIFICATION_TEST_5_notification_sent_to_all_subscribed_users_with_different_behaviours() {
+        // Arrange
+        TestPublisher tp = new TestPublisher();
+
+        IUser dev = new DeveloperUser("User 1", "user1@company.tld", "123456", "01");
+        INotificationBehaviour devEmailBehaviour = NotificationBehaviourFactory.create(NotificationBehaviourTypes.EMAIL);
+        devEmailBehaviour.setIdentifier(dev.getIdentifierForNotificationBehaviourType(NotificationBehaviourTypes.EMAIL));
+        ISubscriber devSubscriber = new NotificationSubscriber(devEmailBehaviour);
+        tp.subscribe(devSubscriber);
+
+        IUser leadDev = new LeadDeveloperUser("User 2", "user2@company.tld", "223456", "02");
+        INotificationBehaviour leadDevSlackBehaviour = NotificationBehaviourFactory.create(NotificationBehaviourTypes.SLACK);
+        leadDevSlackBehaviour.setIdentifier(leadDev.getIdentifierForNotificationBehaviourType(NotificationBehaviourTypes.SLACK));
+        ISubscriber leadDevSubscriber = new NotificationSubscriber(leadDevSlackBehaviour);
+        tp.subscribe(leadDevSubscriber);
+
+        IUser scrumMaster = new ScrumMasterUser("User 3", "user3@company.tld", "323456", "03");
+        INotificationBehaviour scrumMasterStdoutBehaviour = NotificationBehaviourFactory.create(NotificationBehaviourTypes.STDOUT);
+        scrumMasterStdoutBehaviour.setIdentifier(scrumMaster.getIdentifierForNotificationBehaviourType(NotificationBehaviourTypes.STDOUT));
+        ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterStdoutBehaviour);
+        tp.subscribe(scrumMasterSubscriber);
+
+
+        // Act
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        tp.testNotify();
+
+
+        Assertions.assertTrue(
+                (outputStream.toString().contains("Sending email with") && outputStream.toString().contains("to " + dev.getEmail()))
+
+                        &&  outputStream.toString().contains("Sending Slack Message with client") && outputStream.toString().contains("to endpoint https://slack.tld/<ENDPOINT>/" + leadDev.getSlackId())
+
+                        &&  outputStream.toString().contains("Sending notification to stdout:")
+
+                        );
+    }
+
+
+
+
 
 
 }
