@@ -1,13 +1,18 @@
 package pipeline;
 
+import org.junit.jupiter.api.Assertions;
 import pipeline.DeploymentPipeline;
 import pipeline.DevelopmentPipeline;
 import pipeline.IPipeline;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
+import java.io.InvalidObjectException;
 
 public class PipelineTests {
+
+
+    /// Arange some more realistic setup utilities
 
 
     // These methods are used as default overrides
@@ -62,14 +67,14 @@ public class PipelineTests {
     public void PIPLEINE_TEST_1_run_default_dev_pipeline_successfully() {
         IPipeline pipeline = new DevelopmentPipeline();
         pipeline.startPipeline();
-        System.out.println(pipeline.getSuccess());
+        Assertions.assertTrue(pipeline.getSuccess());
     }
 
     @Test
     public void PIPLEINE_TEST_2_run_default_dep_pipeline_successfully() {
         IPipeline pipeline = new DeploymentPipeline();
         pipeline.startPipeline();
-        System.out.println(pipeline.getSuccess());
+        Assertions.assertTrue(pipeline.getSuccess());
     }
 
     @Test
@@ -80,7 +85,7 @@ public class PipelineTests {
             }
         };
         pipeline.startPipeline();
-        System.out.println(pipeline.getSuccess());
+        Assertions.assertTrue(pipeline.getSuccess());
     }
 
 
@@ -121,11 +126,11 @@ public class PipelineTests {
             }
         };
         pipeline.startPipeline();
-        System.out.println(pipeline.getSuccess());
+        Assertions.assertTrue(pipeline.getSuccess());
     }
 
     @Test
-    public void PIPLEINE_TEST_5_run_client_dev_pipeline_unsuccessfully() {
+    public void PIPLEINE_TEST_5_unhappy_run_client_dev_pipeline_unsuccessfully() {
 
         String paasApiToken = "aaaaaaaaaaa-bbbbbbbbbbb-cccccccccc";
         FakeDeploymentClient client = new FakeDeploymentClientFailing(paasApiToken);
@@ -142,7 +147,7 @@ public class PipelineTests {
             }
         };
         pipeline.startPipeline();
-        System.out.println(pipeline.getSuccess());
+        Assertions.assertFalse(pipeline.getSuccess());
     }
 
     @Test
@@ -158,6 +163,20 @@ public class PipelineTests {
             }
         };
         pipeline.startPipeline();
-        System.out.println(pipeline.getSuccess());
+        Assertions.assertTrue(pipeline.getSuccess());
     }
+
+//    public void PIPLEINE_TEST_7_unhappy_dev_pipeline_can_not_deploy() {
+//        IPipeline pipeline = new DevelopmentPipeline(){
+//            SUGGESTION: This can not be done since it already crashes on compile time
+//             and can not seem to figure out how to check if method is static via reflection
+//            public Boolean runDeploy(){
+//                System.out.println("Trying to deploy on a dev pipeline");
+//            }
+//        };
+//        pipeline.startPipeline();
+//        Assertions.assertTrue(pipeline.getSuccess());
+//    }
+
+
 }

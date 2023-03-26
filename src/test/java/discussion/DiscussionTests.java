@@ -1,9 +1,6 @@
 package discussion;
 
-import discussion.DiscussionPost;
-import discussion.DiscussionThread;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -11,7 +8,7 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertEquals;
 
 
-public class DiscussionTest {
+public class DiscussionTests {
     @Test
     public void DISCUSSION_TEST_1_discussion_created_successfully(){
 

@@ -177,7 +177,7 @@ public class ReportTests {
     }
 
     @Test
-    public void REPORT_TEST_5_pdf_report_saved_correctly_extension() throws InvalidObjectException {
+    public void REPORT_TEST_5_pdf_report_saved_correctly_extension_pdf() throws InvalidObjectException {
         // Arrange
         ReportFormat format = ReportFormat.PDF;
         String reportName = "Sprint one report";
@@ -215,9 +215,48 @@ public class ReportTests {
         );
     }
 
+    @Test
+    public void REPORT_TEST_6_pdf_report_saved_correctly_extension_png() throws InvalidObjectException {
+        // Arrange
+        ReportFormat format = ReportFormat.PNG;
+        String reportName = "Sprint one report";
+        String reportFileName = "sprint-1-report";
+
+        ISprintReportBuilder pdfSprintReportBuilder = new SprintReportBuilder(format, reportName, reportFileName);
+
+        Calendar today = Calendar.getInstance();
+        today.clear(Calendar.HOUR); today.clear(Calendar.MINUTE); today.clear(Calendar.SECOND);
+
+        String companyName = "Company Name 1";
+        String b64Logo  = "b64://<IMAGE>;";
+        String projectName  = "Company Name 1 Project 1";
+        String version  = "0.0.1";
+        Date date = today.getTime();
+
+        List<IUser> teamMembers = Arrays.asList(
+                new DeveloperUser("User 1", "user1@company.tld", "123456","01"),
+                new DeveloperUser("User 2", "user2@company.tld", "234567","02"),
+                new DeveloperUser("User 3", "user3@company.tld", "345678","03"));
+
+        pdfSprintReportBuilder.buildHeader(companyName, b64Logo, projectName, version, date);
+        pdfSprintReportBuilder.buildContent(teamMembers, Arrays.asList(1,2,3,4,5));
+        pdfSprintReportBuilder.buildFooter(companyName, b64Logo, projectName, version, date);
+
+        // Act
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        pdfSprintReportBuilder.saveReport();
+
+
+        // Assert
+        Assertions.assertTrue(
+                outContent.toString().contains("." + format.toString())
+        );
+    }
+
 
     @org.junit.Test(expected = InvalidObjectException.class)
-    public void REPORT_TEST_6_unhappy_pdf_report_can_not_be_saved_correct() throws InvalidObjectException {
+    public void REPORT_TEST_7_unhappy_pdf_report_can_not_be_saved_correct() throws InvalidObjectException {
         // Arrange
         ReportFormat format = ReportFormat.PDF;
         String reportName = "Sprint one report";
