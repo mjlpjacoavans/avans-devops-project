@@ -3,6 +3,7 @@ package discussion;
 import discussion.DiscussionPost;
 import discussion.DiscussionThread;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -129,6 +130,20 @@ public class DiscussionTest {
                 expectedOutput.replace("\n", "").replace("\r", "").replace(" ", ""),
                 actualOutput.replace("\n", "").replace("\r", "").replace(" ", "")
         );
+    }
+
+    // Unhappy flow
+    @Test(expected = NullPointerException.class)
+    public void DISCUSSION_TEST_5_unhappy_add_null_post_to_thread() {
+        DiscussionThread thread = new DiscussionThread("Test Thread");
+        thread.addPost(null);
+    }
+
+    // test case for getting a non-existent post from a thread
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void DISCUSSION_TEST_6_unhappy_test_get_non_existent_post_from_thread() {
+        DiscussionThread thread = new DiscussionThread("Test Thread");
+        thread.getPost(0);
     }
 
 

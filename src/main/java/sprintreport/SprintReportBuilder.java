@@ -3,6 +3,7 @@ package sprintreport;
 import sprintreport.domain.*;
 import user.IUser;
 
+import java.io.InvalidObjectException;
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +46,16 @@ public class SprintReportBuilder implements ISprintReportBuilder {
         this.sprintReport.setFooter(footer);
     }
 
-    public void saveReport(){
+    public void saveReport() throws InvalidObjectException {
+        if(this.sprintReport.getHeader() == null){
+            throw new InvalidObjectException("Report can not be saved without a header");
+        }
+        if(this.sprintReport.getContent() == null){
+            throw new InvalidObjectException("Report can not be saved without content");
+        }
+        if(this.sprintReport.getFooter() == null){
+            throw new InvalidObjectException("Report can not be saved without a footer");
+        }
         String msg = "Saving report: " + sprintReport.getReportName() + " as " + sprintReport.getReportFileName() + "." + this.format.name()
                         + "\n$ cat " + sprintReport.getReportFileName() + "." + this.format.name()
                         + "\n$ type " + sprintReport.getReportFileName() + "." + this.format.name()
