@@ -207,7 +207,41 @@ public class NotificaionTests {
 
 
 
+    // SUGGESTION: Send to specific emails only
+    @Test
+    public void NOTIFICATION_TEST_6_notification_send_to_only_one_subscriber_filter() {
+        // Arrange
+        TestPublisher tp = new TestPublisher();
+        IUser dev = new DeveloperUser("User 1", "user1@company.tld", "123456", "01");
+        NotificationBehaviourTypes type = NotificationBehaviourTypes.EMAIL;
+        INotificationBehaviour behaviour = NotificationBehaviourFactory.create(type);
+        behaviour.setIdentifier(dev.getIdentifierForNotificationBehaviourType(type));
+        ISubscriber subscriber = new NotificationSubscriber(behaviour);
+        tp.subscribe(subscriber);
 
+        IUser leadDev = new LeadDeveloperUser("User 2", "user2@company.tld", "223456", "02");
+        IUser scrumMaster = new ScrumMasterUser("User 3", "user3@company.tld", "323456", "03");
+        IUser tester = new TesterUser("User 4", "user4@company.tld", "423456", "04");
+        ProductOwnerUser productOwner = new ProductOwnerUser("User 5", "user5@company.tld", "523456");
+
+        INotificationBehaviour behaviour2 = NotificationBehaviourFactory.create(type);
+        behaviour2.setIdentifier(leadDev.getIdentifierForNotificationBehaviourType(type));
+        ISubscriber subscriber2 = new NotificationSubscriber(behaviour2);
+
+        tp.subscribe(subscriber2);
+
+        // Act
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        tp.testNotify(dev.getEmail());
+
+        // Assert
+        Assertions.assertTrue(
+                outputStream.toString().contains("Sending email with") &&
+                        outputStream.toString().contains("to " + dev.getEmail()) &&
+                        !outputStream.toString().contains("to " + leadDev.getEmail())
+        );
+    }
 
 
 }
