@@ -1,4 +1,4 @@
-package sprint.rystates;
+package sprint.states;
 
 import notification.NotificationBehaviourFactory;
 import notification.behaviours.DynamicNotificationBehaviour;
