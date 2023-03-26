@@ -1,9 +1,8 @@
 package sprint;
 
-import enums.Goal;
+import sprint.enums.Goal;
 import notification.behaviours.NotificationBehaviourTypes;
 import pipeline.IPipeline;
-import sprint.SprintBacklog;
 import sprint.states.SprintFinalState;
 import sprint.states.*;
 import sprintreport.ISprintReportBuilder;

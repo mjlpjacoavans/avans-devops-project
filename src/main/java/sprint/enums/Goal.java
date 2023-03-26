@@ -1,4 +1,4 @@
-package enums;
+package sprint.enums;
 
 public enum Goal {
     REVIEW,
