@@ -166,7 +166,7 @@ public class NotificaionTests {
 
 
     @Test
-    public void NOTIFICATION_TEST_5_notification_sent_to_all_subscribed_users_with_different_behaviours() {
+    public void NOTIFICATION_TEST_4_notification_sent_to_all_subscribed_users_with_different_behaviours() {
         // Arrange
         TestPublisher tp = new TestPublisher();
 
@@ -209,7 +209,7 @@ public class NotificaionTests {
 
     // SUGGESTION: Send to specific emails only
     @Test
-    public void NOTIFICATION_TEST_6_notification_send_to_only_one_subscriber_filter() {
+    public void NOTIFICATION_TEST_5_notification_send_to_only_one_subscriber_filter() {
         // Arrange
         TestPublisher tp = new TestPublisher();
         IUser dev = new DeveloperUser("User 1", "user1@company.tld", "123456", "01");
