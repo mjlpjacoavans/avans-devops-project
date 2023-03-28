@@ -16,4 +16,6 @@ public interface SprintState {
     String notifyProductOwner(String message);
     String executePipeline();
     String cancelRelease();
+    String setInProgress();
+    String setFinished();
 }

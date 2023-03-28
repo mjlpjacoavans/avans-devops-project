@@ -37,12 +37,13 @@ public class SprintFinishedState implements SprintState{
     @Override
     public String addReviewSummary(String summary) {
         sprint.addReviewSummaryStateOverride(summary);
+        this.sprint.setState(this.sprint.getSprintFinalState());
         return "added!";
     }
 
     @Override
     public String executeRelease() {
-        //TODO: Klopt dit?
+        //TODO: Eerst checken of de results goed zijn en dan naar cancelled als fout en doing als goed (michel)
         this.sprint.setState(this.sprint.getSprintReleaseDoingState());
         return null;
     }
@@ -64,6 +65,16 @@ public class SprintFinishedState implements SprintState{
 
     @Override
     public String cancelRelease() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setInProgress() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setFinished() {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
 }

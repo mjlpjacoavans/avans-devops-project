@@ -109,4 +109,14 @@ public class SprintReleaseFinishedState extends Publisher implements SprintState
     public String cancelRelease() {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
+
+    @Override
+    public String setInProgress() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
 }

@@ -3,6 +3,7 @@ package main.java.sprint.states;
 import main.java.sprint.Sprint;
 import main.java.sprint.SprintBacklog;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class SprintInProgressState implements SprintState {
@@ -61,5 +62,21 @@ public class SprintInProgressState implements SprintState {
     @Override
     public String cancelRelease() {
         return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setInProgress() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setFinished() {
+        LocalDate today = LocalDate.now();
+        if(today.isAfter(this.sprint.getEndDate()) || today.isEqual(this.sprint.getStartDate())){
+            this.sprint.setState(this.sprint.getSprintInProgressState());
+            return "State changed to Finished";
+        }else{
+            return "enddate has not happend yet!";
+        }
     }
 }

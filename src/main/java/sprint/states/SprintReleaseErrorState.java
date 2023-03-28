@@ -114,4 +114,14 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
         this.sprint.setState(this.sprint.getSprintReleaseCancelledState());
         return null;
     }
+
+    @Override
+    public String setInProgress() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
 }

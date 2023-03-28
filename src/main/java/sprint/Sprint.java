@@ -2,8 +2,6 @@ package main.java.sprint;
 
 import main.java.enums.Goal;
 import main.java.notification.behaviours.NotificationBehaviourTypes;
-import main.java.sprint.SprintBacklog;
-import main.java.sprint.rystates.SprintFinalState;
 import main.java.sprint.states.*;
 import main.java.sprintreport.ISprintReportBuilder;
 import main.java.sprintreport.domain.ISprintReport;
@@ -13,6 +11,8 @@ import main.java.user.ScrumMasterUser;
 import main.java.user.TesterUser;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 
 //TODO: Auto state switch van ini naar inprogress en inprogress naar finished
@@ -241,5 +241,13 @@ public class Sprint {
 
     public SprintState getSprintReleaseErrorState() {
         return sprintReleaseErrorState;
+    }
+
+    public ChronoLocalDate getStartDate() {
+        return startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public ChronoLocalDate getEndDate() {
+        return endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 }

@@ -1,4 +1,4 @@
-package main.java.sprint.rystates;
+package main.java.sprint.states;
 
 import main.java.notification.behaviours.DynamicNotificationBehaviour;
 import main.java.notification.behaviours.INotificationBehaviour;
@@ -87,6 +87,16 @@ public class SprintFinalState extends Publisher implements SprintState {
 
     @Override
     public String cancelRelease() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setInProgress() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setFinished() {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
 }
