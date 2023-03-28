@@ -296,7 +296,8 @@ public class BacklogItem implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        // TODO: Test if this is the correct order and should not be swapped
+        // TODO: Test if this is the correct order and should not be swapped.
+        // TODO: Write a unnittest to see if these are being ordered correctly.
         return Integer.compare(this.priority, (Integer)o);
     }
 
