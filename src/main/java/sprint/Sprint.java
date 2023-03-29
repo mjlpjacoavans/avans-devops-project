@@ -94,14 +94,12 @@ public class Sprint {
 
 
 
-        public String setState(SprintState state){
-        this.state = state;
-
-        if(this.state != state){
-            return "Sprint state not changed. Try again!";
-        }
-
-        return "Sprint state set to: " + this.state;
+        public String setState(SprintState stateParameter){
+            if(this.state != stateParameter){
+                return "Sprint state not changed. Try again!";
+            }
+            this.state = stateParameter;
+            return "Sprint state set to: " + this.state;
     }
 
     public NotificationBehaviourTypes getNotificationBehaviourType() {

@@ -19,13 +19,11 @@ public class Project {
         return this.productBacklog;
     }
 
-    public String addProductBacklog(ProductBacklog productBacklog){
-        this.productBacklog = productBacklog;
-
-        if(this.productBacklog != productBacklog){
+    public String addProductBacklog(ProductBacklog productBacklogParameter){
+        if(this.productBacklog != productBacklogParameter){
             return "Product backlog not added. Try again!";
         }
-
+        this.productBacklog = productBacklogParameter;
         return "Product backlog added!";
     }
 
