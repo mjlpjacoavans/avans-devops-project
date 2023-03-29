@@ -127,31 +127,31 @@ public class BacklogItem implements Comparable{
         }
     }
 
-    void setStateToDOING(){
+    public void setStateToDOING(){
         if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateToDOING();
         }
     }
 
-    void setStateToREADYFORTESTING(){
+    public void setStateToREADYFORTESTING(){
         if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateToREADYFORTESTING();
         }
     }
 
-    void setStateToTESTING(){
+    public void setStateToTESTING(){
         if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateToTESTING();
         }
     }
 
-    void setStateTOTESTED(){
+    public void setStateTOTESTED(){
         if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateTOTESTED();
         }
     }
 
-    void setStateToDONE(){
+    public void setStateToDONE(){
 //        SprintState sprintBacklogSprintState  = this.getSprintBacklog().getSprint().getState();
 //        if(sprintBacklogSprintState instanceof SprintInProgressState) {
 //        }

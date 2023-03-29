@@ -122,4 +122,29 @@ public class SprintReleaseCancelledState extends Publisher implements SprintStat
     public String setFinished() {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
+
+    @Override
+    public String setStateToSprintFinal() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseDoing() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleasedError() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseCancelled() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
 }

@@ -73,10 +73,35 @@ public class SprintInProgressState implements SprintState {
     public String setFinished() {
         LocalDate today = LocalDate.now();
         if(today.isAfter(this.sprint.getEndDate()) || today.isEqual(this.sprint.getStartDate())){
-            this.sprint.setState(this.sprint.getSprintInProgressState());
+            this.sprint.setState(this.sprint.getSprintFinishedState());
             return "State changed to Finished";
         }else{
             return "enddate has not happend yet!";
         }
+    }
+
+    @Override
+    public String setStateToSprintFinal() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseDoing() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleasedError() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseCancelled() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
     }
 }

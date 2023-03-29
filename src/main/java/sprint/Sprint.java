@@ -183,11 +183,11 @@ public class Sprint {
 //    }
 
     public void setStateToSprintInProgress(){
-
+        this.state.setInProgress();
     }
 
     public void setStateToSprintFinished(){
-
+        this.state.setFinished();
     }
 
     public void setStateToSprintFinal(){
@@ -249,5 +249,9 @@ public class Sprint {
 
     public ChronoLocalDate getEndDate() {
         return endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public Goal getGoal() {
+        return goal;
     }
 }

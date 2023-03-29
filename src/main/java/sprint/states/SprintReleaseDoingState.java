@@ -72,4 +72,31 @@ public class SprintReleaseDoingState implements SprintState{
     public String setFinished() {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
+
+    @Override
+    public String setStateToSprintFinal() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseDoing() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseFinished() {
+        this.sprint.setState(this.sprint.getSprintReleaseFinishedState());
+        return "Set state to release finished!";
+    }
+
+    @Override
+    public String setStateToSprintReleasedError() {
+        this.sprint.setState(this.sprint.getSprintReleaseErrorState());
+        return "Set state to release error!";
+    }
+
+    @Override
+    public String setStateToSprintReleaseCancelled() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
 }

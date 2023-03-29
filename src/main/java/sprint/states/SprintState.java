@@ -18,4 +18,10 @@ public interface SprintState {
     String cancelRelease();
     String setInProgress();
     String setFinished();
+
+    String setStateToSprintFinal();
+    String setStateToSprintReleaseDoing();
+    String setStateToSprintReleaseFinished();
+    String setStateToSprintReleasedError();
+    String setStateToSprintReleaseCancelled();
 }

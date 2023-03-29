@@ -1,5 +1,6 @@
 package main.java.sprint.states;
 
+import main.java.enums.Goal;
 import main.java.sprint.Sprint;
 import main.java.sprint.SprintBacklog;
 
@@ -36,16 +37,22 @@ public class SprintFinishedState implements SprintState{
 
     @Override
     public String addReviewSummary(String summary) {
-        sprint.addReviewSummaryStateOverride(summary);
-        this.sprint.setState(this.sprint.getSprintFinalState());
-        return "added!";
+        if(this.sprint.getGoal().equals(Goal.REVIEW)){
+            sprint.addReviewSummaryStateOverride(summary);
+            this.sprint.setState(this.sprint.getSprintFinalState());
+            return "added!";
+        }
+        return "Cannot change perform this action with this sprint goal";
     }
 
     @Override
     public String executeRelease() {
         //TODO: Eerst checken of de results goed zijn en dan naar cancelled als fout en doing als goed (michel)
-        this.sprint.setState(this.sprint.getSprintReleaseDoingState());
-        return null;
+        if(this.sprint.getGoal().equals(Goal.RELEASE)){
+            this.sprint.setState(this.sprint.getSprintReleaseDoingState());
+            return null;
+        }
+        return "Cannot change perform this action with this sprint goal";
     }
 
     @Override
@@ -76,5 +83,33 @@ public class SprintFinishedState implements SprintState{
     @Override
     public String setFinished() {
         return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintFinal() {
+        this.sprint.setState(this.sprint.getSprintFinalState());
+        return "Set state to Final!";
+    }
+
+    @Override
+    public String setStateToSprintReleaseDoing() {
+        this.sprint.setState(this.sprint.getSprintReleaseDoingState());
+        return "Set state to release doing";
+    }
+
+    @Override
+    public String setStateToSprintReleaseFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleasedError() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseCancelled() {
+        this.sprint.setState(this.sprint.getSprintReleaseCancelledState());
+        return "Set state to release cancelled!";
     }
 }

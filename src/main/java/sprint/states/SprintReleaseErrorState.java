@@ -124,4 +124,31 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
     public String setFinished() {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
+
+    @Override
+    public String setStateToSprintFinal() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseDoing() {
+        this.sprint.setState(this.sprint.getSprintReleaseDoingState());
+        return "Set state to sprint release doing!";
+    }
+
+    @Override
+    public String setStateToSprintReleaseFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleasedError() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseCancelled() {
+        this.sprint.setState(this.sprint.getSprintReleaseCancelledState());
+        return "Set state to sprint release cancelled!";
+    }
 }
