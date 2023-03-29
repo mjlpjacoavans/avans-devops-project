@@ -1,7 +1,6 @@
 package project.states;
 
 import notification.NotificationBehaviourFactory;
-import notification.behaviours.DynamicNotificationBehaviour;
 import notification.behaviours.INotificationBehaviour;
 import notification.observer.ISubscriber;
 import notification.observer.NotificationSubscriber;
@@ -11,7 +10,6 @@ import project.BacklogItem;
 import user.DeveloperUser;
 import user.TesterUser;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

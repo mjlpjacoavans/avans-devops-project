@@ -3,8 +3,6 @@ package project;
 import notification.behaviours.NotificationBehaviourTypes;
 import project.states.*;
 import sprint.SprintBacklog;
-import sprint.states.SprintInProgressState;
-import sprint.states.SprintState;
 import user.DeveloperUser;
 import user.TesterUser;
 

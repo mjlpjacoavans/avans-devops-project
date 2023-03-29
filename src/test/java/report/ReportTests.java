@@ -2,12 +2,12 @@ package report;
 
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import sprintreport.ISprintReportBuilder;
 import sprintreport.SprintReportBuilder;
 import sprintreport.domain.ReportFormat;
 import user.DeveloperUser;
 import user.IUser;
-import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InvalidObjectException;
@@ -16,8 +16,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import static org.testng.AssertJUnit.assertEquals;
 
 public class ReportTests {
 

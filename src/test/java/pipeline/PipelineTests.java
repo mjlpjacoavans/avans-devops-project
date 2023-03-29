@@ -1,13 +1,9 @@
 package pipeline;
 
 import org.junit.jupiter.api.Assertions;
-import pipeline.DeploymentPipeline;
-import pipeline.DevelopmentPipeline;
-import pipeline.IPipeline;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
-import java.io.InvalidObjectException;
 
 public class PipelineTests {
 

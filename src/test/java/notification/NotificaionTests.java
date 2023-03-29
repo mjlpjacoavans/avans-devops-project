@@ -2,7 +2,6 @@ package notification;
 
 import notification.behaviours.INotificationBehaviour;
 import notification.behaviours.NotificationBehaviourTypes;
-import notification.observer.IPublisher;
 import notification.observer.ISubscriber;
 import notification.observer.NotificationSubscriber;
 import notification.observer.Publisher;

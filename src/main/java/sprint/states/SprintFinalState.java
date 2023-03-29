@@ -1,14 +1,12 @@
 package sprint.states;
 
 import notification.NotificationBehaviourFactory;
-import notification.behaviours.DynamicNotificationBehaviour;
 import notification.behaviours.INotificationBehaviour;
 import notification.observer.ISubscriber;
 import notification.observer.NotificationSubscriber;
 import notification.observer.Publisher;
 import sprint.Sprint;
 import sprint.SprintBacklog;
-import sprint.states.SprintState;
 
 import java.util.Collections;
 import java.util.Date;
