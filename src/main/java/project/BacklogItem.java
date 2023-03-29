@@ -9,7 +9,7 @@ import user.TesterUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BacklogItem implements Comparable{
+public class BacklogItem implements Comparable<Integer>{
     List<Activity> activities;
     ProductBacklog productBacklog;
     SprintBacklog sprintBacklog;
@@ -293,7 +293,7 @@ public class BacklogItem implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Integer o) {
         // TODO: Test if this is the correct order and should not be swapped.
         // TODO: Write a unnittest to see if these are being ordered correctly.
         return Integer.compare(this.priority, (Integer)o);
@@ -302,5 +302,6 @@ public class BacklogItem implements Comparable{
     public ProductBacklog getProductBacklog() {
         return productBacklog;
     }
+    
 }
 
