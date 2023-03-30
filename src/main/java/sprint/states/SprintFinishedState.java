@@ -1,8 +1,8 @@
-package main.java.sprint.states;
+package sprint.states;
 
-import main.java.enums.Goal;
-import main.java.sprint.Sprint;
-import main.java.sprint.SprintBacklog;
+import enums.Goal;
+import sprint.Sprint;
+import sprint.SprintBacklog;
 
 import java.util.Date;
 

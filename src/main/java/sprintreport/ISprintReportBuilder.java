@@ -1,6 +1,6 @@
-package main.java.sprintreport;
+package sprintreport;
 
-import main.java.user.IUser;
+import user.IUser;
 
 import java.util.Date;
 import java.util.List;

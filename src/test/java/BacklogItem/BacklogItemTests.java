@@ -1,20 +1,21 @@
 package BacklogItem;
 
-import main.java.enums.Goal;
-import main.java.project.Activity;
-import main.java.project.BacklogItem;
-import main.java.project.ProductBacklog;
-import main.java.project.Project;
-import main.java.sprint.Sprint;
-import main.java.sprint.SprintBacklog;
-import main.java.user.*;
+import enums.Goal;
+import project.Activity;
+import project.BacklogItem;
+import project.ProductBacklog;
+import project.Project;
+import sprint.Sprint;
+import sprint.SprintBacklog;
+import user.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BacklogItemTests {
     //Backlogitem split in activities in to do pass
@@ -36,7 +37,7 @@ public class BacklogItemTests {
         backlogItem1.setActivities(activities);
 
         //Assert
-        assertEquals(backlogItem1.getActivities(), activities);
+        Assertions.assertEquals(backlogItem1.getActivities(), activities);
     }
 
     //Backlogitem split in activities doing fail

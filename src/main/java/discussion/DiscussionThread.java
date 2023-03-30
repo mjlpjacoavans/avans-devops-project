@@ -1,4 +1,4 @@
-package main.java.discussion;
+package discussion;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package main.java.discussion;
+package discussion;
 
 // This is the leaf
 public class DiscussionPost implements DiscussionComponent {

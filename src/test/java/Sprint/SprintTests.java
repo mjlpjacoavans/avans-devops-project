@@ -1,12 +1,12 @@
 package Sprint;
 
-import main.java.enums.Goal;
-import main.java.project.BacklogItem;
-import main.java.project.ProductBacklog;
-import main.java.project.Project;
-import main.java.sprint.Sprint;
-import main.java.sprint.SprintBacklog;
-import main.java.user.*;
+import enums.Goal;
+import project.BacklogItem;
+import project.ProductBacklog;
+import project.Project;
+import sprint.Sprint;
+import sprint.SprintBacklog;
+import user.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

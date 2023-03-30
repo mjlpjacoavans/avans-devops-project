@@ -1,4 +1,4 @@
-package main.java.notification.behaviours;
+package notification.behaviours;
 
 public class StdOutNotificationBehaviour implements INotificationBehaviour{
     private String path = "/dev/fd/1"; // NOSONAR

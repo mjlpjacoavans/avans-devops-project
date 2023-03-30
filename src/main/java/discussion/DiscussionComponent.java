@@ -1,4 +1,4 @@
-package main.java.discussion;
+package discussion;
 
 interface DiscussionComponent {
 //    Integer DEPTH = 0;

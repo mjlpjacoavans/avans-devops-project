@@ -1,14 +1,14 @@
-package main.java.sprint.states;
+package sprint.states;
 
-import main.java.notification.behaviours.DynamicNotificationBehaviour;
-import main.java.notification.behaviours.INotificationBehaviour;
-import main.java.notification.observer.ISubscriber;
-import main.java.notification.observer.NotificationSubscriber;
-import main.java.notification.observer.Publisher;
-import main.java.sprint.Sprint;
-import main.java.sprint.SprintBacklog;
-import main.java.user.ProductOwnerUser;
-import main.java.user.ScrumMasterUser;
+import notification.behaviours.DynamicNotificationBehaviour;
+import notification.behaviours.INotificationBehaviour;
+import notification.observer.ISubscriber;
+import notification.observer.NotificationSubscriber;
+import notification.observer.Publisher;
+import sprint.Sprint;
+import sprint.SprintBacklog;
+import user.ProductOwnerUser;
+import user.ScrumMasterUser;
 
 import java.util.Collections;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package main.java.user;
+package user;
 
 public class ScrumMasterUser extends IUser{
     public ScrumMasterUser(String name, String email, String phoneNumber, String slackId) {

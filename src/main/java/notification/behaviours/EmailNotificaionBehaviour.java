@@ -1,4 +1,4 @@
-package main.java.notification.behaviours;
+package notification.behaviours;
 
 public class EmailNotificaionBehaviour implements INotificationBehaviour{
     private String email;

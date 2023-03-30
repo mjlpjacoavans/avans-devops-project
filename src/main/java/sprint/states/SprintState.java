@@ -1,6 +1,6 @@
-package main.java.sprint.states;
+package sprint.states;
 
-import main.java.sprint.SprintBacklog;
+import sprint.SprintBacklog;
 
 import java.util.Date;
 

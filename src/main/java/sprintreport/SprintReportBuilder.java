@@ -1,7 +1,7 @@
-package main.java.sprintreport;
+package sprintreport;
 
-import main.java.sprintreport.domain.*;
-import main.java.user.IUser;
+import sprintreport.domain.*;
+import user.IUser;
 
 import java.util.Date;
 import java.util.List;

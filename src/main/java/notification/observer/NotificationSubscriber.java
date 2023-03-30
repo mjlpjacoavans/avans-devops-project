@@ -1,7 +1,7 @@
-package main.java.notification.observer;
+package notification.observer;
 
-import main.java.notification.behaviours.INotificationBehaviour;
-import main.java.notification.behaviours.StdOutNotificationBehaviour;
+import notification.behaviours.INotificationBehaviour;
+import notification.behaviours.StdOutNotificationBehaviour;
 
 public class NotificationSubscriber implements ISubscriber {
 

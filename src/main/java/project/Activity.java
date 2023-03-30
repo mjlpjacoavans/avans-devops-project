@@ -1,6 +1,6 @@
-package main.java.project;
+package project;
 
-import main.java.user.DeveloperUser;
+import user.DeveloperUser;
 
 public class Activity {
     BacklogItem backlogItem;

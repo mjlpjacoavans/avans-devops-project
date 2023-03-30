@@ -1,4 +1,4 @@
-package main.java.pipeline;
+package pipeline;
 
 // TODO: Check if this should not be an abstract class, check up the definition of that anyway
 public abstract class BasePipeline implements IPipeline{

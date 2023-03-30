@@ -1,6 +1,6 @@
-package main.java.user;
+package user;
 
-import main.java.notification.behaviours.NotificationBehaviourTypes;
+import notification.behaviours.NotificationBehaviourTypes;
 
 public abstract class IUser {
     String name;

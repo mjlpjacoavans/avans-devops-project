@@ -1,4 +1,4 @@
-package main.java.discussion;
+package discussion;
 
 // TODO: There should be a fix that makes it so that this
 //  type IS a DiscussionThread but does not have that

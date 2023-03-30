@@ -1,8 +1,8 @@
 
-package main.java.notification;
+package notification;
 
 
-import main.java.notification.behaviours.*;
+import notification.behaviours.*;
 
 // TODO: Replace all DynamicNotificationBehaviour with this factory
 

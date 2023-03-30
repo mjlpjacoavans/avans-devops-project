@@ -1,14 +1,14 @@
-package main.java.sprint;
+package sprint;
 
-import main.java.enums.Goal;
-import main.java.notification.behaviours.NotificationBehaviourTypes;
-import main.java.sprint.states.*;
-import main.java.sprintreport.ISprintReportBuilder;
-import main.java.sprintreport.domain.ISprintReport;
-import main.java.user.DeveloperUser;
-import main.java.user.LeadDeveloperUser;
-import main.java.user.ScrumMasterUser;
-import main.java.user.TesterUser;
+import enums.Goal;
+import notification.behaviours.NotificationBehaviourTypes;
+import sprint.states.*;
+import sprintreport.ISprintReportBuilder;
+import sprintreport.domain.ISprintReport;
+import user.DeveloperUser;
+import user.LeadDeveloperUser;
+import user.ScrumMasterUser;
+import user.TesterUser;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
