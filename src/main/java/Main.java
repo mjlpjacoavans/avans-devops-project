@@ -57,10 +57,10 @@ public class Main {
         ProductBacklog productBacklog1 = new ProductBacklog(project1);
 
         //Create 4 backlogitems
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog1, "Add auth", 3, NotificationBehaviourTypes.EMAIL);
-        BacklogItem backlogItem2 = new BacklogItem(productBacklog1, "Add functionality", 1, NotificationBehaviourTypes.EMAIL);
-        BacklogItem backlogItem3 = new BacklogItem(productBacklog1, "Add UI", 4, NotificationBehaviourTypes.EMAIL);
-        BacklogItem backlogItem4 = new BacklogItem(productBacklog1, "Add funfactor", 2, NotificationBehaviourTypes.EMAIL);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog1, "Add auth", 3 );    //, NotificationBehaviourTypes.EMAIL);
+        BacklogItem backlogItem2 = new BacklogItem(productBacklog1, "Add functionality", 1 );    //, NotificationBehaviourTypes.EMAIL);
+        BacklogItem backlogItem3 = new BacklogItem(productBacklog1, "Add UI", 4 );    //, NotificationBehaviourTypes.EMAIL);
+        BacklogItem backlogItem4 = new BacklogItem(productBacklog1, "Add funfactor", 2 );    //, NotificationBehaviourTypes.EMAIL);
 
 
         // Have to use a stupid tree set because java acts like it cannot sort an arraylist despite implementing comparable

@@ -1,5 +1,6 @@
 package Sprint;
 
+import notification.behaviours.NotificationBehaviourTypes;
 import project.BacklogItem;
 import project.ProductBacklog;
 import project.Project;
@@ -41,7 +42,7 @@ public class SprintTests {
         Date start = new Date(2022,12,30);
         Date end = new Date(2022,12,30);
 
-        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
+        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
         //Act
@@ -75,7 +76,7 @@ public class SprintTests {
         Date start = new Date(2023,12,30);
         Date end = new Date(2023,12,30);
 
-        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
+        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
         //Act
@@ -111,7 +112,7 @@ public class SprintTests {
         Date start = new Date(2022,12,30);
         Date end = new Date(2022,12,30);
 
-        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
+        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
         //Act
@@ -144,7 +145,7 @@ public class SprintTests {
         Date start = new Date(2022,12,30);
         Date end = new Date(2022,12,30);
 
-        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
+        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
         sprint.setStateToSprintInProgress();
@@ -182,7 +183,7 @@ public class SprintTests {
         Date start = new Date(2022,12,30);
         Date end = new Date(2022,12,30);
 
-        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
+        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
         sprint.setStateToSprintInProgress();
@@ -219,7 +220,7 @@ public class SprintTests {
         Date start = new Date(2022,12,30);
         Date end = new Date(2023,12,30);
 
-        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
+        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
         sprint.setStateToSprintInProgress();
@@ -256,7 +257,7 @@ public class SprintTests {
         Date start = new Date(2022,12,30);
         Date end = new Date(2022,12,30);
 
-        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
+        Sprint sprint = new Sprint(Goal.REVIEW, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
         sprint.setStateToSprintInProgress();
@@ -295,7 +296,7 @@ public class SprintTests {
         Date start = new Date(2022,12,30);
         Date end = new Date(2022,12,30);
 
-        Sprint sprint = new Sprint(Goal.RELEASE, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
+        Sprint sprint = new Sprint(Goal.RELEASE, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
         sprint.setStateToSprintInProgress();
