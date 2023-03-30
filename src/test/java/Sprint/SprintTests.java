@@ -1,5 +1,6 @@
 package Sprint;
 
+import notification.behaviours.NotificationBehaviourTypes;
 import project.BacklogItem;
 import project.ProductBacklog;
 import project.Project;
@@ -22,7 +23,7 @@ public class SprintTests {
         Project project = new Project("project", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem>backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
         SprintBacklog sprintBacklog = new SprintBacklog(backlogItems);
@@ -56,7 +57,7 @@ public class SprintTests {
         Project project = new Project("project", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem>backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
         SprintBacklog sprintBacklog = new SprintBacklog(backlogItems);
@@ -92,7 +93,7 @@ public class SprintTests {
         Project project = new Project("project", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem>backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
         SprintBacklog sprintBacklog = new SprintBacklog(backlogItems);
@@ -125,7 +126,7 @@ public class SprintTests {
         Project project = new Project("project", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem>backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
         SprintBacklog sprintBacklog = new SprintBacklog(backlogItems);
@@ -163,7 +164,7 @@ public class SprintTests {
         Project project = new Project("project", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem>backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
         SprintBacklog sprintBacklog = new SprintBacklog(backlogItems);
@@ -200,7 +201,7 @@ public class SprintTests {
         Project project = new Project("project", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem>backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
         SprintBacklog sprintBacklog = new SprintBacklog(backlogItems);
@@ -237,7 +238,7 @@ public class SprintTests {
         Project project = new Project("project", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem>backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
         SprintBacklog sprintBacklog = new SprintBacklog(backlogItems);
@@ -276,7 +277,7 @@ public class SprintTests {
         Project project = new Project("project", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem>backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
         SprintBacklog sprintBacklog = new SprintBacklog(backlogItems);

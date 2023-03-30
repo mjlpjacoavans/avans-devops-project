@@ -23,7 +23,7 @@ public class BacklogItem implements Comparable<BacklogItem>{
     String text;
     boolean defitionMet;
 
-    NotificationBehaviourTypes notificationBehaviourType;
+    NotificationBehaviourTypes notificationBehaviourType = NotificationBehaviourTypes.EMAIL;
     BacklogItemState state;
     BacklogItemState backlogItemToDoState;
     BacklogItemState backlogItemDoingState;
@@ -40,29 +40,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
 
     public DeveloperUser getDeveloper() {
         return developer;
-    }
-
-    public BacklogItem(ProductBacklog productBacklog, String text, Integer priority){
-        this.productBacklog = productBacklog;
-        this.definitionOfDone = null;
-        this.text = text;
-        this.defitionMet = false;
-
-        this.productBacklog.addBacklogItem(this);
-
-        this.backlogItemToDoState = new BacklogItemToDoState(this);
-        this.backlogItemDoingState = new BacklogItemDoingState(this);
-        this.backlogItemReadyForTestingState = new BacklogItemReadyForTestingState(this);
-        this.backlogItemTestingState = new BacklogItemTestingState(this);
-        this.backlogItemTestedState = new BacklogItemTestedState(this);
-        this.backlogItemDoneState = new BacklogItemDoneState(this);
-
-        this.state = backlogItemToDoState;
-
-        this.developed = false;
-        this.tested = false;
-
-        this.priority = priority;
     }
 
     public BacklogItem(ProductBacklog productBacklog,String text, Integer priority, NotificationBehaviourTypes notificationBehaviourType){

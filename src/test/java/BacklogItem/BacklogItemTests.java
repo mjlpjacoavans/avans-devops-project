@@ -1,5 +1,6 @@
 package BacklogItem;
 
+import notification.behaviours.NotificationBehaviourTypes;
 import project.Activity;
 import project.BacklogItem;
 import project.ProductBacklog;
@@ -26,7 +27,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<Activity> activities = new ArrayList<>();
         Activity activity1 = new Activity(backlogItem1, "testa1");
         Activity activity2 = new Activity(backlogItem1, "testa2");
@@ -48,7 +49,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -105,7 +106,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -137,7 +138,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -193,7 +194,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -229,7 +230,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -275,7 +276,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -315,7 +316,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -357,7 +358,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -405,7 +406,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -448,7 +449,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -508,7 +509,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -558,7 +559,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 
@@ -608,7 +609,7 @@ public class BacklogItemTests {
         Project project = new Project("TestProject", productOwnerUser);
         ProductBacklog productBacklog = new ProductBacklog(project);
 
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog, "test1", 1, NotificationBehaviourTypes.EMAIL);
         List<BacklogItem> backlogItems = new ArrayList<>();
         backlogItems.add(backlogItem1);
 

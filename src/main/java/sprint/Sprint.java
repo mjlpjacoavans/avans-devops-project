@@ -49,8 +49,11 @@ public class Sprint {
     SprintState sprintReleaseErrorState;
 
     IPipeline pipeline; // TODO: Initialize this appropriately
+    
 
-    NotificationBehaviourTypes notificationBehaviourType;
+    // SUGGESTION: Decided to make this email by default
+    NotificationBehaviourTypes notificationBehaviourType = NotificationBehaviourTypes.EMAIL;
+
 
     public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers, LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster){
         this.goal = goal;
