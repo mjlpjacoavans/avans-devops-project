@@ -18,46 +18,21 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
     Sprint sprint;
     ProductOwnerUser productOwner;
     ScrumMasterUser scrumMaster;
+    INotificationBehaviour scrumMasterNotificationBehaviour;
+    INotificationBehaviour productOwnerNotificationBehaviour;
 
     public SprintReleaseErrorState(Sprint sprint){
         this.sprint = sprint;
-
-
-//        this.setSubscribers();
-
-
+        this.setSubscribers();
     }
 
     public void setSubscribers(){
-        this.productOwner = this.sprint
-                .getSprintBacklog()
-                .getBacklogItems()
-                .get(0) // SUGGESTION: This is a bit strange and hacky, should find a different way to reference
-                .getProductBacklog()
-                .getProject()
-                .getProductOwner();
-
-        this.scrumMaster = this.sprint.getScrumMaster();
-
-
-        // subscribe for scrum master
-        String scrumMasterIdentifier =
-                this.scrumMaster.getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
-
-        INotificationBehaviour scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
-        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
-
+        scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);
 
 
-        // subscribe for product owner
-        String productOwnerIdentifier =
-                this.productOwner.getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
-
-        INotificationBehaviour productOwnerNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
-        productOwnerNotificationBehaviour.setIdentifier(productOwnerIdentifier);
-
+        productOwnerNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
         ISubscriber productOwnerSubscriber = new NotificationSubscriber(productOwnerNotificationBehaviour);
         this.subscribe(productOwnerSubscriber);
     }
@@ -97,14 +72,24 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
     public String notifyScrummaster(String message) {
         //DONE?: Michel observer pattern
         String scrumMasterIdentifier = this.scrumMaster.getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
+        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
         this.notifySubscribers(message, Collections.singletonList(scrumMasterIdentifier).toArray(new String[0]));
         return null;
     }
 
     @Override
     public String notifyProductOwner(String message) {
-        //DONE?: Michel observer pattern
-        String productOwnerIdentifier = this.productOwner.getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
+        this.productOwner = this.sprint
+                .getSprintBacklog()
+                .getBacklogItems()
+                .get(0) // SUGGESTION: This is a bit strange and hacky, should find a different way to reference
+                .getProductBacklog()
+                .getProject()
+                .getProductOwner();
+
+        String productOwnerIdentifier =
+                this.productOwner.getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
+        productOwnerNotificationBehaviour.setIdentifier(productOwnerIdentifier);
         this.notifySubscribers(message, Collections.singletonList(productOwnerIdentifier).toArray(new String[0]));
         return null;
     }

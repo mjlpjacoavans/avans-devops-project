@@ -2,7 +2,6 @@ package project.states;
 
 import notification.NotificationBehaviourFactory;
 import notification.behaviours.INotificationBehaviour;
-import notification.observer.ISetSubscribersAbleBacklogItemState;
 import notification.observer.ISubscriber;
 import notification.observer.NotificationSubscriber;
 import notification.observer.Publisher;
@@ -14,33 +13,34 @@ import user.TesterUser;
 import java.util.Collections;
 import java.util.List;
 
-public class BacklogItemToDoState extends Publisher implements BacklogItemState, ISetSubscribersAbleBacklogItemState {
+public class BacklogItemToDoState extends Publisher implements BacklogItemState {
 
     BacklogItem backlogItem;
+    INotificationBehaviour scrumMasterNotificationBehaviour;
 
     public BacklogItemToDoState(BacklogItem backlogItem){
         this.backlogItem = backlogItem;
-//        this.setSubscribers();
+        this.setSubscribers();
     }
 
     public void setSubscribers(){
-        // Automatically add a subscriber for the scrum master
-        String scrumMasterIdentifier = this.backlogItem
-//                .getSprintBacklog()
-                .getSprint()
-                .getScrumMaster()
-                .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
-
-        INotificationBehaviour scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.backlogItem.getNotificationBehaviourType());
-        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
-
+        scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.backlogItem.getNotificationBehaviourType());
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);
     }
 
     @Override
     public void notifyScrumMaster(String message) {
-        //DONE?: michel observer pattern
+
+        // Get and set the latest scrum master identifier and set it to the notification behaviour
+        String scrumMasterIdentifier = this.backlogItem
+//                .getSprintBacklog()
+                .getSprint()
+                .getScrumMaster()
+                .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
+        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
+
+
         this.notifySubscribers(message);
 
         String scrumMasterEmail = this.backlogItem

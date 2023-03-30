@@ -1,7 +1,6 @@
 package sprint;
 
 import notification.behaviours.NotificationBehaviourTypes;
-import notification.observer.ISetSubscribersAbleSprintState;
 import pipeline.IPipeline;
 import sprint.enums.Goal;
 import sprint.states.*;
@@ -248,12 +247,4 @@ public class Sprint {
     public void setStateToSprintReleaseError(){
 
     }
-
-    public void setStatesSubscribers(){
-        ((ISetSubscribersAbleSprintState)this.sprintReleaseFinishedState).setSubscribers();
-        ((ISetSubscribersAbleSprintState)this.sprintReleaseCancelledState).setSubscribers();
-        ((ISetSubscribersAbleSprintState)this.sprintReleaseErrorState).setSubscribers();
-    }
-
-
 }

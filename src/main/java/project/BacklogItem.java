@@ -1,8 +1,6 @@
 package project;
 
 import notification.behaviours.NotificationBehaviourTypes;
-import notification.observer.ISetSubscribersAbleBacklogItemState;
-import notification.observer.ISetSubscribersAbleSprintState;
 import project.states.*;
 import sprint.Sprint;
 import sprint.SprintBacklog;
@@ -65,6 +63,7 @@ public class BacklogItem implements Comparable<BacklogItem>{
     }
 
     public BacklogItem(ProductBacklog productBacklog,String text, Integer priority, NotificationBehaviourTypes notificationBehaviourType){
+        this.notificationBehaviourType = notificationBehaviourType;
 
         this.productBacklog = productBacklog;
         this.definitionOfDone = null;
@@ -87,7 +86,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
 
         this.priority = priority;
 
-        this.notificationBehaviourType = notificationBehaviourType;
     }
 
 
@@ -341,12 +339,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
 
     public ProductBacklog getProductBacklog() {
         return productBacklog;
-    }
-
-
-    public void setStatesSubscribers(){
-        ((ISetSubscribersAbleBacklogItemState)this.backlogItemToDoState).setSubscribers();
-        ((ISetSubscribersAbleBacklogItemState)this.backlogItemReadyForTestingState).setSubscribers();
     }
 
 }

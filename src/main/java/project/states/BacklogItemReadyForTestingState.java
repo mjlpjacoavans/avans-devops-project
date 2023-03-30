@@ -2,7 +2,6 @@ package project.states;
 
 import notification.NotificationBehaviourFactory;
 import notification.behaviours.INotificationBehaviour;
-import notification.observer.ISetSubscribersAbleBacklogItemState;
 import notification.observer.ISubscriber;
 import notification.observer.NotificationSubscriber;
 import notification.observer.Publisher;
@@ -14,27 +13,19 @@ import user.TesterUser;
 import java.util.Collections;
 import java.util.List;
 
-public class BacklogItemReadyForTestingState extends Publisher implements BacklogItemState, ISetSubscribersAbleBacklogItemState {
+public class BacklogItemReadyForTestingState extends Publisher implements BacklogItemState{
     BacklogItem backlogItem;
+    INotificationBehaviour testerNotificationBehaviour;
 
     public BacklogItemReadyForTestingState(BacklogItem backlogItem){
         this.backlogItem = backlogItem;
-
-//        this.setSubscribers();
+        this.setSubscribers();
     }
 
     public void setSubscribers(){
-        // Automatically add a subscriber for the tester
-        String testerIdentifier = this.backlogItem.getTester()
-                .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
-
-
-        INotificationBehaviour testerNotificationBehaviour =  NotificationBehaviourFactory.create(this.backlogItem.getNotificationBehaviourType());
-        testerNotificationBehaviour.setIdentifier(testerIdentifier);
-
+        testerNotificationBehaviour =  NotificationBehaviourFactory.create(this.backlogItem.getNotificationBehaviourType());
         ISubscriber testerSubscriber = new NotificationSubscriber(testerNotificationBehaviour);
         this.subscribe(testerSubscriber);
-
     }
 
     @Override
@@ -59,7 +50,11 @@ public class BacklogItemReadyForTestingState extends Publisher implements Backlo
 
     @Override
     public void notifyTesters(String message) {
-        //DONE?: michel observer pattern
+
+        // Get and set the identifier for the current tester
+        String testerIdentifier = this.backlogItem.getTester()
+                .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
+        testerNotificationBehaviour.setIdentifier(testerIdentifier);
 
         // Get all tester emails
         TesterUser[] testers =  this.backlogItem

@@ -8,16 +8,16 @@ public class SprintBacklog {
     List<BacklogItem> backlogItems;
     Sprint sprint;
 
-    public SprintBacklog(List<BacklogItem> backlogItems, Sprint sprint){
+    public SprintBacklog(List<BacklogItem> backlogItems){
         this.backlogItems = backlogItems;
         this.sprint = sprint;
 
 
-        this.addSpritToBacklogItems(this.sprint);
-        this.addNotificationTypeToBacklogItems();
+//        this.addSpritToBacklogItems(this.sprint);
+//        this.addNotificationTypeToBacklogItems();
 
         // SUGGESTION: NOT SURE IF THIS IS GOOD PRACTICE, BUT SEEMS LIKE IT'S FINE HERE
-        sprint.addSprintBacklog(this);
+//        sprint.addSprintBacklog(this);
     }
 
     @Override

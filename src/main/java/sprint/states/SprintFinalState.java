@@ -14,6 +14,7 @@ import java.util.Date;
 public class SprintFinalState extends Publisher implements SprintState {
 
     Sprint sprint;
+    INotificationBehaviour scrumMasterNotificationBehaviour;
 
     public SprintFinalState(Sprint sprint){
         this.sprint = sprint;
@@ -21,13 +22,7 @@ public class SprintFinalState extends Publisher implements SprintState {
     }
 
     public void setSubscribers(){
-        String scrumMasterIdentifier = this.sprint
-                .getScrumMaster()
-                .getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
-
-        INotificationBehaviour scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
-        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
-
+        scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);
     }
@@ -65,7 +60,10 @@ public class SprintFinalState extends Publisher implements SprintState {
 
     @Override // SUGGESTION: Maybe fix return type
     public String notifyScrummaster(String message) {
-        //DONE?: Michel observer pattern
+        String scrumMasterIdentifier = this.sprint
+                .getScrumMaster()
+                .getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
+        scrumMasterNotificationBehaviour.setIdentifier(scrumMasterIdentifier);
 
         this.notifySubscribers(message);
 

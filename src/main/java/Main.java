@@ -57,10 +57,10 @@ public class Main {
         ProductBacklog productBacklog1 = new ProductBacklog(project1);
 
         //Create 4 backlogitems
-        BacklogItem backlogItem1 = new BacklogItem(productBacklog1, "Add auth", 3);
-        BacklogItem backlogItem2 = new BacklogItem(productBacklog1, "Add functionality", 1);
-        BacklogItem backlogItem3 = new BacklogItem(productBacklog1, "Add UI", 4);
-        BacklogItem backlogItem4 = new BacklogItem(productBacklog1, "Add funfactor", 2);
+        BacklogItem backlogItem1 = new BacklogItem(productBacklog1, "Add auth", 3, NotificationBehaviourTypes.EMAIL);
+        BacklogItem backlogItem2 = new BacklogItem(productBacklog1, "Add functionality", 1, NotificationBehaviourTypes.EMAIL);
+        BacklogItem backlogItem3 = new BacklogItem(productBacklog1, "Add UI", 4, NotificationBehaviourTypes.EMAIL);
+        BacklogItem backlogItem4 = new BacklogItem(productBacklog1, "Add funfactor", 2, NotificationBehaviourTypes.EMAIL);
 
 
 
@@ -78,13 +78,13 @@ public class Main {
 
 
         // add sprint to all backlog items
-        SprintBacklog sprintBacklog1 = new SprintBacklog(backlogItems, sprint1);
+        SprintBacklog sprintBacklog1 = new SprintBacklog(backlogItems);
 
 
 
 
-        backlogItem1.setStatesSubscribers();
-        backlogItem2.setStatesSubscribers();
+//        backlogItem1.setStatesSubscribers();
+//        backlogItem2.setStatesSubscribers();
         //...
 
 //        productBacklog1.
