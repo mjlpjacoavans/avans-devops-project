@@ -1,6 +1,5 @@
 package BacklogItem;
 
-import notification.behaviours.NotificationBehaviourTypes;
 import project.Activity;
 import project.BacklogItem;
 import project.ProductBacklog;
@@ -65,7 +64,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -122,7 +121,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         //Act
         backlogItem1.setDeveloper(dev1);
@@ -154,7 +153,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -210,7 +209,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -246,7 +245,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -292,7 +291,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -332,7 +331,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -374,7 +373,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -422,7 +421,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -465,7 +464,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "test@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -525,7 +524,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "testlead@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -575,7 +574,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "testlead@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 
@@ -625,7 +624,7 @@ public class BacklogItemTests {
         testerUsers[0] = testerUser;
         LeadDeveloperUser leadDev = new LeadDeveloperUser("test", "testlead@test.nl", "0678906543", "testid4");
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
-        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
+        Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser);
 
         sprint.setStateToSprintInProgress();
 

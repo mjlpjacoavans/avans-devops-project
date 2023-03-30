@@ -25,7 +25,7 @@ public class BacklogItemToDoState extends Publisher implements BacklogItemState 
     }
 
     public void setSubscribers(){
-        scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.backlogItem.getSprint().getNotificationBehaviourType());
+        scrumMasterNotificationBehaviour = NotificationBehaviourFactory.create(this.backlogItem.getNotificationBehaviourType());
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);
     }
