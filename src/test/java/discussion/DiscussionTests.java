@@ -2,9 +2,6 @@
 package discussion;
 
 import org.junit.Test;
-import discussion.DiscussionPost;
-import discussion.DiscussionThread;
-import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

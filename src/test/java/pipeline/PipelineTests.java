@@ -3,10 +3,6 @@ package pipeline;
 
 import org.junit.jupiter.api.Assertions;
 import org.testng.annotations.Test;
-import pipeline.DeploymentPipeline;
-import pipeline.DevelopmentPipeline;
-import pipeline.IPipeline;
-import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 

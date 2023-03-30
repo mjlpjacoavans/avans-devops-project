@@ -10,8 +10,6 @@ public class SprintBacklog {
 
     public SprintBacklog(List<BacklogItem> backlogItems){
         this.backlogItems = backlogItems;
-        this.sprint = sprint;
-
 
 //        this.addSpritToBacklogItems(this.sprint);
 //        this.addNotificationTypeToBacklogItems();

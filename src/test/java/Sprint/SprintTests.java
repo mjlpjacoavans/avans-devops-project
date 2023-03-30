@@ -1,11 +1,11 @@
 package Sprint;
 
-import enums.Goal;
 import project.BacklogItem;
 import project.ProductBacklog;
 import project.Project;
 import sprint.Sprint;
 import sprint.SprintBacklog;
+import sprint.enums.Goal;
 import user.*;
 import org.junit.jupiter.api.Test;
 
