@@ -50,7 +50,7 @@ public class BacklogItemTestedState implements BacklogItemState{
         //TODO: kijk of alleen lead dev dit kan
 
         //Check if email is lead dev
-        if(email == this.backlogItem.getSprintBacklog().getSprint().getLeadDeveloper().getEmail()){
+        if(email.equals(this.backlogItem.getSprintBacklog().getSprint().getLeadDeveloper().getEmail())){
             this.backlogItem.setDefinitionMetStateOverride();
             this.setStateToDONE();
         }
