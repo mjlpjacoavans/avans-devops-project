@@ -23,7 +23,7 @@ public class BacklogItem implements Comparable<BacklogItem>{
     String text;
     boolean defitionMet;
 
-    NotificationBehaviourTypes notificationBehaviourType = NotificationBehaviourTypes.EMAIL;
+    NotificationBehaviourTypes notificationBehaviourType; // = NotificationBehaviourTypes.EMAIL;
     BacklogItemState state;
     BacklogItemState backlogItemToDoState;
     BacklogItemState backlogItemDoingState;

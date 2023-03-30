@@ -11,7 +11,7 @@ package notification.behaviours;
 @Deprecated
 public class DynamicNotificationBehaviour implements INotificationBehaviour {
 
-    NotificationBehaviourTypes notificationBehaviourType = NotificationBehaviourTypes.EMAIL;
+    NotificationBehaviourTypes notificationBehaviourType; // = NotificationBehaviourTypes.EMAIL;
     private String identifier;
     private INotificationBehaviour behaviour;
 

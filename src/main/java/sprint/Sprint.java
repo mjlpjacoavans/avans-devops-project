@@ -49,45 +49,10 @@ public class Sprint {
     SprintState sprintReleaseErrorState;
 
     IPipeline pipeline; // TODO: Initialize this appropriately
-    
+
 
     // SUGGESTION: Decided to make this email by default
-    NotificationBehaviourTypes notificationBehaviourType = NotificationBehaviourTypes.EMAIL;
-
-
-    public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers, LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster){
-        this.goal = goal;
-        this.name = name;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.resultsGood = false;
-        this.developers = developers;
-        this.testers = testers;
-        this.leadDeveloper = leadDeveloper;
-        this.scrumMaster = scrumMaster;
-
-        this.sprintInitialisedState = new SprintInitializedState(this);
-        this.sprintInProgressState = new SprintInProgressState(this);
-        this.sprintFinishedState = new SprintFinishedState(this);
-        this.sprintFinalState = new SprintFinalState(this);
-        this.sprintReleaseDoingState = new SprintReleaseDoingState(this);
-        this.sprintReleaseFinishedState = new SprintReleaseFinishedState(this);
-        this.sprintReleaseCancelledState = new SprintReleaseCancelledState(this);
-        this.sprintReleaseErrorState = new SprintReleaseErrorState(this);
-
-        this.state = sprintInitialisedState;
-        currentDate = LocalDate.now();
-        yesterdayDate = LocalDate.now().minusDays(1);
-
-        this.reviewSummary = null;
-
-
-        //TODO: fix het wanneer een sprint wordt aangemaakt met een enddate in verleden
-//        if(currentDate.isAfter(this.endDate)){
-//
-//        }
-    }
-
+    NotificationBehaviourTypes notificationBehaviourType; // = NotificationBehaviourTypes.EMAIL;
 
     public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers,
                   LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster, NotificationBehaviourTypes notificationBehaviourType){
@@ -120,7 +85,8 @@ public class Sprint {
 
         this.reviewSummary = null;
 
-
+        // TODO: fix het wanneer een sprint wordt aangemaakt met een enddate in verleden
+        // if(currentDate.isAfter(this.endDate)){}
     }
 
 
