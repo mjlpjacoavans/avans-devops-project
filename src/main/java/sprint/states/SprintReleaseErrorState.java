@@ -22,10 +22,17 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
     public SprintReleaseErrorState(Sprint sprint){
         this.sprint = sprint;
 
+
+//        this.setSubscribers();
+
+
+    }
+
+    public void setSubscribers(){
         this.productOwner = this.sprint
                 .getSprintBacklog()
                 .getBacklogItems()
-                .get(0) // nTODO: This is a bit strange and hacky, should find a different way to reference
+                .get(0) // SUGGESTION: This is a bit strange and hacky, should find a different way to reference
                 .getProductBacklog()
                 .getProject()
                 .getProductOwner();

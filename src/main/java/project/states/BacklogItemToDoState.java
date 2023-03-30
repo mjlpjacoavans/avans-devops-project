@@ -2,6 +2,7 @@ package project.states;
 
 import notification.NotificationBehaviourFactory;
 import notification.behaviours.INotificationBehaviour;
+import notification.observer.ISetSubscribersAbleBacklogItemState;
 import notification.observer.ISubscriber;
 import notification.observer.NotificationSubscriber;
 import notification.observer.Publisher;
@@ -13,16 +14,19 @@ import user.TesterUser;
 import java.util.Collections;
 import java.util.List;
 
-public class BacklogItemToDoState extends Publisher implements BacklogItemState {
+public class BacklogItemToDoState extends Publisher implements BacklogItemState, ISetSubscribersAbleBacklogItemState {
 
     BacklogItem backlogItem;
 
     public BacklogItemToDoState(BacklogItem backlogItem){
         this.backlogItem = backlogItem;
+//        this.setSubscribers();
+    }
 
+    public void setSubscribers(){
         // Automatically add a subscriber for the scrum master
         String scrumMasterIdentifier = this.backlogItem
-                .getSprintBacklog()
+//                .getSprintBacklog()
                 .getSprint()
                 .getScrumMaster()
                 .getIdentifierForNotificationBehaviourType(this.backlogItem.getNotificationBehaviourType());
@@ -32,7 +36,6 @@ public class BacklogItemToDoState extends Publisher implements BacklogItemState 
 
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);
-
     }
 
     @Override
@@ -41,7 +44,7 @@ public class BacklogItemToDoState extends Publisher implements BacklogItemState 
         this.notifySubscribers(message);
 
         String scrumMasterEmail = this.backlogItem
-                        .getSprintBacklog()
+//                        .getSprintBacklog()
                         .getSprint()
                         .getScrumMaster()
                         .getEmail();

@@ -8,9 +8,16 @@ public class SprintBacklog {
     List<BacklogItem> backlogItems;
     Sprint sprint;
 
-    public SprintBacklog(List<BacklogItem> backlogItems){
+    public SprintBacklog(List<BacklogItem> backlogItems, Sprint sprint){
         this.backlogItems = backlogItems;
-        this.sprint = null;
+        this.sprint = sprint;
+
+
+        this.addSpritToBacklogItems(this.sprint);
+        this.addNotificationTypeToBacklogItems();
+
+        // SUGGESTION: NOT SURE IF THIS IS GOOD PRACTICE, BUT SEEMS LIKE IT'S FINE HERE
+        sprint.addSprintBacklog(this);
     }
 
     @Override
@@ -28,5 +35,18 @@ public class SprintBacklog {
 
     public List<BacklogItem> getBacklogItems() {
         return backlogItems;
+    }
+
+    private void addSpritToBacklogItems(Sprint sprint){
+        for(BacklogItem backlogItem : this.backlogItems){
+            backlogItem.setSprint(sprint);
+        }
+    }
+
+    private void addNotificationTypeToBacklogItems(){
+        for(BacklogItem backlogItem : this.backlogItems){
+            backlogItem.setNotificationBehaviourType(
+              this.sprint.getNotificationBehaviourType());
+        }
     }
 }

@@ -1,6 +1,7 @@
 package sprint;
 
 import notification.behaviours.NotificationBehaviourTypes;
+import notification.observer.ISetSubscribersAbleSprintState;
 import pipeline.IPipeline;
 import sprint.enums.Goal;
 import sprint.states.*;
@@ -85,9 +86,47 @@ public class Sprint {
 
     public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers,
                   LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster, NotificationBehaviourTypes notificationBehaviourType){
-        this(goal, name, startDate, endDate, developers, testers, leadDeveloper, scrumMaster);
+
         this.notificationBehaviourType = notificationBehaviourType;
+        this.goal = goal;
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.resultsGood = false;
+        this.developers = developers;
+        this.testers = testers;
+        this.leadDeveloper = leadDeveloper;
+        this.scrumMaster = scrumMaster;
+
+        this.sprintInitialisedState = new SprintInitializedState(this);
+        this.sprintInProgressState = new SprintInProgressState(this);
+        this.sprintFinishedState = new SprintFinishedState(this);
+        this.sprintFinalState = new SprintFinalState(this);
+        this.sprintReleaseDoingState = new SprintReleaseDoingState(this);
+
+
+        this.sprintReleaseFinishedState = new SprintReleaseFinishedState(this);
+        this.sprintReleaseCancelledState = new SprintReleaseCancelledState(this);
+        this.sprintReleaseErrorState = new SprintReleaseErrorState(this);
+
+        this.state = sprintInitialisedState;
+        currentDate = LocalDate.now();
+        yesterdayDate = LocalDate.now().minusDays(1);
+
+        this.reviewSummary = null;
+
+
     }
+
+
+//    THIS CAN NOT BE DONE BECAUSE JAVA FOR SOME DUMB REASON DOES NOT ALLOW ANY CODE BEFORE CALLING OVERLOADED CONSTRUCTOR MAKING ITS USAGE COMPLETELEY WORTHLESS.
+//    SUPER ANOYING, GIVES A LOT MORE CODE COMPLEXITY
+//    public Sprint(Goal goal, String name, Date startDate, Date endDate, DeveloperUser[] developers, TesterUser[] testers,
+//                  LeadDeveloperUser leadDeveloper, ScrumMasterUser scrumMaster, NotificationBehaviourTypes notificationBehaviourType){
+//        this.notificationBehaviourType = notificationBehaviourType;
+//
+//        this(goal, name, startDate, endDate, developers, testers, leadDeveloper, scrumMaster);
+//    }
 
 
 
@@ -148,8 +187,7 @@ public class Sprint {
     }
 
     public void addSprintBacklogOverrideState(SprintBacklog sprintBacklog){
-        this.sprintBacklog =sprintBacklog;
-
+        this.sprintBacklog = sprintBacklog;
     }
 
     public SprintBacklog getSprintBacklog() {
@@ -209,6 +247,12 @@ public class Sprint {
 
     public void setStateToSprintReleaseError(){
 
+    }
+
+    public void setStatesSubscribers(){
+        ((ISetSubscribersAbleSprintState)this.sprintReleaseFinishedState).setSubscribers();
+        ((ISetSubscribersAbleSprintState)this.sprintReleaseCancelledState).setSubscribers();
+        ((ISetSubscribersAbleSprintState)this.sprintReleaseErrorState).setSubscribers();
     }
 
 

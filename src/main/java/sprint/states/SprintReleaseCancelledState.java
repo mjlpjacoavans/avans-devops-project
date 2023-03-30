@@ -21,13 +21,16 @@ public class SprintReleaseCancelledState extends Publisher implements SprintStat
 
     public SprintReleaseCancelledState(Sprint sprint){
         this.sprint = sprint;
+//        this.setSubscribers();
+    }
 
-        // nTODO: This is very duplicated, put this in an abstract class later or something
+    public void setSubscribers(){
+        // SUGGESTION: This is very duplicated, put this in an abstract class later or something
 
         this.productOwner = this.sprint
                 .getSprintBacklog()
                 .getBacklogItems()
-                .get(0) // nTODO: This is a bit strange and hacky, should find a different way to reference
+                .get(0) // SUGGESTION: This is a bit strange and hacky, should find a different way to reference
                 .getProductBacklog()
                 .getProject()
                 .getProductOwner();

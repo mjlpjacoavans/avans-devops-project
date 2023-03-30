@@ -20,16 +20,20 @@ public class SprintReleaseFinishedState extends Publisher implements SprintState
 
     public SprintReleaseFinishedState(Sprint sprint){
         this.sprint = sprint;
+//        this.setSubscribers();
+    }
 
+    public void setSubscribers(){
+        // subscribe for product owner
         this.productOwner = this.sprint
                 .getSprintBacklog()
                 .getBacklogItems()
-                .get(0) // nTODO: This is a bit strange and hacky of a path, should find a different way to reference
+                .get(0) // SUGGESTION: This is a bit strange and hacky of a path, should find a different way to reference
                 .getProductBacklog()
                 .getProject()
                 .getProductOwner();
 
-        this.scrumMaster =  this.sprint.getScrumMaster();
+        this.scrumMaster = this.sprint.getScrumMaster();
 
 
         // subscribe for scrum master

@@ -17,7 +17,10 @@ public class SprintFinalState extends Publisher implements SprintState {
 
     public SprintFinalState(Sprint sprint){
         this.sprint = sprint;
+        this.setSubscribers();
+    }
 
+    public void setSubscribers(){
         String scrumMasterIdentifier = this.sprint
                 .getScrumMaster()
                 .getIdentifierForNotificationBehaviourType(this.sprint.getNotificationBehaviourType());
@@ -60,7 +63,7 @@ public class SprintFinalState extends Publisher implements SprintState {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
 
-    @Override // nTODO: Maybe fix return type
+    @Override // SUGGESTION: Maybe fix return type
     public String notifyScrummaster(String message) {
         //DONE?: Michel observer pattern
 

@@ -1,7 +1,10 @@
 package project;
 
 import notification.behaviours.NotificationBehaviourTypes;
+import notification.observer.ISetSubscribersAbleBacklogItemState;
+import notification.observer.ISetSubscribersAbleSprintState;
 import project.states.*;
+import sprint.Sprint;
 import sprint.SprintBacklog;
 import user.DeveloperUser;
 import user.TesterUser;
@@ -9,8 +12,8 @@ import user.TesterUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BacklogItem implements Comparable<Integer>{
-    List<Activity> activities;
+public class BacklogItem implements Comparable<BacklogItem>{
+    List<Activity> activities = new ArrayList<>();
     ProductBacklog productBacklog;
     SprintBacklog sprintBacklog;
     DeveloperUser developer;
@@ -32,12 +35,13 @@ public class BacklogItem implements Comparable<Integer>{
 
     Integer priority;
 
+    Sprint sprint;
+
     public DeveloperUser getDeveloper() {
         return developer;
     }
 
     public BacklogItem(ProductBacklog productBacklog, String text, Integer priority){
-        this.activities = new ArrayList<>();
         this.productBacklog = productBacklog;
         this.definitionOfDone = null;
         this.text = text;
@@ -60,16 +64,53 @@ public class BacklogItem implements Comparable<Integer>{
         this.priority = priority;
     }
 
-    public BacklogItem(ProductBacklog productBacklog, String text, Integer priority, NotificationBehaviourTypes notificationBehaviourType){
-        this(productBacklog, text, priority);
+    public BacklogItem(ProductBacklog productBacklog,String text, Integer priority, NotificationBehaviourTypes notificationBehaviourType){
+
+        this.productBacklog = productBacklog;
+        this.definitionOfDone = null;
+        this.text = text;
+        this.defitionMet = false;
+
+        this.productBacklog.addBacklogItem(this);
+
+        this.backlogItemToDoState = new BacklogItemToDoState(this);
+        this.backlogItemDoingState = new BacklogItemDoingState(this);
+        this.backlogItemReadyForTestingState = new BacklogItemReadyForTestingState(this);
+        this.backlogItemTestingState = new BacklogItemTestingState(this);
+        this.backlogItemTestedState = new BacklogItemTestedState(this);
+        this.backlogItemDoneState = new BacklogItemDoneState(this);
+
+        this.state = backlogItemToDoState;
+
+        this.developed = false;
+        this.tested = false;
+
+        this.priority = priority;
 
         this.notificationBehaviourType = notificationBehaviourType;
-
-//        this.setNotificationBehaviour(notificationBehaviour);
     }
+
+
+//    //    THIS CAN NOT BE DONE BECAUSE JAVA FOR SOME DUMB REASON DOES NOT ALLOW ANY CODE BEFORE CALLING OVERLOADED CONSTRUCTOR MAKING ITS USAGE COMPLETELEY WORTHLESS.
+//    //    SUPER ANOYING, GIVES A LOT MORE CODE COMPLEXITY
+//    public BacklogItem(ProductBacklog productBacklog,String text, Integer priority, NotificationBehaviourTypes notificationBehaviourType){
+//        this(productBacklog, text, priority);
+//
+//        this.notificationBehaviourType = notificationBehaviourType;
+//
+////        this.setNotificationBehaviour(notificationBehaviour);
+//    }
 
     public SprintBacklog getSprintBacklog() {
         return sprintBacklog;
+    }
+
+    public Sprint getSprint() {
+        return sprint;
+    }
+
+    public void setSprint(Sprint sprint) {
+        this.sprint = sprint;
     }
 
     public TesterUser getTester() {
@@ -187,7 +228,7 @@ public class BacklogItem implements Comparable<Integer>{
 
     public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
         if(this.activities == null){
-            //nTODO: throw specific execption
+            //SUGGESTION: throw specific execption
             throw new Exception("No activities in backlogitem");
         }else{
             for (int i = 0; i<this.activities.size()-1; i++){
@@ -293,15 +334,20 @@ public class BacklogItem implements Comparable<Integer>{
     }
 
     @Override
-    public int compareTo(Integer o) {
-        // TODO: Test if this is the correct order and should not be swapped.
+    public int compareTo(BacklogItem o) {
         // TODO: Write a unnittest to see if these are being ordered correctly.
-        return Integer.compare(this.priority, (Integer)o);
+        return Integer.compare(this.priority, o.priority);
     }
 
     public ProductBacklog getProductBacklog() {
         return productBacklog;
     }
-    
+
+
+    public void setStatesSubscribers(){
+        ((ISetSubscribersAbleBacklogItemState)this.backlogItemToDoState).setSubscribers();
+        ((ISetSubscribersAbleBacklogItemState)this.backlogItemReadyForTestingState).setSubscribers();
+    }
+
 }
 
