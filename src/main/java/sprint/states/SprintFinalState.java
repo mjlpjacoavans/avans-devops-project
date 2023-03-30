@@ -1,12 +1,14 @@
 package sprint.states;
 
 import notification.NotificationBehaviourFactory;
+import notification.behaviours.DynamicNotificationBehaviour;
 import notification.behaviours.INotificationBehaviour;
 import notification.observer.ISubscriber;
 import notification.observer.NotificationSubscriber;
 import notification.observer.Publisher;
 import sprint.Sprint;
 import sprint.SprintBacklog;
+import sprint.states.SprintState;
 
 import java.util.Collections;
 import java.util.Date;
@@ -87,6 +89,41 @@ public class SprintFinalState extends Publisher implements SprintState {
 
     @Override
     public String cancelRelease() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setInProgress() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintFinal() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseDoing() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleasedError() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseCancelled() {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
 }

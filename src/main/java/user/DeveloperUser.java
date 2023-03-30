@@ -1,6 +1,8 @@
 package user;
 
-public class DeveloperUser extends IUser{
+import user.IUser;
+
+public class DeveloperUser extends IUser {
 
     public DeveloperUser(String name, String email, String phoneNumber, String slackId) {
         super(name, email, phoneNumber, slackId);

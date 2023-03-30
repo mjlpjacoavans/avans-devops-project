@@ -3,7 +3,9 @@ package sprint.states;
 import sprint.Sprint;
 import sprint.SprintBacklog;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
 
 public class SprintInitializedState implements SprintState{
     Sprint sprint;
@@ -69,6 +71,47 @@ public class SprintInitializedState implements SprintState{
 
     @Override
     public String cancelRelease() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setInProgress() {
+        LocalDate today = LocalDate.now();
+        if(today.isAfter(this.sprint.getStartDate()) || today.isEqual(this.sprint.getStartDate())){
+            this.sprint.setState(this.sprint.getSprintInProgressState());
+            return "State changed to Inprogress";
+        }else{
+            return "Startdate has not happend yet!";
+        }
+    }
+
+    @Override
+    public String setFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintFinal() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseDoing() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseFinished() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleasedError() {
+        return "Cannot change perform this action in this state!"; // NOSONAR
+    }
+
+    @Override
+    public String setStateToSprintReleaseCancelled() {
         return "Cannot change perform this action in this state!"; // NOSONAR
     }
 }

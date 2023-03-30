@@ -4,6 +4,9 @@ import notification.behaviours.NotificationBehaviourTypes;
 import project.states.*;
 import sprint.Sprint;
 import sprint.SprintBacklog;
+import sprint.SprintBacklog;
+import sprint.states.SprintInProgressState;
+import sprint.states.SprintState;
 import user.DeveloperUser;
 import user.TesterUser;
 
@@ -164,31 +167,31 @@ public class BacklogItem implements Comparable<BacklogItem>{
         }
     }
 
-    void setStateToDOING(){
+    public void setStateToDOING(){
         if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateToDOING();
         }
     }
 
-    void setStateToREADYFORTESTING(){
+    public void setStateToREADYFORTESTING(){
         if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateToREADYFORTESTING();
         }
     }
 
-    void setStateToTESTING(){
+    public void setStateToTESTING(){
         if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateToTESTING();
         }
     }
 
-    void setStateTOTESTED(){
+    public void setStateTOTESTED(){
         if(this.sprintBacklog.getSprint().getState() == this.sprintBacklog.getSprint().getStateInProgress()) {
             this.state.setStateTOTESTED();
         }
     }
 
-    void setStateToDONE(){
+    public void setStateToDONE(){
 //        SprintState sprintBacklogSprintState  = this.getSprintBacklog().getSprint().getState();
 //        if(sprintBacklogSprintState instanceof SprintInProgressState) {
 //        }
@@ -264,8 +267,8 @@ public class BacklogItem implements Comparable<BacklogItem>{
         this.state.setTested();
     }
 
-    public void setDefinitionMet(){
-        this.state.setDefinitionMet();
+    public void setDefinitionMet(String email){
+        this.state.setDefinitionMet(email);
     }
 
     public void setDevelopedStateHelper() throws Exception {

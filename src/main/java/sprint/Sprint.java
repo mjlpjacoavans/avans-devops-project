@@ -3,6 +3,7 @@ package sprint;
 import notification.behaviours.NotificationBehaviourTypes;
 import pipeline.IPipeline;
 import sprint.enums.Goal;
+import notification.behaviours.NotificationBehaviourTypes;
 import sprint.states.*;
 import sprintreport.ISprintReportBuilder;
 import sprintreport.domain.ISprintReport;
@@ -12,6 +13,8 @@ import user.ScrumMasterUser;
 import user.TesterUser;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 
 //TODO: Auto state switch van ini naar inprogress en inprogress naar finished
@@ -221,11 +224,11 @@ public class Sprint {
 //    }
 
     public void setStateToSprintInProgress(){
-
+        this.state.setInProgress();
     }
 
     public void setStateToSprintFinished(){
-
+        this.state.setFinished();
     }
 
     public void setStateToSprintFinal(){
@@ -246,5 +249,50 @@ public class Sprint {
 
     public void setStateToSprintReleaseError(){
 
+    }
+
+
+    public SprintState getSprintInitialisedState() {
+        return sprintInitialisedState;
+    }
+
+    public SprintState getSprintInProgressState() {
+        return sprintInProgressState;
+    }
+
+    public SprintState getSprintFinishedState() {
+        return sprintFinishedState;
+    }
+
+    public SprintState getSprintFinalState() {
+        return sprintFinalState;
+    }
+
+    public SprintState getSprintReleaseDoingState() {
+        return sprintReleaseDoingState;
+    }
+
+    public SprintState getSprintReleaseFinishedState() {
+        return sprintReleaseFinishedState;
+    }
+
+    public SprintState getSprintReleaseCancelledState() {
+        return sprintReleaseCancelledState;
+    }
+
+    public SprintState getSprintReleaseErrorState() {
+        return sprintReleaseErrorState;
+    }
+
+    public ChronoLocalDate getStartDate() {
+        return startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public ChronoLocalDate getEndDate() {
+        return endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public Goal getGoal() {
+        return goal;
     }
 }
