@@ -63,8 +63,6 @@ public class Main {
         BacklogItem backlogItem4 = new BacklogItem(productBacklog1, "Add funfactor", 2, NotificationBehaviourTypes.EMAIL);
 
 
-
-
         // Have to use a stupid tree set because java acts like it cannot sort an arraylist despite implementing comparable
         List<BacklogItem> backlogItems = Arrays.asList(
                 backlogItem1, backlogItem2, backlogItem3, backlogItem4);
@@ -72,29 +70,9 @@ public class Main {
 
 
 
-        // Because not all references have been set yet,
-        // notifications can only be sent later on after this is done
-        //       backlogItem1.setStatesSubscribers();
-
-
         // add sprint to all backlog items
         SprintBacklog sprintBacklog1 = new SprintBacklog(backlogItems);
-
-
-
-
-//        backlogItem1.setStatesSubscribers();
-//        backlogItem2.setStatesSubscribers();
-        //...
-
-//        productBacklog1.
-
-
-//        sprint1.setStatesSubscribers();
-//        sprintBacklog1
-
-
-//        sprint1.addSprintBacklog(sprintBacklog1);
+        sprint1.addSprintBacklog(sprintBacklog1);
    
     }
 }
