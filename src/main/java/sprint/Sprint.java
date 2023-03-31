@@ -120,6 +120,13 @@ public class Sprint {
         this.notificationBehaviourType = notificationBehaviourType;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getReviewSummary() {
+        return reviewSummary;
+    }
 
     public SprintState getState() {
         return state;

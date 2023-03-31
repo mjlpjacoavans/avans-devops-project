@@ -1,6 +1,7 @@
 package Sprint;
 
 import notification.behaviours.NotificationBehaviourTypes;
+import org.junit.jupiter.api.Assertions;
 import project.BacklogItem;
 import project.ProductBacklog;
 import project.Project;
@@ -49,6 +50,9 @@ public class SprintTests {
         sprint.setStateToSprintInProgress();
 
         //Assert
+        Assertions.assertEquals(sprint.getSprintInProgressState(), sprint.getState());
+        //todo: check miss of start date al geweest is
+
     }
     @Test
     public void SPRINT_TEST_2_StateToInProgressBeforeStartDateFail(){
@@ -83,6 +87,7 @@ public class SprintTests {
         sprint.setStateToSprintInProgress();
 
         //Assert
+        Assertions.assertEquals(sprint.getSprintInitialisedState(), sprint.getState());
 
     }
 
@@ -117,6 +122,10 @@ public class SprintTests {
 
         //Act
         sprint.setName("SprintNameNew");
+
+        //Assert
+        Assertions.assertEquals(sprint.getSprintInitialisedState(), sprint.getState());
+        Assertions.assertEquals("SprintNameNew", sprint.getName());
     }
 
     @Test
@@ -154,6 +163,8 @@ public class SprintTests {
         sprint.setName("sprintNameNewShouldFail");
 
         //Assert
+        Assertions.assertEquals(sprint.getSprintInProgressState(), sprint.getState());
+        Assertions.assertEquals("SprintName", sprint.getName());
 
     }
 
@@ -192,6 +203,7 @@ public class SprintTests {
         sprint.setStateToSprintFinished();
 
         //Assert
+        Assertions.assertEquals(sprint.getSprintFinishedState(), sprint.getState());
     }
 
     @Test
@@ -229,6 +241,8 @@ public class SprintTests {
         sprint.setStateToSprintFinished();
 
         //Assert
+        Assertions.assertEquals(sprint.getSprintInProgressState(), sprint.getState());
+        //todo: check miss of end date al geweest is
     }
 
     @Test
@@ -265,13 +279,15 @@ public class SprintTests {
         sprint.setStateToSprintFinished();
 
         //Act
-        sprint.addReviewSummary("test");
+        sprint.addReviewSummary("testSummary");
 
         //Assert
+        Assertions.assertEquals(sprint.getSprintFinalState(), sprint.getState());
+        Assertions.assertEquals("testSummary", sprint.getReviewSummary());
     }
 
     @Test
-    public void SPRINT_TEST_8_SetStateToFinalSucces(){
+    public void SPRINT_TEST_8_SetStateToFinalFail(){
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -307,6 +323,8 @@ public class SprintTests {
         sprint.addReviewSummary("test");
 
         //Assert
+        Assertions.assertEquals(sprint.getSprintFinishedState(), sprint.getState());
+        Assertions.assertEquals(null, sprint.getReviewSummary());
     }
 
 

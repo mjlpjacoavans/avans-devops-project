@@ -321,5 +321,24 @@ public class BacklogItem implements Comparable<BacklogItem>{
         return productBacklog;
     }
 
+    public BacklogItemState getState() {
+        return state;
+    }
+
+    public DefinitionOfDone getDefinitionOfDone() {
+        return definitionOfDone;
+    }
+
+    public boolean isDefitionMet() {
+        return defitionMet;
+    }
+
+    public boolean isDeveloped() {
+        return developed;
+    }
+
+    public boolean isTested() {
+        return tested;
+    }
 }
 
