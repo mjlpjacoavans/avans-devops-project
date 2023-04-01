@@ -7,7 +7,7 @@ public class Project {
     ProductOwnerUser productOwner;
     String projectName;
 
-    public Project(String name, ProductOwnerUser productOwner){
+    public Project(String name, ProductOwnerUser productOwner) throws Exception {
         this.projectName = name;
         this.productOwner = productOwner;
         this.productBacklog = null;
@@ -19,9 +19,9 @@ public class Project {
         return this.productBacklog;
     }
 
-    public String addProductBacklog(ProductBacklog productBacklogParameter){
+    public String addProductBacklog(ProductBacklog productBacklogParameter) throws Exception {
         if(this.productBacklog != productBacklogParameter){
-            return "Product backlog not added. Try again!";
+            throw new Exception("Product backlog not added. Try again!");
         }
         this.productBacklog = productBacklogParameter;
         return "Product backlog added!";

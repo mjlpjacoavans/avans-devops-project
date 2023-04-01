@@ -7,7 +7,7 @@ public class ProductBacklog {
     List<BacklogItem> backlogItems;
     Project project;
 
-    public ProductBacklog(Project project){
+    public ProductBacklog(Project project) throws Exception {
         this.project = project;
         this.backlogItems = new ArrayList<>();
 
@@ -18,11 +18,11 @@ public class ProductBacklog {
         return this.backlogItems;
     }
 
-    public String addToProjectBacklog(BacklogItem backlogItem){
+    public String addToProjectBacklog(BacklogItem backlogItem) throws Exception {
         this.backlogItems.add(backlogItem);
 
         if(!this.backlogItems.contains(backlogItem)){
-            return "Backlog item not added to produc backlog. Try again!";
+            throw new Exception("Backlog item not added to produc backlog. Try again!");
         }
 
         return "Backlog item added!";

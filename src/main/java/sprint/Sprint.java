@@ -137,7 +137,7 @@ public class Sprint {
         return this.sprintInProgressState;
     }
 
-    public void setName(String name){
+    public void setName(String name) throws Exception {
         state.changeName(name);
     }
 
@@ -145,7 +145,7 @@ public class Sprint {
         this.name = name;
     }
 
-    public void setStartDate(Date date){
+    public void setStartDate(Date date) throws Exception {
         state.changeStartDate(date);
     }
 
@@ -153,7 +153,7 @@ public class Sprint {
         this.startDate = date;
     }
 
-    public void setEndDate(Date date){
+    public void setEndDate(Date date) throws Exception {
         state.changeEndDate(date);
     }
 
@@ -161,7 +161,7 @@ public class Sprint {
         this.endDate = date;
     }
 
-    public void addSprintBacklog(SprintBacklog sprintBacklog){
+    public void addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
         state.addSprintBacklog(sprintBacklog);
     }
 
@@ -205,11 +205,11 @@ public class Sprint {
 //        this.developers = developers;
 //    }
 
-    public void setStateToSprintInProgress(){
+    public void setStateToSprintInProgress() throws Exception {
         this.state.setInProgress();
     }
 
-    public void setStateToSprintFinished(){
+    public void setStateToSprintFinished() throws Exception {
         this.state.setFinished();
     }
 

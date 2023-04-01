@@ -18,7 +18,7 @@ import java.util.List;
 public class SprintTests {
 
     @Test
-    public void SPRINT_TEST_1_StateToInProgressSuccesfull(){
+    public void SPRINT_TEST_1_StateToInProgressSuccesfull() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -55,7 +55,7 @@ public class SprintTests {
 
     }
     @Test
-    public void SPRINT_TEST_2_StateToInProgressBeforeStartDateFail(){
+    public void SPRINT_TEST_2_StateToInProgressBeforeStartDateFail() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -92,7 +92,7 @@ public class SprintTests {
     }
 
     @Test
-    public void SPRINT_TEST_3_NameChangeSucces(){
+    public void SPRINT_TEST_3_NameChangeSucces() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -129,7 +129,7 @@ public class SprintTests {
     }
 
     @Test
-    public void SPRINT_TEST_4_NameChangeFail(){
+    public void SPRINT_TEST_4_NameChangeFail() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -169,7 +169,7 @@ public class SprintTests {
     }
 
     @Test
-    public void SPRINT_TEST_5_SetStateToFinishedSucces(){
+    public void SPRINT_TEST_5_SetStateToFinishedSucces() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -207,7 +207,7 @@ public class SprintTests {
     }
 
     @Test
-    public void SPRINT_TEST_6_SetStateToFinishedFail(){
+    public void SPRINT_TEST_6_SetStateToFinishedFail() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -246,7 +246,7 @@ public class SprintTests {
     }
 
     @Test
-    public void SPRINT_TEST_7_SetStateToFinalSucces(){
+    public void SPRINT_TEST_7_SetStateToFinalSucces() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -287,7 +287,7 @@ public class SprintTests {
     }
 
     @Test
-    public void SPRINT_TEST_8_SetStateToFinalFail(){
+    public void SPRINT_TEST_8_SetStateToFinalFail() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
         Project project = new Project("project", productOwnerUser);
@@ -315,9 +315,15 @@ public class SprintTests {
         Sprint sprint = new Sprint(Goal.RELEASE, "sprintName", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         sprint.addSprintBacklog(sprintBacklog);
 
+        System.out.println("1" + sprint.getState());
+
         sprint.setStateToSprintInProgress();
 
+        System.out.println("2" + sprint.getState());
+
         sprint.setStateToSprintFinished();
+
+        System.out.println("3" + sprint.getState());
 
         //Act
         sprint.addReviewSummary("test");

@@ -16,27 +16,27 @@ public class SprintFinishedState implements SprintState{
 
 
     @Override
-    public String changeName(String name) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String changeName(String name) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String changeStartDate(Date date) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String changeStartDate(Date date) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String changeEndDate(Date date) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String changeEndDate(Date date) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String addSprintBacklog(SprintBacklog sprintBacklog) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String addReviewSummary(String summary) {
+    public String addReviewSummary(String summary) throws Exception {
         if(this.sprint.getGoal().equals(Goal.REVIEW)){
             sprint.addReviewSummaryStateOverride(summary);
             this.sprint.setState(this.sprint.getSprintFinalState());
@@ -46,7 +46,7 @@ public class SprintFinishedState implements SprintState{
     }
 
     @Override
-    public String executeRelease() {
+    public String executeRelease()  throws Exception {
         //TODO: Eerst checken of de results goed zijn en dan naar cancelled als fout en doing als goed (michel)
         if(this.sprint.getGoal().equals(Goal.RELEASE)){
             this.sprint.setState(this.sprint.getSprintReleaseDoingState());
@@ -56,59 +56,59 @@ public class SprintFinishedState implements SprintState{
     }
 
     @Override
-    public String notifyScrummaster(String message) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String notifyScrummaster(String message) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String notifyProductOwner(String message) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String notifyProductOwner(String message) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String executePipeline() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String executePipeline() throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String cancelRelease() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String cancelRelease() throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setInProgress() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setInProgress() throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setFinished() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setFinished() throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintFinal() {
+    public String setStateToSprintFinal() throws Exception  {
         this.sprint.setState(this.sprint.getSprintFinalState());
         return "Set state to Final!";
     }
 
     @Override
-    public String setStateToSprintReleaseDoing() {
+    public String setStateToSprintReleaseDoing() throws Exception  {
         this.sprint.setState(this.sprint.getSprintReleaseDoingState());
         return "Set state to release doing";
     }
 
     @Override
-    public String setStateToSprintReleaseFinished() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setStateToSprintReleaseFinished() throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleasedError() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setStateToSprintReleasedError() throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseCancelled() {
+    public String setStateToSprintReleaseCancelled() throws Exception  {
         this.sprint.setState(this.sprint.getSprintReleaseCancelledState());
         return "Set state to release cancelled!";
     }

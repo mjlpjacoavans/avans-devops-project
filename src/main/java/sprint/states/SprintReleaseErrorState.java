@@ -39,32 +39,32 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
     }
 
     @Override
-    public String changeName(String name) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String changeName(String name) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String changeStartDate(Date date) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String changeStartDate(Date date) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String changeEndDate(Date date) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String changeEndDate(Date date) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String addSprintBacklog(SprintBacklog sprintBacklog) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String addReviewSummary(String summary) {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String addReviewSummary(String summary) throws Exception {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String executeRelease() {
+    public String executeRelease()  throws Exception {
         //TODO: Klopt dit?
         this.sprint.setState(this.sprint.getSprintReleaseDoingState());
         return null;
@@ -80,7 +80,7 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
     }
 
     @Override
-    public String notifyProductOwner(String message) {
+    public String notifyProductOwner(String message) throws Exception  {
         this.productOwner = this.sprint
                 .getSprintBacklog()
                 .getBacklogItems()
@@ -97,50 +97,50 @@ public class SprintReleaseErrorState extends Publisher implements SprintState{
     }
 
     @Override
-    public String executePipeline() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String executePipeline() throws Exception  {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String cancelRelease() {
+    public String cancelRelease() throws Exception  {
         //TODO: Klopt dit?
         this.sprint.setState(this.sprint.getSprintReleaseCancelledState());
         return null;
     }
 
     @Override
-    public String setInProgress() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setInProgress() throws Exception  {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setFinished() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setFinished() throws Exception  {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintFinal() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setStateToSprintFinal() throws Exception  {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseDoing() {
+    public String setStateToSprintReleaseDoing() throws Exception  {
         this.sprint.setState(this.sprint.getSprintReleaseDoingState());
         return "Set state to sprint release doing!";
     }
 
     @Override
-    public String setStateToSprintReleaseFinished() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setStateToSprintReleaseFinished() throws Exception  {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleasedError() {
-        return "Cannot change perform this action in this state!"; // NOSONAR
+    public String setStateToSprintReleasedError() throws Exception  {
+        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseCancelled() {
+    public String setStateToSprintReleaseCancelled() throws Exception  {
         this.sprint.setState(this.sprint.getSprintReleaseCancelledState());
         return "Set state to sprint release cancelled!";
     }
