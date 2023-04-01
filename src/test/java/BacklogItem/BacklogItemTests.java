@@ -172,7 +172,10 @@ public class BacklogItemTests {
         developerUsers[1] = dev2;
 
         //Act
-        backlogItem1.setDeveloper(dev2);
+        Assertions.assertThrows(Exception.class, () -> {
+            backlogItem1.setDeveloper(dev2);
+        }, "Can't perform this action in this state.");
+
 
         //Assert
         Assertions.assertEquals(dev1, backlogItem1.getDeveloper());
@@ -590,7 +593,9 @@ public class BacklogItemTests {
 
         backlogItem1.addTester(testerUser);
 
-        backlogItem1.setTested();
+        Assertions.assertThrows(Exception.class, () -> {
+            backlogItem1.setTested();
+        }, "Can't perform this action in this state.");
 
         String emailFalse = "FalseEmail@Email.nl";
         backlogItem1.setDefinitionMet(emailFalse);
