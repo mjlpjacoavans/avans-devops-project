@@ -1,11 +1,9 @@
 package sprint.states;
 
-import jdk.jshell.spi.ExecutionControl;
 import sprint.Sprint;
 import sprint.SprintBacklog;
 import utils.DateUtil;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class SprintInProgressState implements SprintState {

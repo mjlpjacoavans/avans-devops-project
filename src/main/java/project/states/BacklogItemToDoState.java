@@ -1,7 +1,6 @@
 package project.states;
 
 import notification.NotificationBehaviourFactory;
-import notification.behaviours.DynamicNotificationBehaviour;
 import notification.behaviours.INotificationBehaviour;
 import notification.observer.ISubscriber;
 import notification.observer.NotificationSubscriber;
