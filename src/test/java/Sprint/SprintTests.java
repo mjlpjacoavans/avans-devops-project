@@ -86,7 +86,7 @@ public class SprintTests {
         //Act
         Assertions.assertThrows(Exception.class, () -> {
             sprint.setStateToSprintInProgress();
-        });
+        }, "Startdate has not happend yet!");
 
         //Assert
         Assertions.assertEquals(sprint.getSprintInitialisedState(), sprint.getState());
@@ -164,7 +164,7 @@ public class SprintTests {
         //Act
         Assertions.assertThrows(Exception.class, () -> {
             sprint.setName("sprintNameNewShouldFail");
-        });
+        }, "Cannot change perform this action in this state!");
 
         //Assert
         Assertions.assertEquals(sprint.getSprintInProgressState(), sprint.getState());
@@ -244,7 +244,7 @@ public class SprintTests {
         //Act
         Assertions.assertThrows(Exception.class, () -> {
             sprint.setStateToSprintFinished();
-        });
+        }, "enddate has not happend yet!");
 
         //Assert
         Assertions.assertEquals(sprint.getSprintInProgressState(), sprint.getState());
@@ -334,7 +334,7 @@ public class SprintTests {
         //Act
         Assertions.assertThrows(Exception.class, () -> {
             sprint.addReviewSummary("test");
-        });
+        }, "Cannot change perform this action with this sprint goal");
 
 
 
