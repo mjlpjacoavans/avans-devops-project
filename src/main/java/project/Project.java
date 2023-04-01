@@ -20,9 +20,12 @@ public class Project {
     }
 
     public String addProductBacklog(ProductBacklog productBacklogParameter) throws Exception {
-        if(this.productBacklog != productBacklogParameter){
-            throw new Exception("Product backlog not added. Try again!");
-        }
+        //!this.productBacklog.equals(productBacklogParameter)
+        //if(this.productBacklog != productBacklogParameter){
+        // SUGGESTION: Evaluate if this check is really necessary
+        // if(!productBacklogParameter.equals(this.productBacklog)){
+        //     throw new Exception("Product backlog not added. Try again!");
+        // }
         this.productBacklog = productBacklogParameter;
         return "Product backlog added!";
     }

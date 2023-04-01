@@ -4,7 +4,6 @@ import notification.behaviours.NotificationBehaviourTypes;
 import pipeline.IPipeline;
 import project.BacklogItem;
 import sprint.enums.Goal;
-import notification.behaviours.NotificationBehaviourTypes;
 import sprint.states.*;
 import sprintreport.ISprintReportBuilder;
 import sprintreport.domain.ISprintReport;
@@ -14,8 +13,6 @@ import user.ScrumMasterUser;
 import user.TesterUser;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 
 //TODO: Auto state switch van ini naar inprogress en inprogress naar finished
@@ -266,12 +263,12 @@ public class Sprint {
         return sprintReleaseErrorState;
     }
 
-    public ChronoLocalDate getStartDate() {
-        return startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    public Date getStartDate() {
+        return startDate; //.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    public ChronoLocalDate getEndDate() {
-        return endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    public Date getEndDate() {
+        return endDate; //.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
     public Goal getGoal() {

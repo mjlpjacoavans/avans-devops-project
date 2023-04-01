@@ -1,7 +1,9 @@
 package sprint.states;
 
+import jdk.jshell.spi.ExecutionControl;
 import sprint.Sprint;
 import sprint.SprintBacklog;
+import utils.DateUtil;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -71,8 +73,8 @@ public class SprintInProgressState implements SprintState {
 
     @Override
     public String setFinished() throws Exception  {
-        LocalDate today = LocalDate.now();
-        if(today.isAfter(this.sprint.getEndDate()) || today.isEqual(this.sprint.getStartDate())){
+        Date endDate = this.sprint.getEndDate();
+        if(DateUtil.dateIsAfterToday(endDate)){
             this.sprint.setState(this.sprint.getSprintFinishedState());
             return "State changed to Finished";
         }else{

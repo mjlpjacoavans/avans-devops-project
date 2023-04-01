@@ -1,11 +1,10 @@
 package sprint.states;
 
+import utils.DateUtil;
 import sprint.Sprint;
 import sprint.SprintBacklog;
 
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.Locale;
 
 public class SprintInitializedState implements SprintState{
     Sprint sprint;
@@ -76,9 +75,9 @@ public class SprintInitializedState implements SprintState{
 
     @Override
     public String setInProgress() throws Exception {
-        LocalDate today = LocalDate.now();
-        if(today.isAfter(this.sprint.getStartDate()) || today.isEqual(this.sprint.getStartDate())){
-            this.sprint.setState(this.sprint.getSprintInProgressState());
+        Date startDate = this.sprint.getStartDate();
+        if(DateUtil.dateIsAfterToday(startDate)){
+               this.sprint.setState(this.sprint.getSprintInProgressState());
             System.out.println("State changed to Inprogress");
             return null;
         }else{
