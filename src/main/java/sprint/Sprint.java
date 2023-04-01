@@ -192,7 +192,7 @@ public class Sprint {
 
     public IPipeline getPipeline() { return pipeline; }
 
-    public void addReviewSummary(String summary){
+    public void addReviewSummary(String summary) throws Exception {
         this.state.addReviewSummary(summary);
     }
 
