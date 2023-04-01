@@ -2,6 +2,7 @@ package sprint;
 
 import notification.behaviours.NotificationBehaviourTypes;
 import pipeline.IPipeline;
+import project.BacklogItem;
 import sprint.enums.Goal;
 import notification.behaviours.NotificationBehaviourTypes;
 import sprint.states.*;
@@ -166,6 +167,11 @@ public class Sprint {
 
     public void addSprintBacklogOverrideState(SprintBacklog sprintBacklog){
         this.sprintBacklog = sprintBacklog;
+        this.sprintBacklog.setSprint(this);
+        // TODO: NEW: Sprint backlog is beging set on all backlogitems as well
+        for(BacklogItem backlogItem : this.sprintBacklog.getBacklogItems()){
+            backlogItem.setSprintBacklog(sprintBacklog);
+        }
     }
 
     public SprintBacklog getSprintBacklog() {

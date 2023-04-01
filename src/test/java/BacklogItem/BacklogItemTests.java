@@ -333,6 +333,13 @@ public class BacklogItemTests {
         ScrumMasterUser scrumMasterUser = new ScrumMasterUser("test", "test@test.nl", "0698765432", "testid5");
         Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
 
+        sprint.addSprintBacklog(sprintBacklog);
+        System.out.println(sprint.getSprintBacklog());
+
+
+
+
+
         sprint.setStateToSprintInProgress();
 
         backlogItem1.setDeveloper(dev1);

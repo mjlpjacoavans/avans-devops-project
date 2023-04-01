@@ -83,6 +83,10 @@ public class BacklogItem implements Comparable<BacklogItem>{
         return sprintBacklog;
     }
 
+    public void setSprintBacklog(SprintBacklog sprintBacklog){
+        this.sprintBacklog = sprintBacklog;
+    }
+
     public Sprint getSprint() {
         return sprint;
     }

@@ -11,11 +11,11 @@ public class SprintBacklog {
     public SprintBacklog(List<BacklogItem> backlogItems){
         this.backlogItems = backlogItems;
 
-//        this.addSpritToBacklogItems(this.sprint);
-//        this.addNotificationTypeToBacklogItems();
+        // this.addSpritToBacklogItems(this.sprint);
+        // this.addNotificationTypeToBacklogItems();
 
         // SUGGESTION: NOT SURE IF THIS IS GOOD PRACTICE, BUT SEEMS LIKE IT'S FINE HERE
-//        sprint.addSprintBacklog(this);
+        // sprint.addSprintBacklog(this);
     }
 
     @Override
@@ -29,6 +29,10 @@ public class SprintBacklog {
 
     public Sprint getSprint() {
         return sprint;
+    }
+
+    public void setSprint(Sprint sprint){
+        this.sprint = sprint;
     }
 
     public List<BacklogItem> getBacklogItems() {
