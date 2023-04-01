@@ -84,7 +84,9 @@ public class SprintTests {
         sprint.addSprintBacklog(sprintBacklog);
 
         //Act
-        sprint.setStateToSprintInProgress();
+        Assertions.assertThrows(Exception.class, () -> {
+            sprint.setStateToSprintInProgress();
+        });
 
         //Assert
         Assertions.assertEquals(sprint.getSprintInitialisedState(), sprint.getState());
@@ -160,11 +162,13 @@ public class SprintTests {
         sprint.setStateToSprintInProgress();
 
         //Act
-        sprint.setName("sprintNameNewShouldFail");
+        Assertions.assertThrows(Exception.class, () -> {
+            sprint.setName("sprintNameNewShouldFail");
+        });
 
         //Assert
         Assertions.assertEquals(sprint.getSprintInProgressState(), sprint.getState());
-        Assertions.assertEquals("SprintName", sprint.getName());
+        Assertions.assertEquals("sprintName", sprint.getName());
 
     }
 
@@ -238,7 +242,9 @@ public class SprintTests {
         sprint.setStateToSprintInProgress();
 
         //Act
-        sprint.setStateToSprintFinished();
+        Assertions.assertThrows(Exception.class, () -> {
+            sprint.setStateToSprintFinished();
+        });
 
         //Assert
         Assertions.assertEquals(sprint.getSprintInProgressState(), sprint.getState());
@@ -286,7 +292,7 @@ public class SprintTests {
         Assertions.assertEquals("testSummary", sprint.getReviewSummary());
     }
 
-    @Test
+    @Test //(expected = Exception.class)
     public void SPRINT_TEST_8_SetStateToFinalFail() throws Exception {
         //Arrange
         ProductOwnerUser productOwnerUser = new ProductOwnerUser("TestPO", "testPo@email.com", "testId1");
@@ -326,7 +332,11 @@ public class SprintTests {
         System.out.println("3" + sprint.getState());
 
         //Act
-        sprint.addReviewSummary("test");
+        Assertions.assertThrows(Exception.class, () -> {
+            sprint.addReviewSummary("test");
+        });
+
+
 
         //Assert
         Assertions.assertEquals(sprint.getSprintFinishedState(), sprint.getState());
