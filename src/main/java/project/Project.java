@@ -27,7 +27,8 @@ public class Project {
         //     throw new Exception("Product backlog not added. Try again!");
         // }
         this.productBacklog = productBacklogParameter;
-        return "Product backlog added!";
+        System.out.println("Product backlog added!");
+        return null;
     }
 
     public ProductOwnerUser getProductOwner(){
@@ -40,7 +41,8 @@ public class Project {
 
     public String setProjectName(String name){
         this.projectName = name;
-        return "Project name set to: " + this.projectName;
+        System.out.println("Project name set to: " + this.projectName);
+        return null;
     }
 
 

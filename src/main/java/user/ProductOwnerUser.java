@@ -23,14 +23,13 @@ public class ProductOwnerUser {
         return this.projects;
     }
 
-    public String addProjectToProductOwner(Project project) throws Exception {
+    public void addProjectToProductOwner(Project project) throws Exception {
         this.projects.add(project);
 
         if(!this.projects.contains(project)){
             throw new Exception("Project not added. Try again!");
         }
-
-        return "Project added!";
+        System.out.println("Project added!");
     }
 
     public String getName(){

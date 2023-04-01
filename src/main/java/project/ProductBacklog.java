@@ -25,7 +25,8 @@ public class ProductBacklog {
             throw new Exception("Backlog item not added to produc backlog. Try again!");
         }
 
-        return "Backlog item added!";
+        System.out.println("Backlog item added!");
+        return null;
     }
 
     public List<BacklogItem> removeBacklogItem(BacklogItem backlogItem){

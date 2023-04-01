@@ -7,31 +7,27 @@ import sprint.enums.Goal;
 import java.util.Date;
 
 public class SprintFinishedState implements SprintState{
-
     Sprint sprint;
-
     public SprintFinishedState(Sprint sprint){
         this.sprint = sprint;
     }
-
-
     @Override
-    public String changeName(String name) throws Exception {
+    public void changeName(String name) throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String changeStartDate(Date date) throws Exception {
+    public void changeStartDate(Date date) throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String changeEndDate(Date date) throws Exception {
+    public void changeEndDate(Date date) throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
+    public void addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
@@ -40,9 +36,10 @@ public class SprintFinishedState implements SprintState{
         if(this.sprint.getGoal().equals(Goal.REVIEW)){
             sprint.addReviewSummaryStateOverride(summary);
             this.sprint.setState(this.sprint.getSprintFinalState());
-            return "added!";
+            System.out.println("added!");
+            return null;
         }
-        return "Cannot change perform this action with this sprint goal";
+        throw new Exception("Cannot change perform this action with this sprint goal");
     }
 
     @Override
@@ -50,9 +47,8 @@ public class SprintFinishedState implements SprintState{
         //TODO: Eerst checken of de results goed zijn en dan naar cancelled als fout en doing als goed (michel)
         if(this.sprint.getGoal().equals(Goal.RELEASE)){
             this.sprint.setState(this.sprint.getSprintReleaseDoingState());
-            return null;
         }
-        return "Cannot change perform this action with this sprint goal";
+        throw new Exception("Cannot change perform this action with this sprint goal");
     }
 
     @Override
@@ -81,35 +77,35 @@ public class SprintFinishedState implements SprintState{
     }
 
     @Override
-    public String setFinished() throws Exception {
+    public void setFinished() throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintFinal() throws Exception  {
+    public void setStateToSprintFinal() throws Exception  {
         this.sprint.setState(this.sprint.getSprintFinalState());
-        return "Set state to Final!";
+        System.out.println("Set state to Final!");
     }
 
     @Override
-    public String setStateToSprintReleaseDoing() throws Exception  {
+    public void setStateToSprintReleaseDoing() throws Exception  {
         this.sprint.setState(this.sprint.getSprintReleaseDoingState());
-        return "Set state to release doing";
+        System.out.println("Set state to release doing");
     }
 
     @Override
-    public String setStateToSprintReleaseFinished() throws Exception {
+    public void setStateToSprintReleaseFinished() throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleasedError() throws Exception {
+    public void setStateToSprintReleasedError() throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseCancelled() throws Exception  {
+    public void setStateToSprintReleaseCancelled() throws Exception  {
         this.sprint.setState(this.sprint.getSprintReleaseCancelledState());
-        return "Set state to release cancelled!";
+        System.out.println("Set state to release cancelled!");
     }
 }

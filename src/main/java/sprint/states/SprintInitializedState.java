@@ -16,31 +16,27 @@ public class SprintInitializedState implements SprintState{
     //SUGGESTION: Is set name state override method niet beetje cheesy. setname roept state aan. als je setname is state doet roep je weer state aan dus infinite loop.
 
     @Override
-    public String changeName(String name) throws Exception {
+    public void changeName(String name) throws Exception {
         this.sprint.setNameOverrideState(name);
-
-        return "name changed to: " + name;
+        System.out.println("name changed to: " + name);
     }
 
     @Override
-    public String changeStartDate(Date date) throws Exception {
+    public void changeStartDate(Date date) throws Exception {
         this.sprint.setStartDateOverrideState(date);
-
-        return "Start date changed to: " + date;
+        System.out.println("Start date changed to: " + date);
     }
 
     @Override
-    public String changeEndDate(Date date) throws Exception {
+    public void changeEndDate(Date date) throws Exception {
         this.sprint.setEndDateOverrideState(date);
-
-        return "End date changed to: " + date;
+        System.out.println("End date changed to: " + date);
     }
 
     @Override
-    public String addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
+    public void addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
         this.sprint.addSprintBacklogOverrideState(sprintBacklog);
-
-        return "Sprint backlog changed to: " + sprintBacklog;
+        System.out.println("Sprint backlog changed to: " + sprintBacklog);
     }
 
     @Override
@@ -77,7 +73,7 @@ public class SprintInitializedState implements SprintState{
     public String setInProgress() throws Exception {
         Date startDate = this.sprint.getStartDate();
         if(DateUtil.dateIsAfterToday(startDate)){
-               this.sprint.setState(this.sprint.getSprintInProgressState());
+            this.sprint.setState(this.sprint.getSprintInProgressState());
             System.out.println("State changed to Inprogress");
             return null;
         }else{
@@ -86,32 +82,32 @@ public class SprintInitializedState implements SprintState{
     }
 
     @Override
-    public String setFinished() throws Exception  {
+    public void setFinished() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintFinal() throws Exception  {
+    public void setStateToSprintFinal() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseDoing() throws Exception  {
+    public void setStateToSprintReleaseDoing() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseFinished() throws Exception  {
+    public void setStateToSprintReleaseFinished() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleasedError() throws Exception  {
+    public void setStateToSprintReleasedError() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseCancelled() throws Exception  {
+    public void setStateToSprintReleaseCancelled() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 }

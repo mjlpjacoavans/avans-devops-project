@@ -31,22 +31,22 @@ public class SprintFinalState extends Publisher implements SprintState {
 
 
     @Override
-    public String changeName(String name) throws Exception {
+    public void changeName(String name) throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String changeStartDate(Date date) throws Exception {
+    public void changeStartDate(Date date) throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String changeEndDate(Date date) throws Exception {
+    public void changeEndDate(Date date) throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
+    public void addSprintBacklog(SprintBacklog sprintBacklog) throws Exception {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
@@ -98,32 +98,32 @@ public class SprintFinalState extends Publisher implements SprintState {
     }
 
     @Override
-    public String setFinished() throws Exception  {
+    public void setFinished() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintFinal() throws Exception  {
+    public void setStateToSprintFinal() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseDoing() throws Exception  {
+    public void setStateToSprintReleaseDoing() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseFinished() throws Exception  {
+    public void setStateToSprintReleaseFinished() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleasedError() throws Exception  {
+    public void setStateToSprintReleasedError() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 
     @Override
-    public String setStateToSprintReleaseCancelled() throws Exception  {
+    public void setStateToSprintReleaseCancelled() throws Exception  {
         throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
     }
 }
