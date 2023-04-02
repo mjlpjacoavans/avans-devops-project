@@ -55,8 +55,8 @@ public class BacklogItemToDoState extends Publisher implements BacklogItemState 
     @Override
     public void splitInActivities(List<Activity> activities) throws Exception {
         this.backlogItem.setActivities(activities);
-        this.backlogItem.setDeveloper(null);
-        this.backlogItem.setTester(null);
+        this.backlogItem.addDeveloper(null);
+        this.backlogItem.addTester(null);
     }
 
     @Override
@@ -91,6 +91,10 @@ public class BacklogItemToDoState extends Publisher implements BacklogItemState 
 
     @Override
     public void addDeveloper(DeveloperUser developer) throws Exception {
+        if(!this.backlogItem.getActivities().isEmpty()) {
+            throw new Exception("this item has activities. please add to activity");
+        }
+
         if(this.backlogItem.getDeveloper() != null){
             //DONE?: observer pattern voor michel
             String message = "New developer has been added to backlog: "+ developer;

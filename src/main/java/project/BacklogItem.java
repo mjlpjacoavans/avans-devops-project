@@ -201,11 +201,7 @@ public class BacklogItem implements Comparable<BacklogItem>{
     }
 
     public void addDeveloper(DeveloperUser developer) throws Exception {
-        if(this.activities.isEmpty()) {
-            this.developer = developer;
-        }else{
-            throw new Exception("this item has activities. please add to activity");
-        }
+       this.developer = developer;
     }
 
     public void addDeveloperToActivity(DeveloperUser developer, Activity activity) throws Exception {
