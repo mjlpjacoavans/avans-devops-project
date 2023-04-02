@@ -44,6 +44,7 @@ public class SprintFinishedState implements SprintState{
 
     @Override
     public String executeRelease()  throws Exception {
+        this.sprint.getPipeline().startPipeline();
         //TODO: Eerst checken of de results goed zijn en dan naar cancelled als fout en doing als goed (michel)
         if(this.sprint.getGoal().equals(Goal.RELEASE)){
             this.sprint.setState(this.sprint.getSprintReleaseDoingState());

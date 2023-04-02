@@ -48,7 +48,7 @@ public class Main {
 
         //Create a sprint
         Sprint sprint1 = new Sprint(
-                Goal.REVIEW,
+                Goal.RELEASE,
                 "Sprint one",
                 new Date(),
                 Date.from(new Date().toInstant().plus(14, ChronoUnit.DAYS)),
@@ -76,14 +76,20 @@ public class Main {
 
 
 
-        // add sprint to all backlog items
+        // Add sprint to all backlog items
         SprintBacklog sprintBacklog1 = new SprintBacklog(backlogItems);
         sprint1.addSprintBacklog(sprintBacklog1);
+
+        sprint1.setName("Main sprint");
+
+
+        // Open the sprint
+        sprint1.setStateToSprintInProgress();
+
 
 
         // Go through the phases of a backlogitem
 
-        sprint1.setStateToSprintInProgress();
 
         backlogItem1.setDeveloper(developer1);
 
@@ -94,6 +100,17 @@ public class Main {
         backlogItem1.setTested();
 
         backlogItem1.setDefinitionMet(leadDeveloper1.getEmail());
+
+        // Go through the phases of the sprint
+
+
+//        sprint1.setStateToSprintReleaseDoing();
+        sprint1.setStateToSprintFinished();
+        sprint1.executeRelease();
+
+//        sprint1.setStateToSprintFinal();
+
+
 
 
 

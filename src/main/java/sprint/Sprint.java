@@ -113,32 +113,47 @@ public class Sprint {
                     String message = "Pipeline finished successfully.";
                     state.notifyScrummaster(message);
                     state.notifyProductOwner(message);
+                    System.out.println(message);
 
                 }
-                catch (Exception e) {} // this cannot fail and this is set to satisfy java
+                catch (Exception e) {
+                    throw new RuntimeException(e);
+                } // this cannot fail and this is set to satisfy java
             };
 
             Runnable onPipelineFailLambda = ()-> {
                 try {
                     state.setStateToSprintReleasedError();
-                    state.notifyScrummaster("Sprint has failed");
+                    String message = "Sprint has failed";
+                    state.notifyScrummaster(message);
+                    System.out.println(message);
                 }
-                catch (Exception e) {} // this cannot fail and this is set to satisfy java
+                catch (Exception e) {
+                    throw new RuntimeException(e);
+                } // this cannot fail and this is set to satisfy java
             };
 
             ////
 
             if(this.goal == Goal.REVIEW){
-                new DevelopmentPipeline(){
-                    public void onPipelineSuccess(){onPipelineSuccessLambda.run();}
-                    public void onPipelineFail() {onPipelineFailLambda.run();}
+                IPipeline p =  new DevelopmentPipeline(){
+                    public void onPipelineSuccess(){
+                        System.out.println("Pipeline succeeded");
+                        onPipelineSuccessLambda.run();
+                    }
+                    public void onPipelineFail() {
+                        System.out.println("Pipeline failed");
+                        onPipelineFailLambda.run();
+                    }
                 };
+                this.pipeline = p;
             }
             else if(this.goal == Goal.RELEASE){
-                new ReleasePipeline(){
+                IPipeline p = new ReleasePipeline(){
                     public void onPipelineSuccess(){onPipelineSuccessLambda.run();}
                     public void onPipelineFail() {onPipelineFailLambda.run();}
                 };
+                this.pipeline = p;
             }
         }
 
@@ -259,8 +274,18 @@ public class Sprint {
 
     }
 
-    public void setStateToSprintReleaseDoing(){
+    public void executeRelease() throws Exception {
+        this.state.executeRelease();
+    }
 
+    public void setStateToSprintReleaseDoing(){
+//        this.pipeline.startPipeline();
+//        if(this.pipeline.getSuccess()){
+//            this.setStateToSprintReleaseFinished();
+//        }
+//        else{
+//            this.setStateToSprintReleaseError();
+//        }
     }
 
     public void setStateToSprintReleaseFinished(){
