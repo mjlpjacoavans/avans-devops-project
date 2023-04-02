@@ -307,7 +307,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
 
     @Override
     public int compareTo(BacklogItem o) {
-        // TODO: Write a unnittest to see if these are being ordered correctly.
         return Integer.compare(this.priority, o.priority);
     }
 

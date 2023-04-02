@@ -32,10 +32,6 @@ public class SprintReleaseFinishedState extends Publisher implements SprintState
         ISubscriber scrumMasterSubscriber = new NotificationSubscriber(scrumMasterNotificationBehaviour);
         this.subscribe(scrumMasterSubscriber);
 
-
-
-
-
         productOwnerNotificationBehaviour = NotificationBehaviourFactory.create(this.sprint.getNotificationBehaviourType());
         ISubscriber productOwnerSubscriber = new NotificationSubscriber(productOwnerNotificationBehaviour);
         this.subscribe(productOwnerSubscriber);

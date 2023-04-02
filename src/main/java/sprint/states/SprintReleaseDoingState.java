@@ -54,7 +54,8 @@ public class SprintReleaseDoingState implements SprintState{
 
     @Override
     public String executePipeline() throws Exception  {
-        //TODO: execute this.sprint.getPipeline().startPipeline();
+        //TODO: execute
+        this.sprint.getPipeline().startPipeline();
         return null;
     }
 

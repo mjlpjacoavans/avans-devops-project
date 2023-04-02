@@ -1,7 +1,9 @@
 package sprint;
 
 import notification.behaviours.NotificationBehaviourTypes;
+import pipeline.DevelopmentPipeline;
 import pipeline.IPipeline;
+import pipeline.ReleasePipeline;
 import project.BacklogItem;
 import sprint.enums.Goal;
 import sprint.states.*;
@@ -46,7 +48,7 @@ public class Sprint {
     SprintState sprintReleaseCancelledState;
     SprintState sprintReleaseErrorState;
 
-    IPipeline pipeline; // TODO: Initialize this appropriately
+    IPipeline pipeline;
 
 
     // SUGGESTION: Decided to make this email by default
@@ -83,6 +85,8 @@ public class Sprint {
 
         this.reviewSummary = null;
 
+        this.setupPipeline();
+
         // TODO: fix het wanneer een sprint wordt aangemaakt met een enddate in verleden
         // if(currentDate.isAfter(this.endDate)){}
     }
@@ -96,6 +100,50 @@ public class Sprint {
 //
 //        this(goal, name, startDate, endDate, developers, testers, leadDeveloper, scrumMaster);
 //    }
+
+
+        private void setupPipeline(){
+
+            SprintState state = this.state;
+            ////
+
+            Runnable onPipelineSuccessLambda = () -> {
+                try {
+                    state.setStateToSprintReleaseFinished();
+                    String message = "Pipeline finished successfully.";
+                    state.notifyScrummaster(message);
+                    state.notifyProductOwner(message);
+
+                }
+                catch (Exception e) {} // this cannot fail and this is set to satisfy java
+            };
+
+            Runnable onPipelineFailLambda = ()-> {
+                try {
+                    state.setStateToSprintReleasedError();
+                    state.notifyScrummaster("Sprint has failed");
+                }
+                catch (Exception e) {} // this cannot fail and this is set to satisfy java
+            };
+
+            ////
+
+            if(this.goal == Goal.REVIEW){
+                new DevelopmentPipeline(){
+                    public void onPipelineSuccess(){onPipelineSuccessLambda.run();}
+                    public void onPipelineFail() {onPipelineFailLambda.run();}
+                };
+            }
+            else if(this.goal == Goal.RELEASE){
+                new ReleasePipeline(){
+                    public void onPipelineSuccess(){onPipelineSuccessLambda.run();}
+                    public void onPipelineFail() {onPipelineFailLambda.run();}
+                };
+            }
+
+
+
+        }
 
 
 

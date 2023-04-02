@@ -8,7 +8,7 @@ public class DevelopmentPipeline extends BasePipeline{
         super();
     }
 
-    // TODO: Add other override constraints
+    // SUGGESTION: Add other override constraints if needed
 
     @Override
     public final Boolean runDeploy() {
