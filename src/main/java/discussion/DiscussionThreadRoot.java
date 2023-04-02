@@ -1,5 +1,6 @@
 package discussion;
 
+
 public class DiscussionThreadRoot extends DiscussionThread{
     private String subject;
     private final Integer DEPTH = 0;

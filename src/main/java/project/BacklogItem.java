@@ -16,7 +16,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
     SprintBacklog sprintBacklog;
     DeveloperUser developer;
     TesterUser tester;
-    DefinitionOfDone definitionOfDone;
     String text;
     boolean defitionMet;
 
@@ -43,7 +42,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
         this.notificationBehaviourType = notificationBehaviourType;
 
         this.productBacklog = productBacklog;
-        this.definitionOfDone = null;
         this.text = text;
         this.defitionMet = false;
 
@@ -266,10 +264,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
         this.defitionMet = true;
     }
 
-    public void addDefinitionOfDone(DefinitionOfDone definitionOfDone){
-        this.definitionOfDone = definitionOfDone;
-    }
-
 //    //TODO: check if developer already is assigned
 //    public String addDeveloper(DeveloperUser developer){
 //        if(this.activities.size() == 1){
@@ -306,7 +300,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
         sb.append("activities=").append(activities);
         sb.append(", developer=").append(developer);
         sb.append(", tester=").append(tester);
-        sb.append(", definitionOfDone=").append(definitionOfDone);
         sb.append(", text='").append(text).append('\'');
         sb.append('}');
         return sb.toString();
@@ -326,9 +319,6 @@ public class BacklogItem implements Comparable<BacklogItem>{
         return state;
     }
 
-    public DefinitionOfDone getDefinitionOfDone() {
-        return definitionOfDone;
-    }
 
     public boolean isDefitionMet() {
         return defitionMet;
