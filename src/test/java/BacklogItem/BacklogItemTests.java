@@ -35,7 +35,7 @@ public class BacklogItemTests {
         activities.add(activity2);
 
         //Act
-        backlogItem1.setActivities(activities);
+        backlogItem1.addActivities(activities);
 
         //Assert
         Assertions.assertEquals(activities, backlogItem1.getActivities());
@@ -72,18 +72,27 @@ public class BacklogItemTests {
 
         sprint.setStateToSprintInProgress();
 
+        backlogItem1.setDeveloper(dev1);
+
         List<Activity> activities = new ArrayList<>();
         Activity activity1 = new Activity(backlogItem1, "testa1");
         Activity activity2 = new Activity(backlogItem1, "testa2");
         activities.add(activity1);
         activities.add(activity2);
 
+
         //Act
-        backlogItem1.setActivities(activities);
+//        Assertions.assertThrows(IllegalStateException.class, () -> {
+//
+//        }, "Can't perform this action in this state.");
+
+
+        backlogItem1.addActivities(activities);
+
 
         //Assert
-        Assertions.assertEquals(null, backlogItem1.getActivities());
-        Assertions.assertEquals(backlogItem1.getBacklogItemToDoState(),backlogItem1.getState());
+        Assertions.assertTrue(backlogItem1.getActivities().isEmpty());
+        Assertions.assertEquals(backlogItem1.getBacklogItemDoingState(),backlogItem1.getState());
     }
 
 //    //Backlogitem addactivity in to do pass
@@ -593,7 +602,7 @@ public class BacklogItemTests {
         backlogItem1.setTested();
 
         String emailFalse = "FalseEmail@Email.nl";
-        
+
         Assertions.assertThrows(Exception.class, () -> {
             backlogItem1.setDefinitionMet(emailFalse);
         }, "Email '" + emailFalse + "' does not match lead developers email");

@@ -12,7 +12,7 @@ public class Activity {
         this.text = text;
         this.developer = null;
 
-        backlogItem.addActivity(this);
+//        backlogItem.addActivity(this);
     }
 
     public void addDeveloper(DeveloperUser developer){

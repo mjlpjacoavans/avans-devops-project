@@ -187,6 +187,11 @@ public class BacklogItem implements Comparable<BacklogItem>{
         return this.activities;
     }
 
+
+    public void addActivities(List<Activity> activities) throws Exception {
+        this.state.splitInActivities(activities);
+    }
+
     public void setActivities(List<Activity> activities){
         this.activities = activities;
     }
