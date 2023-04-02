@@ -134,6 +134,7 @@ public class BacklogItemTests {
         Sprint sprint = new Sprint(Goal.REVIEW, "test", start, end, developerUsers, testerUsers, leadDev, scrumMasterUser, NotificationBehaviourTypes.EMAIL);
         // NEW:
         sprint.addSprintBacklog(sprintBacklog);
+        sprint.setStateToSprintInProgress();
 
         //Act
         backlogItem1.setDeveloper(dev1);
