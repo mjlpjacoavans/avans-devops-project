@@ -132,6 +132,9 @@ public class PipelineTests {
         String paasApiToken = "aaaaaaaaaaa-bbbbbbbbbbb-cccccccccc";
         FakeDeploymentClient client = new FakeDeploymentClientFailing(paasApiToken);
         IPipeline pipeline = new DevelopmentPipeline(){
+            public void onPipelineFail(){
+                System.out.println("Failure hook overriden");
+            }
             public Boolean runBuild(){
                 try {
                     client.zipCode("./");
