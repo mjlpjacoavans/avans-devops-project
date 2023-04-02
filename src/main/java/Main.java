@@ -103,19 +103,12 @@ public class Main {
 
         // Go through the phases of the sprint
 
-
-//        sprint1.setStateToSprintReleaseDoing();
         sprint1.setStateToSprintFinished();
         sprint1.executeRelease();
         sprint1.executePipeline();
 
-        System.out.println(sprint1.getState());
-
         sprint1.setStateToSprintFinal();
-
-
-
-
+        System.out.println(sprint1.getState());
 
     }
 }
