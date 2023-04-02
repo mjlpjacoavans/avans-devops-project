@@ -21,7 +21,7 @@ public interface BacklogItemState {
 
     void setTested();
 
-    void setDefinitionMet(String email);
+    void setDefinitionMet(String email) throws Exception;
 
     void addDeveloper(DeveloperUser developer) throws Exception;
 

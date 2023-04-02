@@ -46,13 +46,14 @@ public class BacklogItemTestedState implements BacklogItemState{
     }
 
     @Override
-    public void setDefinitionMet(String email) {
-        //TODO: kijk of alleen lead dev dit kan
-
+    public void setDefinitionMet(String email) throws Exception {
         //Check if email is lead dev
         if(email.equals(this.backlogItem.getSprintBacklog().getSprint().getLeadDeveloper().getEmail())){
             this.backlogItem.setDefinitionMetStateOverride();
             this.setStateToDONE();
+        }
+        else {
+            throw new Exception("Email '" + email + "' does not match lead developers email");
         }
     }
 

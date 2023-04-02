@@ -355,7 +355,7 @@ public class BacklogItemTests {
         backlogItem1.setDeveloped();
 
         //Act
-        backlogItem1.addTester(testerUser);
+        backlogItem1.setTester(testerUser);
 
         //Assert
         Assertions.assertEquals(testerUser, backlogItem1.getTester());
@@ -396,13 +396,13 @@ public class BacklogItemTests {
 
         backlogItem1.setDeveloped();
 
-        backlogItem1.addTester(testerUser);
+        backlogItem1.setTester(testerUser);
 
         TesterUser testerUser2 = new TesterUser("test2", "test2@test.nl", "0745789865", "testid32");
         testerUsers[1] = testerUser2;
 
         //Act
-        backlogItem1.addTester(testerUser2);
+        backlogItem1.setTester(testerUser2);
 
         //Assert
         Assertions.assertEquals(testerUser, backlogItem1.getTester());
@@ -445,7 +445,7 @@ public class BacklogItemTests {
 //
 //        backlogItem1.setStateToREADYFORTESTING();
 //
-//        backlogItem1.addTester(testerUser);
+//        backlogItem1.setTester(testerUser);
 //
 //        //Act
 //        backlogItem1.setStateToTESTING();
@@ -486,7 +486,7 @@ public class BacklogItemTests {
 
         backlogItem1.setDeveloped();
 
-        backlogItem1.addTester(testerUser);
+        backlogItem1.setTester(testerUser);
 
         //Act
         backlogItem1.setTested();
@@ -542,7 +542,7 @@ public class BacklogItemTests {
 
         backlogItem1.setDeveloped();
 
-        backlogItem1.addTester(testerUser);
+        backlogItem1.setTester(testerUser);
 
         backlogItem1.setTested();
 
@@ -588,12 +588,15 @@ public class BacklogItemTests {
 
         backlogItem1.setDeveloped();
 
-        backlogItem1.addTester(testerUser);
+        backlogItem1.setTester(testerUser);
 
         backlogItem1.setTested();
 
         String emailFalse = "FalseEmail@Email.nl";
-        backlogItem1.setDefinitionMet(emailFalse);
+        
+        Assertions.assertThrows(Exception.class, () -> {
+            backlogItem1.setDefinitionMet(emailFalse);
+        }, "Email '" + emailFalse + "' does not match lead developers email");
 
         //Assert
         Assertions.assertEquals(false, backlogItem1.isDefitionMet());
@@ -636,7 +639,7 @@ public class BacklogItemTests {
 //
 //        backlogItem1.setStateToREADYFORTESTING();
 //
-//        backlogItem1.addTester(testerUser);
+//        backlogItem1.setTester(testerUser);
 //
 //        backlogItem1.setStateToTESTING();
 //

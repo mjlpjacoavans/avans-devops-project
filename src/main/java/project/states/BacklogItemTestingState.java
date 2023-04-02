@@ -88,7 +88,7 @@ public class BacklogItemTestingState implements BacklogItemState{
 
     @Override
     public void setStateTOTESTED() {
-        this.backlogItem.setState(this.backlogItem.getBacklogItemDoneState());
+        this.backlogItem.setState(this.backlogItem.getBacklogItemTestedState());
     }
 
     @Override
