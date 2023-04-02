@@ -80,7 +80,9 @@ public class Main {
         SprintBacklog sprintBacklog1 = new SprintBacklog(backlogItems);
         sprint1.addSprintBacklog(sprintBacklog1);
 
-        sprint.
+
+        // Go through the phases
+        sprint1.setStateToSprintInProgress();
    
     }
 }

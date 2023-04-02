@@ -140,9 +140,6 @@ public class Sprint {
                     public void onPipelineFail() {onPipelineFailLambda.run();}
                 };
             }
-
-
-
         }
 
 
