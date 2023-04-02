@@ -33,7 +33,7 @@ public class SlackNotificaionBehaviour implements INotificationBehaviour {
 
     @Override
     public void sendNotification(String text) {
-        System.out.println("Sending Slack Message with client " + this.slackClient + " to endpoint " + this.slackEndpoint + this.slackId);
+        System.out.println("Sending Slack Message with client " + this.slackClient + " to endpoint " + this.slackEndpoint + this.slackId + " message: " + text);
     }
 
     @Override

@@ -38,7 +38,7 @@ public class EmailNotificaionBehaviour implements INotificationBehaviour{
 
     @Override
     public void sendNotification(String text) {
-        System.out.println("Sending email with " + this.SMTPLib + " to " + this.email);
+        System.out.println("Sending email with " + this.SMTPLib + " to " + this.email + " message: " + text);
     }
 
     @Override
