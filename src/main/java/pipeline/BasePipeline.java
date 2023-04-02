@@ -123,43 +123,43 @@ public abstract class BasePipeline implements IPipeline{
 
     @Override
     public Boolean runSources() {
-        System.out.println("1. Pipeline phase not implemented. Skipping.");
+        System.out.println("1. Running this phases default activity. For defferent fcuntionality, please override methon on initialization.");
         return true;
     }
 
     @Override
     public Boolean runPackage() {
-        System.out.println("2. Pipeline phase not implemented. Skipping.");
+        System.out.println("2. Running this phases default activity. For defferent fcuntionality, please override methon on initialization.");
         return true;
     }
 
     @Override
     public Boolean runBuild() {
-        System.out.println("3. Pipeline phase not implemented. Skipping.");
+        System.out.println("3. Running this phases default activity. For defferent fcuntionality, please override methon on initialization.");
         return true;
     }
 
     @Override
     public Boolean runTest() {
-        System.out.println("4. Pipeline phase not implemented. Skipping.");
+        System.out.println("4. Running this phases default activity. For defferent fcuntionality, please override methon on initialization.");
         return true;
     }
 
     @Override
     public Boolean runAnalysis() {
-        System.out.println("5. Pipeline phase not implemented. Skipping.");
+        System.out.println("5. Running this phases default activity. For defferent fcuntionality, please override methon on initialization.");
         return true;
     }
 
     @Override
     public Boolean runDeploy() {
-        System.out.println("6. Pipeline phase not implemented. Skipping.");
+        System.out.println("6. Running this phases default activity. For defferent fcuntionality, please override methon on initialization.");
         return true;
     }
 
     @Override
     public Boolean runUtility() {
-        System.out.println("7. Pipeline phase not implemented. Skipping.");
+        System.out.println("7. Running this phases default activity. For different functionality, please override method on initialization.");
         return true;
     }
 
