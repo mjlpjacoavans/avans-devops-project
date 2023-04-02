@@ -81,8 +81,21 @@ public class Main {
         sprint1.addSprintBacklog(sprintBacklog1);
 
 
-        // Go through the phases
+        // Go through the phases of a backlogitem
+
         sprint1.setStateToSprintInProgress();
-   
+
+        backlogItem1.setDeveloper(developer1);
+
+        backlogItem1.setDeveloped();
+
+        backlogItem1.setTester(tester1);
+
+        backlogItem1.setTested();
+
+        backlogItem1.setDefinitionMet(leadDeveloper1.getEmail());
+
+
+
     }
 }
