@@ -30,9 +30,11 @@ public class Publisher implements IPublisher{
     public void notifySubscribers(String message, String[] identifiers) {
         for(ISubscriber subscriber : this.subscribers){
             String subscriberIdentifier = subscriber.getNotificationBehaviour().getIdentifier();
-            // Check if the notifier matches any of the identifiers
-            if(Arrays.stream(identifiers).anyMatch(subscriberIdentifier::contains)) {
-                subscriber.update(message);
+            if(subscriberIdentifier != null) {
+                // Check if the notifier matches any of the identifiers
+                if (Arrays.stream(identifiers).anyMatch(subscriberIdentifier::contains)) {
+                    subscriber.update(message);
+                }
             }
         }
     }

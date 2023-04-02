@@ -110,8 +110,8 @@ public class Sprint {
                 try {
                     this.state.setStateToSprintReleaseFinished();
                     String message = "Pipeline finished successfully.";
-//                    this.state.notifyScrummaster(message);
-//                    this.state.notifyProductOwner(message);
+                    this.state.notifyScrummaster(message);
+                    this.state.notifyProductOwner(message);
                     System.out.println(message);
 
                 }
