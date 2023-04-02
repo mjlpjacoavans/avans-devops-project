@@ -5,7 +5,7 @@ import sprint.SprintBacklog;
 import java.util.Date;
 
 public interface SprintState {
-
+    String STATE_BASE_MESSAGE = "Cannot change perform this action in this state!";
     void changeName(String name) throws Exception;
     void changeStartDate(Date date) throws Exception;
     void changeEndDate(Date date) throws Exception;

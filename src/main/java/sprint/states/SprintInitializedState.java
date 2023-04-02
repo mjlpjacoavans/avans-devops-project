@@ -41,32 +41,32 @@ public class SprintInitializedState implements SprintState{
 
     @Override
     public String addReviewSummary(String summary) throws Exception {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public String executeRelease()  throws Exception {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public String notifyScrummaster(String message) throws Exception {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public String notifyProductOwner(String message) throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public String executePipeline() throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public String cancelRelease() throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
@@ -83,31 +83,31 @@ public class SprintInitializedState implements SprintState{
 
     @Override
     public void setFinished() throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateToSprintFinal() throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateToSprintReleaseDoing() throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateToSprintReleaseFinished() throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateToSprintReleasedError() throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 
     @Override
     public void setStateToSprintReleaseCancelled() throws Exception  {
-        throw new Exception("Cannot change perform this action in this state!"); // NOSONAR
+        throw new Exception(STATE_BASE_MESSAGE); // NOSONAR
     }
 }
