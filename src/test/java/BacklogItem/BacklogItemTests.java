@@ -182,13 +182,13 @@ public class BacklogItemTests {
         developerUsers[1] = dev2;
 
         //Act
-        backlogItem1.setDeveloper(dev2);
+        Assertions.assertThrows(Exception.class, () -> {
+            backlogItem1.setDeveloper(dev2);
+        }, "Can't perform this action in this state.");
 
         //Assert
         Assertions.assertEquals(dev1, backlogItem1.getDeveloper());
         Assertions.assertEquals(backlogItem1.getBacklogItemReadyForTestingState(),backlogItem1.getState());
-        //Todo: Michel zou jij de exception ook kunnen toevoegen die wordt gethrowed? Weet niet hoe je die assert. Als je denkt dat die niet nodig is kun je deze comment negeren.
-
     }
 
 //    //Backlogitem add dev to activity in to do pass
@@ -412,7 +412,9 @@ public class BacklogItemTests {
         testerUsers[1] = testerUser2;
 
         //Act
-        backlogItem1.setTester(testerUser2);
+        Assertions.assertThrows(Exception.class, () -> {
+            backlogItem1.setTester(testerUser2);
+        }, "Can't perform this action in this state.");
 
         //Assert
         Assertions.assertEquals(testerUser, backlogItem1.getTester());
