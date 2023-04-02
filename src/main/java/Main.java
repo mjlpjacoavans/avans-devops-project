@@ -50,8 +50,8 @@ public class Main {
         Sprint sprint1 = new Sprint(
                 Goal.RELEASE,
                 "Sprint one",
-                new Date(),
-                Date.from(new Date().toInstant().plus(14, ChronoUnit.DAYS)),
+                new Date(2022,12,30),
+                new Date(2022,12,30),
                 new DeveloperUser[]{developer2, developer3, developer4, developer5},
                 new TesterUser[]{tester1, tester2, tester3},
                 leadDeveloper1,
@@ -107,8 +107,11 @@ public class Main {
 //        sprint1.setStateToSprintReleaseDoing();
         sprint1.setStateToSprintFinished();
         sprint1.executeRelease();
+        sprint1.executePipeline();
 
-//        sprint1.setStateToSprintFinal();
+        System.out.println(sprint1.getState());
+
+        sprint1.setStateToSprintFinal();
 
 
 

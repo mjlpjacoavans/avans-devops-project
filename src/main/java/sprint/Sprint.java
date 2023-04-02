@@ -104,15 +104,14 @@ public class Sprint {
 
         private void setupPipeline(){
 
-            SprintState state = this.state;
             ////
 
             Runnable onPipelineSuccessLambda = () -> {
                 try {
-                    state.setStateToSprintReleaseFinished();
+                    this.state.setStateToSprintReleaseFinished();
                     String message = "Pipeline finished successfully.";
-                    state.notifyScrummaster(message);
-                    state.notifyProductOwner(message);
+//                    this.state.notifyScrummaster(message);
+//                    this.state.notifyProductOwner(message);
                     System.out.println(message);
 
                 }
@@ -123,9 +122,9 @@ public class Sprint {
 
             Runnable onPipelineFailLambda = ()-> {
                 try {
-                    state.setStateToSprintReleasedError();
+                    this.state.setStateToSprintReleasedError();
                     String message = "Sprint has failed";
-                    state.notifyScrummaster(message);
+                    this.state.notifyScrummaster(message);
                     System.out.println(message);
                 }
                 catch (Exception e) {
@@ -276,6 +275,10 @@ public class Sprint {
 
     public void executeRelease() throws Exception {
         this.state.executeRelease();
+    }
+
+    public void executePipeline() throws Exception {
+        this.state.executePipeline();
     }
 
     public void setStateToSprintReleaseDoing(){
